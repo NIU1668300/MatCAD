@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Introducción}{}% 1
+\BOOKMARK [1][-]{section.2}{Conceptos Basicos}{}% 2
+\BOOKMARK [1][-]{section.3}{Paso de Python a Java}{}% 3
+\BOOKMARK [1][-]{section.4}{Programación en Java}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Hello World}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{For loop}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{If}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Switch}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.5}{Try-catch}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.6}{Objetos}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.7}{Clases y encapsulamiento}{section.4}% 11
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Herencia}{subsection.4.7}% 12
+\BOOKMARK [3][-]{subsubsection.4.7.2}{Clases Abstractas e Instancias}{subsection.4.7}% 13
+\BOOKMARK [1][-]{section.5}{GRASP patterns}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Expert}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Creator}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{Low Coupling}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.4}{High Cohesion}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.5}{Polymorphism}{section.5}% 19
+\BOOKMARK [1][-]{section.6}{Principios de diseño}{}% 20
+\BOOKMARK [2][-]{subsection.6.1}{Information Hiding}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.2}{"Don't talk to strangers"}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.3}{DRY: Don't repeat yourself}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.4}{Liskov}{section.6}% 24

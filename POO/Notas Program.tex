@@ -1,0 +1,387 @@
+\documentclass[11pt]{article}
+\RequirePackage{etex}
+%\pagestyle{empty}
+\usepackage[activeacute,spanish,american]{babel}
+\usepackage[utf8]{inputenc}%Para usar los acentos normalmente.
+\usepackage[T1]{fontenc}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+% \restartpythontexsession{\thesection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\usepackage{tkz-base}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet, amssymb,amsmath,latexsym}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{multienum}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{multicol}
+% \usepackage{gensymb}
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\usepackage{color,soul}%permite texto y subrayar en color.
+\input{/home/samuel/Documents/Latex/Colores.tex}
+% \usepackage[pdftex]{graphicx}
+%Dimensiones
+\usepackage[a4paper,left=2cm,right=1.5cm, top=1.5cm, bottom=3cm,includehead]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nombres de conjuntos y comandos propios.
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+% \usepackage{esvect}
+% \renewcommand{\vec}{\vv}
+ \usepackage{pgf,tikz}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{chains}
+\usetikzlibrary{scopes}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning,automata,calc}
+ %\usepackage{framed}
+ %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
+ %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
+ \usepackage{tkz-tab,tkz-euclide}
+% \usetkzobj{all}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cajas de colores
+%
+\input{/home/samuel/Documents/Latex/ColorBoxes}
+\input{/home/samuel/Documents/Latex/Exercises}
+%Ecuaciones resaltadas
+% \usepackage[overload,ntheorem,reqno]{empheq}
+%\input{/home/samuel/Documents/Latex/Ambientes-teoremas}
+ \theoremstyle{plain}
+ \renewcommand{\qedsymbol}{\makebox[7.7778pt][c]{\rule{1ex}{1ex}}}
+ \newtheorem*{demo}{Demostración}
+ \input{/home/samuel/Documents/Latex/TeoremasEnumerados}
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=false,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Teoria de Programación},    % title
+    pdfauthor={Samuel Ortega Cuadra},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={Hecho con \LaTeX},   % creator of the document
+    pdfproducer={ps2pdf}, % producer of the document
+    pdfkeywords={} {} {}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=naranja,          % color of internal links
+    citecolor=violeta,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+\setcounter{secnumdepth}{4} %controla la profundidad de la numeración
+
+
+\title{Notas Programación}
+\author{Samuel Ortega Cuadra}
+\input{/home/samuel/Documents/Latex/messages}
+\lstset{
+    tabsize = 2, %% set tab space width
+    showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+    numbers = left, %% display line numbers on the left
+    commentstyle = \color{green}, %% set comment color
+    keywordstyle = \color{blue}, %% set keyword color
+    stringstyle = \color{red}, %% set string color
+    rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+    basicstyle = \small \ttfamily , %% set listing font and size
+    breaklines = true, %% enable line breaking
+    numberstyle = \tiny,
+}
+
+\addto\captionsamerican{%
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+
+\begin{document}
+    \begin{center}
+        \huge{Teoría de Programación Orientada a Objetos. 1º de Carrera. Tema 1}
+    \end{center}
+    \tableofcontents
+    \newpage
+    \section{Introducción} % (fold)
+    \label{sec:introducción}
+        En esta asignatura, tomaremos un punto de vista para programar utilizando objetos, clases e instancias en vez del punto de vista que emplea procedimientos para gestionar los datos. Este tipo de programación permite gestionar problemas que podrían parecer imposibles de forma cotidiana como puede ser por ejemplo el problema de los n-cuerpos. Para cosas sencillas la programación procedural resulta muy simple, sin embargo para problemas más complejos se vuelve mucho más complicado. Es aquí donde se aprovecha la programación orientada a objetos simplificando las distintas tareas que tienen que llevarse a cabo.\\
+
+        Para ver un ejemplo del código procedural vs. orientado a objetos, ver el ejemplo de la presentación \href{https://e-aules.uab.cat/2022-23/pluginfile.php/644137/course/section/76903/object_orientation.pdf?time=1675980795699}{orientació a objecte} del día 13 de Febrero
+    % section introducción (end)
+    \section{Conceptos Basicos} % (fold)
+    \label{sec:conceptos_basicos}
+    \begin{itemize}
+        \item Encapsulamiento: Construir una clase y los métodos para procesar estos datos.
+        \item Information hiding: Esconder a las otras clases los datos y métodos de las otras clases. Esto se utiliza ya que al no necesitarlas, minimiza el espacio que ocupa el código y evita interferencias.
+
+        Si se accede a los elementos de estas clases independientes puede llevar a problemas, ya que en determinados casos la clase trabajará con un tipo de dato que las otras no utiliza. Esto se soluciona utilizan \textbf{setters} y \textbf{getters}, que muestran la interfaz de la clase. 
+        \item Herencia: Es el mecanismo que emplean las clases para ceder u obtener propiedades de otras clases. Al heredar de otra clase dependiendo del lenguaje se heredan algunas variables y algunos métodos (En python se hereda todo pero en Java viene definido por public y private). Esto permite ahorrar espacio para algunas clasess que empleen los mismos procesos que otras clases. Un \textbf{subclase} hereda de una \textbf{superclase}
+        \item Composición: Un objeto puede estar compuesto por varios elementos de otro tipo. Por ejemplo un objeto puede presentar distintas caracterísitcas con diferentes tipos de dato (\textit{int, string, list...}). En programación orientada a objetos aparecen dos tipos de asociaciones de contenido. La primera es la \textbf{composición}, en la que los elementos que componen un elemento más grande con una conexión fuerte de tal forma que no pueden existir si no pertenecen al grande. La segunda forma es la \textbf{agregación}, en la que los objetos están contenidos con una conexión debil, de tal forma que pueden existir sin necesidad de estar contenidos en el elemento grande.
+        \item Polimorfismo: Un mismo nombre puede llevar a diferentes resultados a partir de la función. Por ejemplo, si definieras una clase de la que heredaran otras 2, es posible que ambas clases utilicen el mismo nombre de una función para ejecutar diferentes procesos.
+    \end{itemize}
+    % section conceptos_basicos (end)
+    \section{Paso de Python a Java} % (fold)
+    \label{sec:paso_de_python_a_java}
+        Al contrario que Python, las variables en Java no pueden cambiar su tipo. Al definir una variable, las variables se tienen que definir como privadas o publicas, dependiendo de si se puede heredar de la clase o no, y deben definirse de que tipo son. (Esto viene ejemplificado en \href{https://e-aules.uab.cat/2022-23/pluginfile.php/644137/course/section/76903/object_orientation.pdf?time=1675980795699}{orientació a objecte})\\
+
+        NOTA: Si buscas heredar de una interface en Java debes usar \textit{implement}, no \textit{extends}
+    % section paso_de_python_a_java (end)
+    \section{Programación en Java} % (fold)
+    \label{sec:programación_en_java}
+        La programación en Java al contrario que la programación en Python que es interpretado es un lenguaje compilado. La diferencia es que un interprete executa un codigo de alto nivel instrucción a instrucción mientras que un compilador traduce todo el programa a un fichero ejecutable. En el caso de java, el proceso que se tiene que realizar para poderlo ejecutar es pasarlo por un compilador que devolverá un \textit{Java Bitcode Program}, el cual será ejecutado por el interprete de Java correspondiente dependiendo del sistema operativo en el que se esté operando.\\
+
+        \subsection{Hello World} % (fold)
+        \label{sub:hello_world}
+            En la presentación de \href{https://e-aules.uab.cat/2022-23/pluginfile.php/644137/course/section/76903/java.pdf?time=1675980815252}{Java} aparece un código para poder realizar el clásico programa de "Hello World". En este programa aparece un método publico con la categoría \textit{static}. Este método es un método \textbf{de la clase}, no un método \textbf{de objetos de la clase}, por este motivo, este método se puede ejecutar independientemente de si existe un elemento de la clase o no. De esta forma podremos ejecutar procesos sin la necesidad de crear objetos.
+
+        % subsection hello_world (end)
+        \subsection{For loop} % (fold)
+        \label{sub:for_loop}
+            El bucle \textbf{for} en Java necesita 3 argumentos para poderse compilar y ejecutar de forma correcta. El primero corresponde a definir la variable que se va iterar y marcar el inicio de esta. El segundo argumento será la condición durante la cual se seguirá ejecutando el bucle. El tercero corresponderá al paso del bucle:
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+                for(int year = 1 ; year < numYears ; year++) {
+                    double interest; // interest for this year
+                    interest = principal * rate/100.0;
+                    valueOfInvestment += interest;
+                    System.out.println("Value of the investment after "
+                            + year + " years is " + valueOfInvestment);
+                }
+                 
+             \end{lstlisting}
+             El for también se puede emplear para iterar a lo largo de una lista. poniendo el formato:
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+                for (tipo_de_elemento i : lista){
+                    //Donde i es el elemento de la lista que va a iterar
+                }
+                 
+             \end{lstlisting}
+        % subsection for_loop (end)
+        \subsection{If} % (fold)
+        \label{sub:if}
+            El comando \textbf{if} funciona prácticamente igual que en un lenguaje interpretado. Sin embargo, a la hora de hacer las comparaciones se deberá emplear el método \textit{equals}. En este método, se comparará el elemento al que se le aplique con el argumento que se le pase a la función. Además el if cuenta con ayudas para hacer varias comparaciones en un mismo if utilizando el AND($\&\&$) y el OR ($||$)
+
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+                if (units.equals("inch") || units.equals("inches") || units.equals("in")) {
+                    inches = measurement;
+                } else if (units.equals("foot") || units.equals("feet") || units.equals("ft")) {
+                    inches = measurement * 12;
+                } else if (units.equals("yard") || units.equals("yards") || units.equals("yd")) {
+                    inches = measurement * 36;
+                } else if (units.equals("mile") || units.equals("miles") || units.equals("mi")) {
+                    inches = measurement * 12 * 5280;
+                } else {
+                    System.out.println("Unknown units " + units);
+                    System.exit(-1);
+                }
+            \end{lstlisting}
+        % subsection if (end)
+        \subsection{Switch} % (fold)
+        \label{sub:switch}
+            Funciona igual que el if pero te permite no tener que encadenar varios comandos if como en el ejercicio anterior. En este caso solo se coloca la variable que se está comprobando y se coloca \textit{case} seguido de el dato con el que se quiere comparar. Si no se cumplen ninguno de los casos se puede utilizar \textit{default} para definir que debe hacer en el caso de que no se cumpla ninguna de las anteriores.
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+                switch (units) {
+                    case "inches":
+                        inches = measurement;
+                        break; // Importante ponerlo para evitar que salte a otro case
+                    case "feet":
+                        inches = measurement * 12;
+                        break;
+                    case "yards":
+                        inches = measurement * 36;
+                        break;
+                    case "miles":
+                        inches = measurement * 12 * 5280;
+                        break;
+                    default:
+                        System.out.println("Unknown units " + units);
+                        System.exit(-1);
+                }
+            \end{lstlisting}
+        % subsection switch (end)
+        \subsection{Try-catch} % (fold)
+        \label{sub:try_catch}
+            Funciona para evitar que errores paren el código (\textit{error handling}), de tal forma que se intentará ejecutar lo que venga en el try y, en caso de no conseguirlo, ejecutar el catch
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+                str = "3,141592"; // note "," instead of "."
+                double x;
+                try {
+                    x = Double.parseDouble(str);
+                }
+                catch ( NumberFormatException e ) { // or simply catch (Exception e)
+                    System.out.println( "Not a legal number." );
+                    x = Double.NaN;
+                    // or do not continue because it does not make sense
+                    // System.exit(-1);
+                }
+            \end{lstlisting}
+        % subsection try_catch (end)
+        \subsection{Objetos} % (fold)
+        \label{sub:objetos}
+            Para poder trabajar con Java con cualquier tipo de dato es necesario crear un objeto. Sin embargo para algunos tipos sencillos como los \textit{int,string,boolean,...} existen variables que guardan valores por defecto en memoria además de clases \textit{Integer,Double,String...}. Un ejemplo de clase empleando esto es el siguiente:
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+                class Complex {
+                    public double real; // DON'T do this at home
+                    public double imaginary;
+                    public Complex (double r, double im) {
+                        real = r;
+                        imaginary = im;
+                    }
+                    public String toString() {
+                        // so that we can do println( a complex object )
+                        return "("+Double.toString(real) + ", "
+                        + Double.toString(imaginary)+")";
+                    }
+                }
+            \end{lstlisting}
+        % subsection objetos (end)
+        \subsection{Clases y encapsulamiento} % (fold)
+        \label{sub:clases_y_encapsulamiento}
+            De normal al crear una clase por defecto todos los atributos deben ser privados. Si un atributo debe ser accedido por otra clase emplearemos un \textit{getter}, y si necesitamos cambiarlo emplearemos un \textit{setter}. Estos metodos se llaman \textit{accesors}, y son la forma principal de trabajar con una clase. En las clases además existe el parámetro \textit{this}, que funciona igual que el self en python.
+        % subsection clases_y_encapsulamiento (end)
+        \subsubsection{Herencia} % (fold)
+        \label{subsub:herencia}
+            La herencia y la composición son los métodos principales empleados para reducir la longitud del código reutilizando otras clases. Por ejemplo, si defines una clase que sea \textit{cuerpo}, pueden derivar de el las clases \textit{estrella} y \textit{planeta}, ya que compartirán las caracterísitcas con \textit{cuerpo} además de las suyas propias. Para heredar de una clase anteriormente definida emplearemos \textit{extends} seguido del nombre de la clase de la que hereda.
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+                public class Body {
+                    protected double mass;
+                    protected double[] position;
+                    protected double[] velocity;
+                    public Body(double mass, double[] initialPosition, double[] initialVelocity) {
+                        this.mass = mass;
+                        position = initialPosition;
+                        velocity = initialVelocity;
+                    }
+                }
+
+                public class Star extends Body {
+                    private double percentMass;
+                    public Star(double mass, double[] initialPosition, double[] initialVelocity, double percentMass) {
+                        super(mass, initialPosition, initialVelocity);
+                        this.percentMass = percentMass;
+                    }
+                }
+            \end{lstlisting}
+        % subsubsection herencia (end)
+        \subsubsection{Clases Abstractas e Instancias} % (fold)
+        \label{subsub:clases_abstractas_e_instancias}
+            Son plantillas para clases concretas derivadas de esta. \textbf{No se puede instanciar un objeto de una clase abstracta}. Estas clases pueden:
+            \begin{itemize}
+                \item Declarar atributos para que se hereden.
+                \item Declarar métodos.
+                \item Cada método puede tener una implementación que también se derive.
+                \item Los métodos que no se implementen deben ser derivados.
+                \item Una clase derivada solo puede tener una superclase, no puede tener múltiples padres.
+            \end{itemize}
+            Un case más estrictos son las \textbf{instancias}, las cuales no tienen métodos implementados ni declaraciones de atributos, solo tienen constantes del tipo \textit{static} y \textit{final}.
+        % subsubsection clases_abstractas_e_instancias (end)
+    % section programación_en_java (end)
+    \section{GRASP patterns} % (fold)
+    \label{sec:grasp_patterns}
+        Los patrones GRASP son un conjunto de parejas formadas por un problema y una solución acompañada con avisos de cuando y como usarla. Estos patrones se encargan principalmente del reparto de \textbf{responsabilidades}. Estas responsabilidades se pueden implementar a través de:
+        \begin{itemize}
+            \item Atributos: Saber algo
+            \item Asociaciones: Sabe quién sabe o hace algo
+            \item Métodos: Sabe hacer algo.
+        \end{itemize}
+        De esta forma, los GRASP indican a que clases se le deberían dar estas responsabilidades con el objetivo de hacer el código lo más óptimo posible.
+        \subsection{Expert} % (fold)
+        \label{sub:expert}
+
+            \begin{center}
+                \textbf{Problema:} ¿Cual es el principio general para asignar responsabilidades a clases?\\
+                \textbf{Solución:} Asigna las responsabilidades al experto en la información, la clase que tiene la información necesaria para llevar a cabo la responsabilidad.
+            \end{center}
+            A la hora de realizar un código, la realización de cada responabilidad debe realizarla el experto de su propios datos, lo que resultará en que la información se encuentre repartida en diferentes clases. La clave de esto resulta en que una clase no realizará tareas que no sea necesario que realice, lo que resulta en una baja dependencia entre clases, clases más cohesivas y un código más fácil de leer.
+        % subsection expert (end)
+        \subsection{Creator} % (fold)
+        \label{sub:creator}
+            \begin{center}
+                \textbf{Problema:} ¿Quién debería ser el encargado de generar instancias de alguna clase?\\
+                \textbf{Solución:} Se le asignará a B la responsabilidad de crear instancias de A si:
+                \begin{itemize}
+                    \item B agrega o contiene objetos de A
+                    \item B utiliza objetos de A de forma muy cercana
+                    \item B tiene los datos de inicialización que deben pasarse al constructor de A
+                \end{itemize}
+            \end{center}
+            
+        % subsection creator (end)
+        \subsection{Low Coupling} % (fold)
+        \label{sub:low_coupling}
+            El \textbf{coupling} mide como de relacionadas están dos clases, dependen entre sí o tienen información las unas de otras. Las clases que poseen un coupling muy fuerte:
+            \begin{itemize}
+                \item Sufren los cambios realizados en las clases relacionadas
+                \item Son más dificiles de ajustar y de mantener
+                \item Son más difíciles de reutilizar
+            \end{itemize}
+            Pero el coupling es necesario si queremos intercambiar mensajes, por lo que debe utilizarse en su justa medida, no demasiado.
+            \begin{center}
+                \textbf{Problema:} ¿Cómo se permite una baja dependencia, un impacto bajo en los cambios y aumentar el reuso de clases?\\
+                \textbf{Solución:} Asigna las responsabilidades de tal forma que el coupling quede reducido. Trata de evitar que las clases sepan tanto como sea posible.
+            \end{center}
+        % subsection low_coupling (end)
+        \subsection{High Cohesion} % (fold)
+        \label{sub:high_cohesion}
+            La \textbf{cohesion} mide como de fuerte están relacionadas las responsabilidades de una misma clase. Una clase con baja cohesión hace muchas cosas no relacionadas o trabajando mucho. Esto hace que sean clases dificiles de entender, mantener y reutilizar
+            \begin{center}
+                \textbf{Problema:} ¿Cómo se mantiene una clase focalizada, entendible y manejable?\\
+                \textbf{Solución:} Asigna las responsabilidades de tal forma que la cohesión se mantenga alta. Intenta evitar que clases hagan muchas cosas o cosas muy diferentes.
+            \end{center}
+              
+        % subsection high_cohesion (end)
+        \subsection{Polymorphism} % (fold)
+        \label{sub:polymorphism}
+        \begin{center}
+            \textbf{Problema:} ¿Cómo se gestiona el comportamiento basado en tipo (por ejemplo, dentro de una clase), sin emplear if-then-else ni switch que involucre el nombre de la clase o un atributo \textit{tag}?\\ 
+            \textbf{Solución:} Usa los métodos polimórficos. Dale el mismo nombre a métodos de distintas clases que den diferentes resutlados, de esta forma no será necesario comprobar el nombre de la clase con la que estás trabajando, sino que unicamente se necesitará llamar a un método en concreto.
+        \end{center}
+        % subsection polymorphism (end)
+    % section grasp_patterns (end)
+    \section{Principios de diseño} % (fold)
+    \label{sec:principios_de_diseño}
+        Con el fin de mejorar el diseño del código a la hora de realizar programación orientada a objetos.
+        \subsection{Information Hiding} % (fold)
+        \label{sub:information_hiding}
+            Las clases y miembros deben tener minimizada su accesibilidad. Las clases no deben exponer su detalles de implementación interna, un componente solo debe aportar \textit{toda y solo} la infomación necesaria.
+        % subsection information_hiding (end)
+        \subsection{"Don't talk to strangers"} % (fold)
+        \label{sub:_don_t_talk_to_strangers_}
+            Un objeto A puede llamar a un método de un objeto instancia B, pero nunca deberá utilizar el objeto B para llegar hasta un segundo objeto C.
+        
+        % subsection _don_t_talk_to_strangers_ (end)ç
+        \subsection{DRY: Don't repeat yourself} % (fold)
+        \label{sub:dry_don_t_repeat_yourself}
+            Evita repetir codigo abstrayendo las cosas comunes y poniendolas en un solo sitio. Esto también se aplica a para las responsabilidades, pon cada pieza de información y comportamiento en un único sitio sensible.
+        % subsection dry_don_t_repeat_yourself (end)
+       \subsection{Liskov} % (fold)
+        \label{sub:liskov}
+        
+        % subsection liskov (end) 
+    % section lsp (end)
+
+\end{document}
