@@ -1,0 +1,437 @@
+\documentclass[11pt]{article}
+\RequirePackage{etex}
+%\pagestyle{empty}
+\usepackage[activeacute,spanish,american]{babel}
+\usepackage[utf8]{inputenc}%Para usar los acentos normalmente.
+\usepackage[T1]{fontenc}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+% \restartpythontexsession{\thesection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\usepackage{tkz-base}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet, amssymb,amsmath,latexsym}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{multienum}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{multicol}
+% \usepackage{gensymb}
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\usepackage{color,soul}%permite texto y subrayar en color.
+\input{/home/samuel/Documents/Latex/Colores.tex}
+% \usepackage[pdftex]{graphicx}
+%Dimensiones
+\usepackage[a4paper,left=2cm,right=1.5cm, top=1.5cm, bottom=3cm,includehead]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nombres de conjuntos y comandos propios.
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\omg}{\omega}
+\newcommand{\OMG}{\varOmega}
+% \usepackage{esvect}
+% \renewcommand{\vec}{\vv}
+ \usepackage{pgf,tikz}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{chains}
+\usetikzlibrary{scopes}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning,automata,calc}
+ %\usepackage{framed}
+ %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
+ %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
+ \usepackage{tkz-tab,tkz-euclide}
+% \usetkzobj{all}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cajas de colores
+%
+\input{/home/samuel/Documents/Latex/ColorBoxes}
+\input{/home/samuel/Documents/Latex/Exercises}
+%Ecuaciones resaltadas
+% \usepackage[overload,ntheorem,reqno]{empheq}
+%\input{/home/samuel/Documents/Latex/Ambientes-teoremas}
+ \theoremstyle{plain}
+ \renewcommand{\qedsymbol}{\makebox[7.7778pt][c]{\rule{1ex}{1ex}}}
+ \newtheorem*{demo}{Demostración}
+ \input{/home/samuel/Documents/Latex/TeoremasEnumerados}
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=false,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Teoria de probabilidad},    % title
+    pdfauthor={Samuel Ortega Cuadra},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={Hecho con \LaTeX},   % creator of the document
+    pdfproducer={ps2pdf}, % producer of the document
+    pdfkeywords={} {} {}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=naranja,          % color of internal links
+    citecolor=violeta,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+\setcounter{secnumdepth}{4} %controla la profundidad de la numeración
+
+
+\addto\captionsamerican{%
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+
+\title{Notas Probabilidad}
+\author{Samuel Ortega Cuadra}
+\input{/home/samuel/Documents/Latex/messages}
+
+\begin{document}
+    \begin{center}
+        \huge{Teoría de Probabilidad. 1º de Carrera. Tema 1}
+    \end{center}
+    \tableofcontents
+    \newpage
+    \section{Introducción} % (fold)
+    \label{sec:introducción}
+        El primer objetivo de la probabilidad fue estudiar los jeugos de mesa. Comenzó con el juego del taba (40000 años de antiguedad). Se han visto varios ejemplos de azar en distintas civilizaciones. Antiguamente era relacionado con la voluntad Divina y posteriormente con las matemáticas (Renacimiento).
+
+        Cardano establece la equiprobabilidad de las caras de un dado (1526). Tartaglia aborda problemas de probabilidad, pero el verdadero cálculo de probabilidades llega con Pascal y Fermat. El primer libro de Probabilidad (1657) llega de la mano  de Huygens. Las primeras ayudas más potentes de la probabilidad llegan gracias a Bernouille, de Moivre y Bayes, seguidas de la definición explicitá de Laplace, la teoría de errores de Gauss y los minimos cuadrados de Legendre. Durante el siglo 19-20 llegan Chebychev y Markov, matemáticos rusos que contribuyeron al estudio. La base del cálculo de la probabilidad la establece Kolmogrov.
+    % section introducción (end)
+    \section{Fenómenos aleatorios y experimentos aleatorios} % (fold)
+    \label{sec:fenómenos_aleatorios_y_experimentos_aleatorios}
+        \subsection{Fenómentos aleatorios} % (fold)
+        \label{sub:fenómentos_aleatorios}
+            La teoria de la probabilidad tiene como estudio los fenómentos o experimentos aleatorios. Estos tienen las siguientes caracterísicas:
+            \begin{itemize}
+                \item No se sabe que resultado se obtendrá antes de empezar el experimento pero si los resultados posibles. 
+                \item Pueden realizarse tantas veces como se quiera en las mismas condiciones
+                \item Podemos asignar probabilidades a los resultados
+            \end{itemize}
+
+            Lo opuesto a los experimentos aleatorios son los experimentos \textbf{deterministas}, en los que el resultado es absolutamente predecible. Algunos ejemplos de experimentos aleatorios son las pruebas para comprobar la efectividad de un medicamento, el número de accidentes en un determinado punto de una carretera, el número de llamadas que recibe una central telefónica o la duración de una particula radioactiva.
+        % subsection fenómentos_aleatorios (end)
+        \subsection{Espacio Muestral} % (fold)
+        \label{sub:espacio_muestral}
+            Es el primer elemento de un modelo probabilístico. Se denomina con la letra omega mayúscula ($\varOmega$) y sus elementos con la letra omega minúscula ($\omega$). Este espacio contiene todos los posibles resultados de un experimento aleatorio. En esta asignatura el profesor considera que los números naturales no incluyen el 0, luego si hiciera falta analizar el número de llamadas a una central telefónica quedaría así:
+            \begin{equation}
+                A = \mathbb{N} \cup 0
+            \end{equation}
+
+        % subsection espacio_muestral (end)
+        \subsection{Sucesos} % (fold)
+        \label{sub:sucesos}
+            Es cualquier subconjunto del espacio muestral e indica que puede ocurrir en un experimento aleatorio. Lo que se busca es calcular la probabilidad de estos sucesos. El conjunto de sucesos debe seguir una estructura $\sigma$-algebra.
+
+            Por ejemplo al tirar un dado un subconjunto podría ser:
+            \begin{equation}
+                A = \{2,4,6\}
+            \end{equation}
+            Si $\omega$ perteneciente a $\varOmega$ es un resultado tal que $\omega$ pertenezca a A entonces puede decirse que el suceso A se ha realizado. Después de observar un suceso se puede saber si se ha realizado o no.
+
+        % subsection sucesos (end)
+        \subsection{Sigma-algebra} % (fold) 
+        \label{sub:Sigma_algebra}
+            La estructura $\sigma$-algebra indica que siendo $\mathcal{A}$ una colección de subconjuntos de $\varOmega$, decimos que A es una $\sigma$-algebra si cumple que: 
+            \begin{itemize}
+                \item $\varOmega$ pertenece a $\mathcal{A}$
+                \item Si A pertenece a $\mathcal{A}$ entonces el complementario de A pertenece a $\mathcal{A}$
+                \item Si $A_{1}$, $A_{2}$,... pertenecen a $\mathcal{A}$ entonces $\mathcal{A}$ se considera la unión de todos estos sucesos.
+            \end{itemize}
+
+            Si $\mathcal{A}$ es una $\sigma$-algebra, tiene las siguientes propiedades:
+            \begin{itemize}
+                \item El conjunto vacío pertenece a $\mathcal{A}$
+                \item Si A y B son elementos de $\mathcal{A}$ entonces su intersección también pertenece a $\mathcal{A}$
+                \item Si A y B son elementos de $\mathcal{A}$, entonces 
+                    \begin{equation}
+                        B \backslash A = B \cap A^{c}
+                    \end{equation}
+                    Que también pertenece al conjunto $\mathcal{A}$
+            \end{itemize}
+            
+            P($\varOmega$) es el conjunto de las partes de $\varOmega$. Este conjunto es un conjunto $\sigma$-algebra siempre. 
+
+            Si por ejemplo hicieramos el experimento de lanzar una moneda, $\varOmega$ podría pensarse como el conjunto de posibles sucesiones de 0 y 1, donde 0 es cruz y 1 es cara. Este conjunto no es numerable.
+
+            Sería interesante que los subconjuntos de una $\sigma$-algebra fueran sucesos. Si $A_{n}$ fuera la primera cara que sale en el lanzamiento n-ésimo de una moneda, entonces tendremos que A (haber obtenido alguna vez cara) es la unión de todos los sucesos independientes. Al ser un suceso podremos calcular la probabilidad de este. 
+        % subsection _sigma_algebra (end)
+
+        \subsection{Notación de teoría de conjuntos y probabilidad} % (fold)
+        \label{sub:notación_de_teoría_de_conjuntos_y_probabilidad}
+        \begin{center}
+            \begin{tabular}{ |c|c|c| }
+                \hline 
+                    Notación & Teoría de conjuntos & Teoría de la Probabilidad \\
+                \hline
+                    $\omg$ & Elemento de $\OMG$ & Suceso elemental / resultado posible\\
+                    $A$ & Elemento de $\mathcal{A}$ & Suceso \\
+                    $A \cup B$ & Unión de $A$ y $B$ & $A$ o $B$\\
+                    $A \cap B$ & Intersección de $A$ y $B$ & $A$ y $B$\\
+                    $A^c$ & Complementario de $A$ & Contrario de $A$\\
+                    $\emptyset$ & Conjunto Vacío & Suceso imposible\\
+                    $\OMG$ & Conjunto Total & Suceso seguro\\
+                \hline
+
+                
+            \end{tabular}  
+        \end{center}
+        % subsection notación_de_teoría_de_conjuntos_y_probabilidad (end)
+        \section{Probabilidades} % (fold)
+        \label{sec:probabilidades}
+            El problema de calcular la probabilidad ha estado abierto mucho tiempo, ya que varios intentos fueron infructuosos. La primera definición, denominada clásica es la fórmula de la Laplace que indica que:
+            \begin{equation}
+                \mathbb{P}(A) = \frac{Casos\ favorables\ de\ A}{Casos\ posibles}
+            \end{equation}
+            Esta definición es muy limitada ya que solo funciona si hay un número finito de elementos. Es más se utiliza el concepto de probabilidad para definirla, pues si dos sucesos aparecen la misma cantidad de veces implica que tienen la misma probabilidad. Más tarde aparece la definición frecuentista, que indica que:
+            \begin{equation}
+                \mathbb{P}(A) = \lim_{x\to\infty} f_{n} (A)
+            \end{equation}
+
+            Donde $f_{n}(A)$ es la frecuencia relativa de A.
+            \begin{equation}
+                f_{n}(A) = \frac{\textrm{Número de veces que ocurre A}}{n}
+            \end{equation}
+
+            Sin embargo, si hacemos un experimento infinitas veces es posible que no se den todos los sucesos. Este método lo usaremos para probabilidades dificiles de calcular.
+
+            Finalmente se defina le la probabilidad como una aplicación de un conjunto $\sigma$-algebra tal que cumpla que 
+            \begin{itemize}
+                \item $\mathbb{P}(\varOmega) = 1$
+                \item Si un conjunto de sucesos contenidos no presentan intersección entre sí, la probabilidad de la unión de los dos debe ser la suma de las probabilidades por separado.
+            \end{itemize}
+            Esta probabilidad se llama $\sigma$-aditividad
+            \subsection{Espacio de Probabilidad} % (fold)
+            \label{sub:espacio_de_probabilidad}
+                Se denomina espacio de probabilidad a la terna $(\varOmega,\mathcal{A},\mathbb{P})$
+            
+            % subsection espacio_de_probabilidad (end)
+            \subsection{Propiedades de P} % (fold)
+            \label{sub:propiedades_de_p}
+                Las uniones disjuntas a veces se indican con la notación $\dot{\bigcup}$.
+
+                Las propiedades de la probabilidad son:
+                \begin{itemize}
+                    \item $\prob(\emptyset) = 0$
+                    \item Si A y B son sucesos disconjuntos entonces la probabilidad de su unión es la suma de los dos.
+                    \item Si A está incluido en B, la probabilidad de A es menor o igual que la probabilidad de B. Es decir, la probabilidad es monótona creciente.
+                    \item Si A está incluido en B entonces:
+                    \begin{equation}
+                         \mathbb{P}(B \backslash A) = \mathbb{P}(B) - \mathbb{P}(A)
+                     \end{equation}
+                     Luego:
+                     \begin{equation}\label{eq:8}
+                         \mathbb{P}(A^c) = 1 - \mathbb{P}(A)
+                     \end{equation}
+                    \item Para cualquier suceso A y B tenemos que:
+                    \begin{equation}
+                         \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P} (A \cap B)
+                    \end{equation}
+                    \item Sub-aditividad:
+                    \begin{equation}
+                        \mathbb{P}(A \cup B) \le \mathbb{P}(A) + \mathbb{P}(B)
+                    \end{equation}
+                    Porque $\mathbb{P}(A\cap B) \ge 0$
+                \end{itemize}
+            % subsection propiedades_de_p (end)
+            \subsection{La Fórmula de Laplace} % (fold)
+            \label{sub:la_fórmula_de_laplace}
+                Supongamos que $\varOmega = \{\omega_1,\omega_2,...\omega_{n}\}$ es un conjunto finito con equiprobabilidad. Entonces, si $\mathcal(A) = \mathbb{P}(\varOmega)$:
+                \begin{equation}
+                    \mathbb{P}(A) = \frac{\text{Casos favorables de A}}{\text{Casos posibles}}
+                \end{equation}
+                Al sumar todas las probabilidades de forma independiente, obtenemos 1. Luego si son equiprobables, $\mathbb{P}(\omega) = \frac{1}{n}$. Si A incluye a r elementos de $\varOmega$, la probabilidad de A es $\frac{r}{n}$. Por lo tanto la formula de Laplace es tan solo una aplicación particular de la axiomática de Kolmogrov. 
+
+            % subsection la_fórmula_de_laplace (end)
+            \subsection{Continuidad secuencial de la probabilidad} % (fold)
+            \label{sub:continuidad_secuencial_de_la_probabilidad}
+                Estas propiedades vistas hasta ahora son básicas, pero lo que se estudia en teoría de probabilidad son las propiedades que involucran colecciones numerables de sucesos. Si tenemos una sucesiónde acontecimientos $\{A_1,A_2,...,A_n\}$, buscamos cuando existe el límite 
+                $\lim_{n \to \infty} \mathbb{P}(A_n)$
+                \subsubsection{Continuidad secuencial de la probabilidad por uniones crecientes} % (fold)
+                \label{subsub:continuidad_secuencial_de_la_probabilidad_por_uniones_crecientes}
+                    Sea $\mathcal{A}$ un conjunto de sucesos en el que cada elemento contiene a los anteriores ($A_1 \subset A_2 \subset A_3 \subset ... \subset A_n$). Si A es igual a la unión de todos los elementos:
+                    \begin{equation}
+                        \prob (A) = \lim_{n\to\infty} \prob (A_n)
+                    \end{equation}
+                % subsubsection uniones crecientes (end)
+                \subsubsection{Continuidad secuencial de la probabilidad por uniones decrecientes} % (fold)
+                \label{subsub:continuidad_secuencial_de_la_probabilidad_por_uniones_decrecientes}
+                    Sea $\mathcal{A}$ un conjunto de sucesos en el que cada elemento contiene a los anteriores ($A_1 \supset A_2 \supset A_3 \supset ... \supset A_n$). Si A es igual a la intersección de todos los elementos:
+                    \begin{equation}
+                        \prob (A) = \lim_{n\to\infty} \prob (A_n)
+                    \end{equation}
+
+            % subsection continuidad_secuencial_de_la_probabilidad (end)
+        % section probabilidades (end)
+        \section{Combinatoria} % (fold)
+        \label{sec:combinatoria}
+            La combinatoria nos permite conocer las posibles combinaciones que aparecen a la hora de llevar a cabo un experimento junto a sus correspondientes probabilidades. Se basa en que:
+            \begin{equation}
+                \prob (A) = \frac{\#A}{\#\OMG}
+            \end{equation}
+            Una de las propiedades más importantes en combinatoria es que si se tienen dos experimentos, cada uno con A y B posibles resultados respectivamente, Si ambos experimentos se realizan a la vez, el número de resultados que se pueden obtener es $A \times B$. Esto es conocido como el \textbf{Principio de Multiplicación.}\\
+
+            Pongamos que tuviesemos una caja con bolas numeradas. Existen distintas formas de ordenar la forma que la que las cogemos.
+            \subsection{Permutaciones} % (fold)
+            \label{sub:permutaciones}
+                En las permutaciones se cogen todas las bolas de forma ordenada. Si trataramos de coger $n$ bolas, existirían $n!$ posibles permutaciones.
+                \begin{equation}\label{eq:15}
+                    P_n = n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 2 \cdot 1 
+                \end{equation}
+                \subsubsection{Permutaciones con Repetición} % (fold)
+                \label{subsub:permutaciones_con_repetición}
+                    Pongamos que dentro de la caja hay n bolas con k colores diferentes (ya no se encuentran ordenadas numéricamente), es decir hay $n_1$ bolas del color 1, $n_2$ bolas de color 2 así hasta $n_k$ bolas de color k cumpliendo que $n_1 + n_2 + \cdots n_k = n$.
+
+                    Si las sacamos todas de forma ordenada, los órdenes distintos que podría haber son:
+                    \begin{equation}
+                         PR_n^{n_1,n_2,...,n_k} = \frac{n!}{n_1! \cdot n_2! \cdot ... \cdot n_k!}
+                     \end{equation}
+                % subsubsection permutaciones_con_repetición (end)
+            % subsection permutaciones (end)
+            \subsection{Variaciones} % (fold)
+            \label{sub:variaciones}
+                Volviendo a nuestra caja con n bolas ordenadas numéricamente, sacamos un número de bolas $m \le n$ de forma ordenada sin repetición. El número de ordenaciones posibles es:
+                \begin{equation}\label{eq:17}
+                    V_n^m = \frac{n!}{(n-m)!} = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot (n-(m-1))
+                \end{equation}
+                Observemos que las variaciones de n elementos cogidos de n en n es igual a las permutaciones de n: \[V_n^n = P_n\]
+                \subsubsection{Variaciones con repetición} % (fold)
+                \label{subsub:variaciones_con_repetición}
+                    Si en lugar de extraer $m$ bolas de forma ordenada y ir dejando las bolas fuera voy colocándolas de nuevo en la caja, aparece la posibilidad de repetir la misma bola más de una vez. El número de formas posibles de realizar el siguiente proceso se calcula usando:
+                    \begin{equation}
+                        VR_n^m = n ^m 
+                    \end{equation}
+                    En estos casos, $m$ no tiene que ser menor a $n$, basta con $m\ge1$
+                % subsubsection variaciones_con_repetición (end)
+            % subsection variaciones (end)
+            \subsection{Combinaciones} % (fold)
+            \label{sub:combinaciones}
+                En este caso, cogeremos de nuestra caja de $n$ bolas ordenadas un subconjunto $m$ de bolas. La diferencia es que en este caso no nos importará el orden y no será posible la repetición. Puede pensarse como si sacaras directamente $m$ bolas sin irlas extrayendo de una en una. El número de formas posibles de extraerlas es:
+                \begin{equation}
+                     {C_n^m} = \binom{n}{m} = \frac{n!}{m!(n-m)!} = \frac{\frac{n!}{(n-m)!}}{m!} = \frac{V_n^m}{P_m}
+                 \end{equation} 
+                 Podemos observar que la combinación de $n$ elementos tomados de $m$ en $m$ puede verse como la división de las variaciones de $n$ elementos tomados de $m$ en $m$ (explicado en la fórmula \ref{eq:17}) partido las permutaciones de $m$ elementos (explicado en la fórmula \ref{eq:15})\\
+
+                 ¿Que ocurriría si nos encontraramos con un caso en el que hubiera elementos repetidos? Un ejemplo posible sería sacar 10 alumnos de una clase formada por 15 chicos y 30 chicas. Para hallar la probabilidad de sacar 3 chicos y 7 chicas exactamente primero calcularemos todas las combinaciones posibles de 45 elementos sacados de 10 en 10 \[C_{45}^{10} =\frac{45!}{10!(45-10)!} \] El número de casos que cumplen el requisito calculando el número de combinaciones de 10 chicos sacados de 3 en 3 \[C_15^3 = \binom{15}{3}\] y el número de combinaciones de 30 chicas sacadas de 7 en 7 \[C_30^7  = \binom{30}{7}\] Aplicando el principio de multipliación (\textit{explicado en \ref{sec:combinatoria}}), multiplicaremos estas dos posibilidades entre si: \[\binom{15}{3} \cdot \binom{30}{7}\] y dividiremos entre los casos posibles: 
+                 \begin{equation}
+                     \prob (A) = \frac{\# A}{\#\OMG} = \frac{\binom{15}{3} \cdot \binom{30}{7}}{\binom{45}{10}} = 0,2904
+                 \end{equation}
+            % subsection combinaciones (end)
+                Existen muchos casos en los que calcular el complementario puede resultar mucho más fácil que calcular el suceso en sí, un ejemplo es el problema del cumpleaños. Este problema pregunta cual es la probabilidad de que si se cogen k personas escogidas de forma aleatoria al menos dos de ellas cumplan el mismo día. Abordar este problema directamente puede resultar muy complejo, sin embargo hallar el complementario de este problema (La probabilidad de que de $k$ personas cogidas aleatoriamente \textbf{ninguna} cumpla el mismo día) resulta mucho más sencillo. En este tipo de problemas basta con emplear la propiedad \ref{eq:8} para hallar la probabilidad del complementario.
+        % section combinatoria (end)
+    % section fenómenos_aleatorios_y_experimentos (end)
+    \section{Probabilidad y ODDS} % (fold)
+    \label{sec:probabilidad_y_odds}
+        La palabra \textbf{odds} es muy utilizada en paises de habla inglesa, sobre todo para referirse a juegos de azar. Pero, ¿como se interpreta tener "odds a favor de 3 a 2"?. Si realizamos un fenómeno aleatorio de espacio muestral $\OMG$, unos sucesos $\mathcal{A}$ con una probabilidad $\prob$, dado un suceso $A \in \mathcal{A}$:
+        \begin{equation}
+            \text{ODDS en contra $A$} \rightarrow Odds(A^c) = \frac{\prob(A^c)}{\prob(A)}
+        \end{equation}
+        \begin{equation}
+            \text{ODDS a favor de $A$} \rightarrow Odds(A) = \frac{\prob(A)}{\prob(A^c)}
+        \end{equation}
+        Esto nos permite establecer una relación entre la probabilidad de que un suceso ocurra y que no. En el caso anteriormente mencionado, significaría que la probabilidad de que se cumpla el suceso $A$ es $1.5$ veces mayor que el suceso contrario. De hecho, podemos obtener también el valor de la probabilidad de A: \[\prob (A) = \frac{3}{2} \prob (A^c) = \frac{3}{2} (1 - \prob (A)) = \frac{3}{5}\]
+        Ejemplo: Lanzamos 3 monedas. Suceso $A = \text{ salen exactamente 2 caras}$. Suceso $B = \text{ sale una cara y una cruz}$.
+        \[\OMG = \{ccc,ccx,cxc,xcc,xcx,xxc,cxx,xxx\}\]
+        \[\Rightarrow \prob(A) = \frac{3}{8} \Rightarrow Odds(A) = \frac{\prob(A)}{1-\prob(A)} = \frac{3/8}{5/8} = \frac{3}{5}\]
+        \[\Rightarrow \prob(B) = \frac{6}{8} = \frac{3}{4} \Rightarrow Odds(B) = \frac{\prob(B)}{1-\prob(B)} = \frac{3/4}{1/4} = 3\]
+        Luego es más favorable apostar por el suceso $B$, pues tiene mejores ODDS que $A$
+    % section probabilidad_y_odds (end)
+    \section{Probabilidad Condicionada} % (fold)
+    \label{sec:probabilidad_condicionada}
+        Pongamos un supuesto en el que tomo 2 dados de diferente color (Rojo y Verde). Al lanzar los dados el espacio muestral que obtengo es el siguiente:
+        \[\OMG = \{(1,1),(1,2),(1,3),... ,(6,6) \} \; \#\OMG = 36\]
+        Hay que tener en cuenta que los elementos de este espacio muestral están ordenados, pues los dados se tomará siempre la tirada del dado de color rojo primero y luego la tirada del dado de color verde. Tomaremos que $\mathcal{A} = \prob(\OMG)$, $\prob$ es tal que $\prob(\{(i,j)\}) = 1/36$ para todo $i,j$ entre 1 y 6. De esta forma, la probabilidad de que ocurra cada suceso es la misma.\\
+
+        Sea $B = \text{"Los dos dados tienen la misma puntuación"}$ entonces:
+        \[\Rightarrow \prob(B) = \frac{6}{36} = \frac{1}{6} \approx 0.17\]
+        ¿Que ocurriría si tuvieramos como información que la suma de los dos dados es 8? Lo primero que haremos será saber para cuantos casos se cumplirá el suceso $A = \text{"La suma es 8"}$, para posteriormente calcular la \textbf{probabilidad condicionada en A}, es decir, cual es la probabilidad de que ocurra un suceso si se sabe que ha ocurrido A.\\
+
+        Esta probabilidad se calcula de la siguiente forma:
+        \begin{equation}
+            \prob (B | A) = \frac{\prob(B \cap A)}{\prob(A)} \tag{Siempre y cuando $\prob(A) > 0$}
+        \end{equation}
+        Siguiendo el ejemplo anterior, nos quedaría de la siguiente forma:
+        \[\prob (B | A) = \frac{\prob(B \cap A)}{\prob(A)} = \frac{1/6}{5/36} = \frac{1}{5} = 0.2\]
+        Luego, si los números suman 8, hay más posibilidades de que se cumpla el suceso $B$ de las que había antes ($0.17$), por lo que se recomendaría subir la apuesta.\\
+
+        \textbf{IMPORTANTE:} En sucesos en los que $\prob(A)>0$:
+        \[\prob(\cdot | A) : \mathcal{A} \rightarrow [0,1]\]
+        \[B \rightarrow \prob(B | A) = \frac{\prob(B \cap A)}{\prob(A)}\]
+        Es una \textbf{probabilidad}, ya que cumple todas las propiedades de las propiedades:
+        \begin{enumerate}
+            \item $\prob(\OMG | A) = \frac{\prob(\OMG \cap A)}{\prob(A)} = \frac{\prob(A)}{\prob(A)} = 1$
+            \item $\sigma-aditividad:$ siendo $A_1,A_2,...$ disjuntos 2 a 2: \[\prob(\cup_{n=1}^{\infty} A_n | A) = \frac{\prob((\cup_{n=1}^{\infty} A_n) \cap A)}{\prob(A)} = \frac{\prob(\cup_{n=1}^{\infty} (A_n\cap A))}{\prob(A)}\]
+            \[= \frac{ \sum_{ n=1 }^{ \infty } \prob(A_n \cap A)}{\prob(A)} \]
+        \end{enumerate}
+
+    % section probabilidad_condicionada (end)
+    \section{Problemas} % (fold)
+    \label{sec:problemas}
+        \subsection{Problema 1} % (fold)
+        \label{sub:problema_1}
+            \begin{enumerate}[label=\Alph*]
+                \item Lanzamiento de dos monedas \[\OMG = \{(c,c),(c,x),(x,c),(x,x)\}\]
+                \item Lanzamiento de dos dados \[\OMG = \{(1,1),(1,2),...,(6,6)\} \rightarrow 6^2 \text{ combinaciones}\]
+                \item Número de accidentes en un tramo de carretera \[\OMG = \N \cup \{0\}\]
+                \item Tiempo de espera si el autobús pasa cada 20 minutos y llegamos de forma aleatoria \[\OMG = [0,20)\]
+                \item Lanzamos una moneda indefinidamente hasta que salga cara \[\OMG = \N\] 
+            \end{enumerate}        
+        % subsection problema_1 (end)
+        \subsection{Problema 2} % (fold)
+        \label{sub:problema_2}
+            \textbf{¿Cual es la probabilidad de acertar una quiniela de 14 resultados apostando solo a una columna?¿Y de acertar 13 o 12 resultados?}
+            \[\text{Posibles resultados}\rightarrow3^{14}\]
+            \[\text{Probabilidad de acertar 14 resultados} \rightarrow \frac{\text{casos favorables}}{\text{Casos posibles}} \rightarrow \frac{1}{3^{14}}\]
+            Para calcular la probabilidad de acertar un número $n$ de veces con $n\le14$:
+            \begin{equation}
+                \frac{2^{14-n} \binom{14}{14-n}}{3^{14}}
+            \end{equation}
+            Esta fórmula emplea la fórmula de Laplace (mencionada en el apartado \ref{sub:la_fórmula_de_laplace}), tomando como casos favorables $2^{14-n} \binom{14}{14-n}$ y como casos posibles los calculados anteriormente.
+        % subsection problema_2 (end)
+        \subsection{Problema 3} % (fold)
+        \label{sub:problema_3}
+            \textbf{Calcula la probabilidad de que, tomando una diagonal aleatoria de un polinomio de n lados, la diagonal pase por un vértice en concreto.}\\
+
+            Existen $\frac{n(n-3)}{2}$ diagonales. Pero solo $(n-3)$ diagonales pasan por ella, luego utilizando la fórmula de Laplace queda:\[\prob = \frac{(n-3)}{\frac{n(n-3)}{2}}\]
+        % subsection problema_3 (end)
+        \subsection{Problema 4} % (fold)
+        \label{sub:problema_4}
+            \textbf{Calcula la probabilidad de que un número de 4 cifras sea capicúa}\\
+            Sabemos que un número capicúa cumple que: \[x_1x_2x_3x_4 \rightarrow x_1 = x_4 ; x_2 = x_3\] Luego si fijamos los dos primeros números existen 100 posibilidades ($10 \times 10$) ya que $x_3$ tiene 10 posibilidades y $x_4$ también. Luego, ya que existen 100 posibilidades para los números $x_1$ y $x_2$, siguiendo la formula de Laplace terminamos con \[\OMG = \frac{100}{10000} = \frac{1}{100}\]
+            Por lo que 1 de cada 100 números de 4 cifras es capicúa.
+        % subsection problema_4 (end)
+        \subsection{Problema 5} % (fold)
+        \label{sub:problema_5}
+        \textbf{En una carrera hay 4 atletas alemanes, 3 franceses, 2 británicos}
+        \begin{enumerate}[label=\Alph*]
+            \item \textbf{Calcula el número de todas las posibilidades si solo tenemos en cuenta la probabilidad.} \[\frac{9!}{4! \cdot 3! \cdot 2!}\]
+            \item \textbf{¿Cuál es la probabilidad de que gane un francés?} \[\frac{\text{Casos Favorables}}{\text{Casos Posibles}} = \frac{8!}{4!\cdot 2! \cdot 2!}\]
+            \item \textbf{Calcula la probabilidad de que los últimos 3 puestos estén ocupados por un alemán}
+        \end{enumerate}
+        % subsection problema_5 (end)
+    % section problemas (end)
+\end{document}
