@@ -1,0 +1,259 @@
+\documentclass[11pt]{article}
+\RequirePackage{etex}
+%\pagestyle{empty}
+\usepackage[activeacute,spanish,american]{babel}
+\usepackage[utf8]{inputenc}%Para usar los acentos normalmente.
+\usepackage[T1]{fontenc}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{url}
+
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+% \restartpythontexsession{\thesection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\usepackage{tkz-base}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet, amssymb,amsmath,latexsym}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{multienum}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{multicol}
+% \usepackage{gensymb}
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\usepackage{color,soul}%permite texto y subrayar en color.
+\input{/home/samuel/Documents/Latex/Colores.tex}
+% \usepackage[pdftex]{graphicx}
+%Dimensiones
+\usepackage[a4paper,left=2cm,right=1.5cm, top=1.5cm, bottom=3cm,includehead]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nombres de conjuntos y comandos propios.
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+% \usepackage{esvect}
+% \renewcommand{\vec}{\vv}
+ \usepackage{pgf,tikz}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{chains}
+\usetikzlibrary{scopes}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning,automata,calc}
+ %\usepackage{framed}
+ %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
+ %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
+ \usepackage{tkz-tab,tkz-euclide}
+% \usetkzobj{all}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cajas de colores
+%
+\input{/home/samuel/Documents/Latex/ColorBoxes}
+\input{/home/samuel/Documents/Latex/Exercises}
+%Ecuaciones resaltadas
+% \usepackage[overload,ntheorem,reqno]{empheq}
+%\input{/home/samuel/Documents/Latex/Ambientes-teoremas}
+ \theoremstyle{plain}
+ \renewcommand{\qedsymbol}{\makebox[7.7778pt][c]{\rule{1ex}{1ex}}}
+ \newtheorem*{demo}{Demostración}
+ \input{/home/samuel/Documents/Latex/TeoremasEnumerados}
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=false,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Teoria de Cálculo DV},    % title
+    pdfauthor={Samuel Ortega Cuadra},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={Hecho con \LaTeX},   % creator of the document
+    pdfproducer={ps2pdf}, % producer of the document
+    pdfkeywords={} {} {}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=naranja,          % color of internal links
+    citecolor=violeta,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+\setcounter{secnumdepth}{4} %controla la profundidad de la numeración
+
+
+\title{Notas Programación}
+\author{Samuel Ortega Cuadra}
+\input{/home/samuel/Documents/Latex/messages}
+
+\addto\captionsamerican{%
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+
+\begin{document}
+    \begin{center}
+        \huge{Teoría de Cálculo de Diversas Variables. 1º de Carrera. Tema 1}
+    \end{center}
+    \tableofcontents
+    \newpage
+    \section{Introducción} % (fold)
+    \label{sec:introducción}
+        En esta asignatura se continuará con lo explicado en la asignatura de Cálculo en una Variable, expandiendo la integración, series y un apartado de topología en varias dimensiones.
+
+        La asignatura está dividida en 2 Parciales (40\% cada uno) Un 15\% de las prácticas y un 5\% de la nota de los lliuraments. \textbf{No hay nota mínima}, solo es necesario que la ponderación de por encima de 5. Al final de curso en el caso de no haber aprobado la asignatura se realizará un examen de recuperación que incluirá todo el contenido del curso. 
+    % section introducción (end)
+    \section{Espacio Euclídeo} % (fold)
+    \label{sec:espacio_euclídeo}
+        El Espacio Euclídeo es el espacio $\mathbb{R}^n = {(x_{1},x_{2},...,x_{n}) \text{ donde todos los $x$ pertenecen a } \mathbb{R}}$
+
+        Por ejemplo, el plano cartesiano es un espacio euclídeo $\mathbb{R}^2$
+        \subsection{Operaciones} % (fold)
+        \label{sub:operaciones}
+            Vectores de ambos espacios pueden sumarse entre sí sumando componente a componente:
+            \begin{equation}
+                (x_{1},...,x_{n}) + (y_{1},...,y_{n}) = (x_{1}+y_{1},...,x_{n}+y_{n})
+            \end{equation}
+        Si se multiplica por un número real ($\lambda$) se multiplican todos sus componentes:
+            \begin{equation}
+                \lambda (x_{1},...,x_{n}) = (\lambda x_{1},...,\lambda x_{n})
+            \end{equation}
+        Pero sin duda la operación más importande en un espacio euclídeo es el \textbf{Producto escalar de dos vectores}. Si tenemos dos vectores x e y pertenecientes a $\mathbb{R}^n$:
+            \begin{equation}
+                <x,y> = x_1 \cdot y_1 + \cdots + x_n \cdot y_n
+            \end{equation}
+        Las propiedades de este producto escalar son:
+            \begin{itemize}
+                \item $<x+z, y> = <x,y> + <z,y>, \ x,y,z \in \R^n$
+
+                \item $<\lambda x, \mu y> = \lambda \mu <x,y> x,y \in \R^n$
+                \item $ \text{La Desigualdad de Cauchy-Schwarz:}< x, y > \ \le \  <x,x>^{1/2} \cdot <y,y> ^ {1/2} x,y \in \mathbb{R}^n$
+            \end{itemize}
+
+            \subsubsection{Demostración de la Desigualdad de Cauchy-Schwarz} % (fold)
+            \label{subsub:demostración_de_la_desigualdad_de_cauchy_schwarz}
+                Siendo t un número Real
+                \begin{equation}
+                    \begin{aligned}
+                            0 \ \le \ <x+ty, x +ty> & = <x,x> + t^2 <y,y> + t<x,y> + t<y,x>\\
+                           & = <x,x> + t^2<y,y> + 2t<x,y>\\
+                    \end{aligned}
+                \end{equation}
+                Por lo tanto el polinomio es:
+                \begin{equation}
+                    \begin{aligned}
+                            P(t) & = <x,x> + t^2<y,y> + 2t<x,y>\\
+                    \end{aligned}
+                \end{equation}
+                Es positivo para todo t pertenciente a los números reales\\
+                Luego el discriminante es menor o igual que 0
+                \begin{equation}
+                    \begin{aligned}
+                            <x,y>^2 - <y,y> <x,x> \le 0 \  es\ decir\ <x,y>^2 = <x,x><y,y>
+                    \end{aligned}
+                \end{equation}
+            % subsubsection demostración_de_la_desigualdad_de_cauchy_schwarz (end)
+
+            La \textbf<norma> de x perteneciente a $\R ^n$ es $\|x\| = <x,x> ^{1/2} = \sqrt{x_1^2+x_2^2+...+x_n^2}$  que corresponde a la distancia del punto x al origen.
+            Es decir, que según la desigualdad de Cauchy-Schwarz $<x,y> \le \|x\| \cdot \|y\|$ \\
+
+            Observamos que si dividimos el producto escalar por el producto de las normas siempre nos queda un valor entre 0 y 1. Este valor es el coseno del ángulo que forman los dos vectores.
+
+            La distancia entre dos puntos se calcula hayando la norma del vector resultante de la resta entre los dos. Las propiedades de la norma son:
+            \begin{itemize}
+                \item $\|x\| \ge 0$ para todo $x \in \R^n$. Además $\|x\|=0$ si y solo si $x = (0,...,0)$
+                \item Si $\lambda \in R$, entonces $\|\lambda x\| = |\lambda|\cdot\|x\|$ para todo $x \in \R^n$
+                \item \textbf{Desigualdad Triangular:} $\|x+y\| \le \|x\| + \|y\|$ para todo $x \in \R^n$
+            \end{itemize}
+            \subsubsection{Demostración de la Desigualdad Triangular} % (fold)
+            \label{subsub:demostración_de_la_desigualdad_triangular}
+                \begin{equation}
+                    \begin{aligned}
+                        \|x+y\|^2 & = <x+y,x+y> \\ 
+                        & = <x,x> + <y,y> + <x,y> + <y,x> \\
+                        & = \|x\|^2 + \|y\| ^2 + 2 <x,y> \\
+                        & \le \|x\|^2 + \|y\|^2 + 2\|x\|\cdot \|y\| \text{ (Aplicando la desigualdad de Cauchy-Schwarz)}\\
+                        & = (\|x\| + \|y\|)^2
+                    \end{aligned}
+                \end{equation}
+            %subsubsection desigualdad_Triangular (end)
+        % subsection operaciones (end)
+        \subsection{Otras coordenadas de R² y R³ } % (fold)
+        \label{sub:otras_coordenadas_de_r_y_}
+            \subsubsection{Coordenadas Polares en R²} % (fold)
+            \label{subsub:coordenadas_polares_en_r2}
+                Están formadas por un radio ($r$) que corresponde a la distancia desde el origen y un ángulo ($\theta$) que corresponde al ángulo que se debe girar el eje real positivo hasta llegar al punto (sentido antihorario). \\ Para hacer el paso de coordenadas cartesianas a coordenadas polares tomaremos que: \[r = \text{distancia de (x,y) al origen} = \sqrt{x^2 + y^2}\]\[\theta = \text{ángulo que se debe girar el eje hor. positivo para llegar al punto} = arctan(\frac{y}{x})\]
+                Y para hacer el paso inverso se haría de la siguiente forma:\[x = r\cdot cos(\theta)\]\[y = r\cdot sin(\theta)\]
+                    
+            % subsubsection coord polar en r2 (end)
+            \subsubsection{Coordenadas Cilíndricas en R³} % (fold)
+            \label{subsub:coordenadas_ciĺindricas_en_r3}
+                Sean $(x,y,z) \in \R^3$ las coordenadas de un punto en $\R^3$, las coordenadas cilíndricas son $(r,\theta,z)$ donde $(r,\theta)$ corresponde al punto $(x,y)$ en coordenadas polares. De esta forma se tomaría el círculo de radio $r$ en el plano $x,y$ y la altura ($z$), de ahí el nombre de coordenada cilíndrica. Las coordenadas en polares $(r,\theta)$.
+            %subsubsection coord_cil_en_r3
+            \subsubsection{Coordenadas Esféricas en R³} % (fold)
+            \label{subsub:coordenadas_esfericas_en_r3}
+                En las coordenadas esféricas, tomando un punto $(x,y,z)$, las coordenadas esfericas son $(\rho,\varphi,\theta)$ donde \[\rho = \text{distancia del punto al origen} = \|(x,y,z)\| = \sqrt{x^2 + y^2 + z^2} \] \[\varphi = \text{ángulo que debe moverse el eje verical para llegar al punto} \in (0,\pi)\] \[\theta = \text{ángulo que se debe mover el eje real positivo hasta alcanzar el punto (x,y,0) }\]
+                De aquí se deduce que:
+                \[z = \rho \cdot cos(\varphi)\]
+                \[sin(\varphi) = \frac{r}{\rho} \tag{Siendo r la distancia de la proyección en el plano (x,y)}\]
+                \[x = \rho \cdot sin(\varphi) \cdot cos(\theta) \]
+                \[y = \rho \cdot sin(\varphi) \cdot sin(\theta)\]
+
+                En estas coordenadas, se toma una esfera de radio $\rho$ y luego se indica en que posición de la superficie de esa esfera se encuentra el punto, de ahí el nombre de coordenadas esféricas. 
+            %subsubsection coord_esf_en_r3    
+        % subsection otras_coordenadas_de_r_y_ (end)
+    % section espacio_euclídeo (end)
+    \section{Topología} % (fold)
+    \label{sec:topología}
+        \subsection{Interior de un Conjunto} % (fold)
+        \label{sub:interior_de_un_conjunto}
+            Sea $x_0 \in \R^n$ y $r > 0$, denotamos como $B(x_0,r) = \text{puntos x de $\R^n$ a distancia de $x_0$ menor que r} = \{x \in \R^n: \|x-x_0\|< r \}$. Esto se llama \textbf{bola abierta} centrada a $x_0$ y de radio $r$, ya que los puntos de la superficie de la bola no se consideran dentro. \\
+
+            Siendo $A \subset \R^n$, definimos que $A^{\mathrm{o}}$, el interior del conjunto $A$ es $x\in \R^n$ tal que exista un $r>0$ de forma que $B(x,r) \subseteq A$
+        % subsection interior_de_un_conjunto (end)
+        \subsection{Conjunto abierto} % (fold)
+        \label{sub:conjunto_abierto}
+            Un conjunto $A$ se considera un conjunto abierto si $ A = A^{\mathrm{o}}$. Se puede pensar como aquellos conjuntos que no incluyen su frontera. Por ejemplo, si tuvieramos un conjunto $A = (a,b)$, este conjunto sería abierto ya que $(a,b) = \{ x \in \R \text{ tal que hay un intervalo centrado a $x$ contenido dentro de $(a,b)$}\}$  
+        % subsection conjunto_abierto (end)
+        \subsection{Conjunto cerrado} % (fold)
+        \label{sub:conjunto_cerrado}
+            Sea $A \subset \R ^n$, definimos la \textbf{adherencia del conjunto A} como $\overline{A} = \{x\in \R^n \text{ tal que } B(x,r)\cap A \ne \emptyset \text{ para todo } r>0\}$. Por este motivo sabemos con seguridad que $A \subseteq \overline{A}$. Por ejemplo, si se tuviera un intervalo $(a,b)$, adherencia de este intervalo sería el intervalo $[a,b]$.\\
+
+            Observamos que si $x \notin [a,b]$ entonces $x \notin \overline{(a,b)}$, pues para radios más pequeños que la distancia entre $x$ y $(a,b)$, la intersección es $\emptyset$.\\
+
+            Decimos que un conjunto es un \textbf{conjunto cerrado} si $\overline{A} = A$. De esta forma nos encontramos con un teorema:
+            %Pendiente revisión de teoremas
+            \begin{center}
+                \textit{Sea $A \subset \R^n$ entonces $A$ es abierto $\Leftrightarrow$ su complementario es cerrado}
+            \end{center}
+        % subsection conjunto_cerrado (end)
+        \subsection{Frontera de un conjunto} % (fold)
+        \label{sub:frontera_de_un_conjunto}
+            Sea $A \subset \R^n$, definimos la frontera de $A$ como $fr(A) = \overline{A} \backslash  A^{\mathrm{o}}$, es decir la parte que contiene $\overline{A}$ pero no $A^{\mathrm{o}}$
+        % subsection frontera_de_un_conjunto (end)
+        \subsection{Conjunto acotado y conjunto compacto} % (fold)
+        \label{sub:conjunto_acotado_y_conjunto_compacto}
+            Un conjunto $A \subset \R^n$ se considera \textbf{acotado} si existe $M>0$ tal que $A\subseteq \text{Bola centrada al origen de radio M}$. Por ejemplo, una recta a en $\R^2$ no está acotado, pero un cubo en $\R^3$ sí.
+            % subsection conjunto_acotado_y_conjunto_compacto (end)
+    % section topología (end)
+
+\end{document}

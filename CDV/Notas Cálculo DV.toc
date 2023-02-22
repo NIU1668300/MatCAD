@@ -1,0 +1,17 @@
+\babel@toc {american}{}\relax 
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Espacio Euclídeo}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Operaciones}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Demostración de la Desigualdad de Cauchy-Schwarz}{2}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Demostración de la Desigualdad Triangular}{3}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Otras coordenadas de R² y R³ }{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Coordenadas Polares en R²}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Coordenadas Cilíndricas en R³}{3}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Coordenadas Esféricas en R³}{3}{subsubsection.2.2.3}%
+\contentsline {section}{\numberline {3}Topología}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Interior de un Conjunto}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Conjunto abierto}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Conjunto cerrado}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Frontera de un conjunto}{4}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Conjunto acotado y conjunto compacto}{4}{subsection.3.5}%
