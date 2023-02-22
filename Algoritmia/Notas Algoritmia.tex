@@ -1,0 +1,171 @@
+b\documentclass[11pt]{article}
+\RequirePackage{etex}
+%\pagestyle{empty}
+\usepackage[activeacute,spanish,american]{babel}
+\usepackage[utf8]{inputenc}%Para usar los acentos normalmente.
+\usepackage[T1]{fontenc}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+% \restartpythontexsession{\thesection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\usepackage{tkz-base}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet, amssymb,amsmath,latexsym}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{multienum}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{multicol}
+% \usepackage{gensymb}
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\usepackage{color,soul}%permite texto y subrayar en color.
+\input{/home/samuel/Documents/Latex/Colores.tex}
+% \usepackage[pdftex]{graphicx}
+%Dimensiones
+\usepackage[a4paper,left=2cm,right=1.5cm, top=1.5cm, bottom=3cm,includehead]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nombres de conjuntos y comandos propios.
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+% \usepackage{esvect}
+% \renewcommand{\vec}{\vv}
+ \usepackage{pgf,tikz}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{chains}
+\usetikzlibrary{scopes}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning,automata,calc}
+ %\usepackage{framed}
+ %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
+ %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
+ \usepackage{tkz-tab,tkz-euclide}
+% \usetkzobj{all}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cajas de colores
+%
+\input{/home/samuel/Documents/Latex/ColorBoxes}
+\input{/home/samuel/Documents/Latex/Exercises}
+%Ecuaciones resaltadas
+% \usepackage[overload,ntheorem,reqno]{empheq}
+%\input{/home/samuel/Documents/Latex/Ambientes-teoremas}
+ \theoremstyle{plain}
+ \renewcommand{\qedsymbol}{\makebox[7.7778pt][c]{\rule{1ex}{1ex}}}
+ \newtheorem*{demo}{Demostración}
+ \input{/home/samuel/Documents/Latex/TeoremasEnumerados}
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=false,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Teoria de Algoritmia},    % title
+    pdfauthor={Samuel Ortega Cuadra},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={Hecho con \LaTeX},   % creator of the document
+    pdfproducer={ps2pdf}, % producer of the document
+    pdfkeywords={} {} {}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=naranja,          % color of internal links
+    citecolor=violeta,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+\setcounter{secnumdepth}{4} %controla la profundidad de la numeración
+
+\addto\captionsamerican{%
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+
+
+\title{Notas Algoritmia}
+\author{Samuel Ortega Cuadra}
+\input{/home/samuel/Documents/Latex/messages}
+
+\begin{document}
+    \begin{center}
+        \huge{Teoría de Algoritmia. 1º de Carrera. Tema 1}
+    \end{center}
+    \tableofcontents
+    \newpage
+    \section{Introducción} % (fold)
+    \label{sec:introducción}
+        Un grafo combinatorio es una pareja ordenada $G = (V,E)$ de V vértices y un subconjunto E contenido en $V \times V$ siendo este el producto Cartesiano $V \times V$. Si el grafo no está dirigido se llaman aristas y las parejas $(v,w) \in E$ se consideran sin orden. Si el grafo está dirigido u orientado los elementos de E se llaman flechas, las cuales poseen una dirección, y las parejas $(v,w)$ un orden. Si el grafo no está dirigido, no se considera que tenga un principio o un final, simplemente están relacionados.\\
+
+        Los grafos se usan para representar redes de comunicación, organizaciones de datos y flujos de computación. La primera persona que habló de grafos fue Leonhard Euler resolviendo el problema de los siete puentes de Königsberg. En este problema surgió lo que hoy es conocido como la \textbf{Fórmula de Euler}, la cual relaciona el número de aristas, vértices y caras de un poliedro convéxo.\\
+
+        Uno de los problemas más clásicos en teoría de grafos fue el problema de los cuatro colores:
+
+        \begin{center}
+            \textit{¿Es cierto que cualquier mapa dibujado en el plano puede colorearse con 4 colores de tal forma que cualquieras dos regiones que tengan una frontera común tengan diferentes colores?}
+        \end{center}
+    % section introducción (end)
+    \section{Definiciones Básicas} % (fold)
+    \label{sec:definiciones_básicas}
+        \subsection{Orden y medida} % (fold)
+        \label{sub:orden_y_medida}
+            El Orden de un grafo es el número de vértices de un grafo $(|V|)$. La medida de un grafo es el número de aristas o flechas $(|E|)$
+        % subsection orden_y_tamaño (end)
+        \subsection{Valencia y Grado} % (fold)
+        \label{sub:valencia_y_grado}
+            El grado o valencia de un vértice es el número de aristas llegando o saliendo de él. Si una arista une un vértice consigo mismo cuenta 2 veces.\\
+
+            El in-grado (\textit{in-degree originalmente}) es el número de aristas que llegan al vértices. El out-grado (\textit{out-degree originalmente}) es el número de aristas saliendo del vértice. Estos valores solo se pueden cálcular en un grafo dirigido.
+        % subsection valencia_y_grado (end)
+        \subsection{Vértice Hoja y Vértice Rama} % (fold)
+        \label{sub:vértice_hoja}
+            Un vértice hoja, es un vértice que posee una única arista. También pueden ser llamados terminales.\\
+            Un vértice rama, es aquel vértice que está conectado por más de dos aristas.
+            \begin{center}
+                \textit{\textbf{NOTA:} Si un vértice está unido por dos aristas, una a otro vértice y otra a si mismo, en un grafo dirigido formalmente se considera rama, pero ya que muchas veces se toma solo la valencia de entrada no sería rama.}
+            \end{center}
+        % subsection vértice_hoja (end)
+        \subsection{Camino y Bucles} % (fold)
+        \label{sub:camino_y_bucles}
+            El camino de un grafo es la secuencia de aristas conectadas linealmente. En el grafo dirigido, el final de una arista debe ser el inicio de la siguiente. La longitud de un camino es el número de aristas que contiene. 
+
+            Un bucle o circuito es un camino cerrado. Eso implica que el final de la última arista es el inicio de la primera.
+        % subsection camino_y_bucles (end)
+    % section definiciones_básicas (end)
+    \section{Conectividad de un grafo} % (fold)
+    \label{sec:conectividad_de_un_grafo}
+        \subsection{Conectividad de un grafo no dirigido} % (fold)
+        \label{sub:conectividad_de_un_grafo_no_dirigido}
+            Un grafo no dirigido está \textbf{conectado} si existe un camino entre cualquier pareja de vértices. Un \textbf{componente conectado} en un subgrafo en el que todos los puntos están conectados entre sí.
+        % subsection conectividad_de_un_grafo_no_dirigido (end)
+
+        \subsection{Conectividad de un grafo digido} % (fold)
+        \label{sub:conectividad_de_un_grafo_digido}
+            Se dice que un grafo dirigido está conectado de forma \textbf{débil} cuando está conectado como un grafo no dirigido.
+
+            Un grafo dirigido esta \textbf{semiconectado} cuando para dos vértices cualesquiera $(u,v)$ contiene un camino de $u$ a $v$ \textbf{o} de $v$ a $u$.
+
+            Un grafo dirigido está conectado de forma \textbf{fuerte} si existen ambos caminos en el grafo semiconectado
+        % subsection conectividad_de_un_grafo_digido (end)
+    % section conectividad_de_un_grafo (end)
+\end{document}
