@@ -1,0 +1,189 @@
+\documentclass[11pt]{article}
+\RequirePackage{etex}
+%\pagestyle{empty}
+\usepackage[activeacute,spanish,american]{babel}
+\usepackage[utf8]{inputenc}%Para usar los acentos normalmente.
+\usepackage[T1]{fontenc}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{url}
+\urlstyle{same}
+\usepackage{pst-plot}
+
+\usepackage[makestderr]{pythontex}
+% \restartpythontexsession{\thesection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\usepackage{tkz-base}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet, amssymb,amsmath,latexsym}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{multienum}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{multicol}
+% \usepackage{gensymb}
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\usepackage{color,soul}%permite texto y subrayar en color.
+\input{/home/samuel/Documents/Latex/Colores.tex}
+% \usepackage[pdftex]{graphicx}
+%Dimensiones
+\usepackage[a4paper,left=2cm,right=1.5cm, top=1.5cm, bottom=3cm,includehead]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nombres de conjuntos y comandos propios.
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+% \usepackage{esvect}
+% \renewcommand{\vec}{\vv}
+ \usepackage{pgf,tikz}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{chains}
+\usetikzlibrary{scopes}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning,automata,calc}
+ %\usepackage{framed}
+ %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
+ %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
+ \usepackage{tkz-tab,tkz-euclide}
+% \usetkzobj{all}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cajas de colores
+%
+\input{/home/samuel/Documents/Latex/ColorBoxes}
+\input{/home/samuel/Documents/Latex/Exercises}
+%Ecuaciones resaltadas
+% \usepackage[overload,ntheorem,reqno]{empheq}
+%\input{/home/samuel/Documents/Latex/Ambientes-teoremas}
+ \theoremstyle{plain}
+ \renewcommand{\qedsymbol}{\makebox[7.7778pt][c]{\rule{1ex}{1ex}}}
+ \newtheorem*{demo}{Demostración}
+ \input{/home/samuel/Documents/Latex/TeoremasEnumerados}
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=false,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Teoria de Cálculo Numérico},    % title
+    pdfauthor={Samuel Ortega Cuadra},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={Hecho con \LaTeX},   % creator of the document
+    pdfproducer={ps2pdf}, % producer of the document
+    pdfkeywords={} {} {}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=naranja,          % color of internal links
+    citecolor=violeta,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+\setcounter{secnumdepth}{4} %controla la profundidad de la numeración
+
+\addto\captionsamerican{%
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+
+\title{Notas Cálculo Numérico}
+\author{Samuel Ortega Cuadra}
+\input{/home/samuel/Documents/Latex/messages}
+
+\begin{document}
+    \begin{center}
+        \huge{Teoría de Cálculo Numérico. 1º de Carrera.}
+    \end{center}
+    \tableofcontents
+    \newpage
+    \section{Introducción} % (fold)
+    \label{sec:introducción}
+        Esta clase es impartida por Joseo María Mondelo (jmm@mat.uab.cat). Esta asignatura busca enseñar a emplear métodos numéricos, algotitmos los cuales investigaremos como funcionan para comprender de una forma más elaboradas los errores que cometemos. La nota estará dividida en la parte de teoría que valdrá 6 puntos y 4 puntos de la prática.\\
+
+        La nota de teoría se obtendrá de multiplicar $0.6$ por: \[max(0.35 \cdot \text{Nota Parcial} + 0.65 \cdot \text{Nota Final},\text{Nota Final}, \text{Recuperación})\] de esta forma el parcial solo suma. \textbf{EL EXAMEN SE PUEDE HACER CON APUNTES}. La nota mínima será un $3.5$ en las prácticas y un $3.5$ al realizar el máximo de la nota de teoría. La nota de prácticas vendrá divida en tres partes:
+        \begin{itemize}
+             \item 5 puntos porque funcione.
+             \item 2 puntos por la belleza del código.
+             \item 3 puntos por la memoria del proyecto (Es importante hacerla bonita)
+         \end{itemize} 
+    % section introducción (end)
+    \section{Errores} % (fold)
+    \label{sec:errores}
+        Métodos Numéricos: Soluciones optimizadas a problemas matemáticos
+        \begin{equation}
+            \text{solución}(h)\text{, solución}(h) \xrightarrow{h \rightarrow 0} \text{solución}
+        \end{equation}
+        Lo que buscan los métodos numéricos son formas de conseguir que este error se minimice de tal forma que encontremos la solución más cercana a la solución real. Existen 3 tipos de errores:
+        \begin{itemize}
+            \item Errores de los datos de entrada
+            \item Errores de redondeo.
+            \item Errores de truncamiento (Originado por el método numérico)
+        \end{itemize}
+        \subsection{Representación teórica en punto flotante} % (fold)
+        \label{sub:representación_teórica_en_punto_flotante}
+        El teorema dice:
+                \[\R \in \N, b \ge 2. \text{ Todo } x \in \R, x \ne 0\]
+                \[\text{Se puede escribir } x = s (\sum_{i=1}^{\infty} \alpha_i \cdot b^{-i})\cdot b^q\]
+                \[\text{Con} s \in \{+1,-1\}, q \in \Z\]
+                \[\{\alpha_i\}_{i=1}^\infty \subset \{0,...,b-1\}\]
+        Tiene representación única si:
+        \begin{itemize}
+            \item $\alpha_1 \ne 0$ (representación normalizada)
+            \item $\forall$ $i_0 \in \N$ $\exists$ $i \ge i_0$ : $\alpha_i \ne b-1$
+        \end{itemize}
+        Escribimos:
+            \[s\cdot (0.\alpha_1 \alpha_2 \alpha_3...)_b b^q\]
+        % subsection representación_teórica_en_punto_flotante (end)
+        \subsection{Formato de punto flotante} % (fold)
+        \label{sub:formato_de_punto_flotante}
+            Los ordinadores:
+            \begin{itemize}
+                \item Trabajan con \# finito de dígitos, $t$
+                \item Limitan el rando del exponente: \[q_{min} \le q \le q_{max}\]
+            \end{itemize}
+            Los parámetros $b,t,q_{min},q_{max}$ definen un formato de punto flotante o el conjunto de números máquina:
+            \begin{equation}
+                 F(b,t,q_{min},q_{max}) = \{0\} \cup \{\pm (0.\alpha_1 \alpha_2 ... \alpha_t) b^q : \{ \alpha_i\}_{i=1}^{t} \subset \{0,1,...,b-1\}, \alpha_1\ne0, q_{min} \le q \le q_{max}\}
+            \end{equation}
+            Parámetros de algunos formatos de punto flotante:\\
+            \begin{center}
+                \begin{tabular}{c|c c c c c}
+                    Formato & b & t & $q_{min}$ & $q_{max}$ & bits\\
+                    \hline
+                    IEEE simple & 2 & 24 & -125 & 128 & 32\\
+                    IEEE doble & 2 & 53 & -1021 & 1024 & 64\\
+                \end{tabular}
+            \end{center}
+            En la memoria 
+            IEEE simple \begin{tabular}{|c|c|c|}
+            \hline
+             $s(1)$ & $e = q + 126(8)$ & $mantisa(23)$\\
+             \hline 
+            \end{tabular}
+            Y en la doble \begin{tabular}{|c|c|c|}
+            \hline
+             $s(1)$ & $e = q + 1022(11)$ & $mantisa(52)$\\
+            \hline 
+            \end{tabular}
+        % subsection formato_de_punto_flotante (end)
+    % section errores (end)
+
+    
+\end{document}
