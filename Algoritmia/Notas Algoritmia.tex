@@ -1,4 +1,4 @@
-b\documentclass[11pt]{article}
+\documentclass[11pt]{article}
 \RequirePackage{etex}
 %\pagestyle{empty}
 \usepackage[activeacute,spanish,american]{babel}
@@ -25,6 +25,7 @@ b\documentclass[11pt]{article}
 \usepackage{multienum}
 \usepackage[inline,shortlabels]{enumitem}
 \usepackage{multicol}
+\usepackage{float}
 % \usepackage{gensymb}
 \providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
 \providecommand{\abs}[1]{\left\lvert #1\right\rvert}
@@ -55,10 +56,11 @@ b\documentclass[11pt]{article}
 \usetikzlibrary{scopes}
 \usetikzlibrary{matrix}
 \usetikzlibrary{positioning,automata,calc}
- %\usepackage{framed}
+ %\usepackage{framed}{}
  %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
  %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
  \usepackage{tkz-tab,tkz-euclide}
+ \usepackage{pythontex}
 % \usetkzobj{all}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Cajas de colores
@@ -117,6 +119,45 @@ b\documentclass[11pt]{article}
     \label{sec:introducción}
         Un grafo combinatorio es una pareja ordenada $G = (V,E)$ de V vértices y un subconjunto E contenido en $V \times V$ siendo este el producto Cartesiano $V \times V$. Si el grafo no está dirigido se llaman aristas y las parejas $(v,w) \in E$ se consideran sin orden. Si el grafo está dirigido u orientado los elementos de E se llaman flechas, las cuales poseen una dirección, y las parejas $(v,w)$ un orden. Si el grafo no está dirigido, no se considera que tenga un principio o un final, simplemente están relacionados.\\
 
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \tikzstyle{every node}=[draw,shape=circle];
+                \node (A) at (3,0) {A};
+                \node (B) at (1,-1) {B};
+                \node (C) at (-1,-1) {C};
+                \node (D) at (-1,1) {D};
+                \node (E) at (1,1) {E};
+                \node (F) at (-3,1) {F};
+                \draw (F) -- (D);
+                \draw (D) -- (E);
+                \draw (E) -- (A);
+                \draw (B) -- (A);
+                \draw (E) -- (B);
+                \draw (C) -- (D);
+                \draw (C) -- (B);
+            \end{tikzpicture}
+            \caption{Grafo No Dirigido} \label{Fig_1}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \tikzstyle{every node}=[draw,shape=circle];
+                \node (A) at (-2,1) {A};
+                \node (B) at (0,1) {B};
+                \node (C) at (-1,-1) {C};
+                \node (D) at (1,-1) {D};
+                \node (E) at (2,1) {E};
+                \draw [->] (A) -- (B);
+                \draw [->] (B) -- (C);
+                \draw [->] (C) -- (A);
+                \draw [->] (B) -- (E);
+                \draw [->] (E) to [out=90,in=0,looseness=6] (E);
+                \draw [->] (D) -- (E);
+            \end{tikzpicture}
+            \caption{Grafo Dirigido} \label{Fig_2}
+        \end{figure}
+
         Los grafos se usan para representar redes de comunicación, organizaciones de datos y flujos de computación. La primera persona que habló de grafos fue Leonhard Euler resolviendo el problema de los siete puentes de Königsberg. En este problema surgió lo que hoy es conocido como la \textbf{Fórmula de Euler}, la cual relaciona el número de aristas, vértices y caras de un poliedro convéxo.\\
 
         Uno de los problemas más clásicos en teoría de grafos fue el problema de los cuatro colores:
@@ -144,6 +185,7 @@ b\documentclass[11pt]{article}
             \begin{center}
                 \textit{\textbf{NOTA:} Si un vértice está unido por dos aristas, una a otro vértice y otra a si mismo, en un grafo dirigido formalmente se considera rama, pero ya que muchas veces se toma solo la valencia de entrada no sería rama.}
             \end{center}
+
         % subsection vértice_hoja (end)
         \subsection{Camino y Bucles} % (fold)
         \label{sub:camino_y_bucles}
@@ -156,7 +198,35 @@ b\documentclass[11pt]{article}
     \label{sec:conectividad_de_un_grafo}
         \subsection{Conectividad de un grafo no dirigido} % (fold)
         \label{sub:conectividad_de_un_grafo_no_dirigido}
-            Un grafo no dirigido está \textbf{conectado} si existe un camino entre cualquier pareja de vértices. Un \textbf{componente conectado} en un subgrafo en el que todos los puntos están conectados entre sí.
+            Un grafo no dirigido está \textbf{conectado} si existe un camino entre cualquier pareja de vértices. Un \textbf{componente conectado} en un subgrafo en el que todos los puntos están conectados entre sí. En el ejemplo que se muestra a continuación, el grafo es un grafo desconectado con 2 componentes conectados, el primero formado por los nodos 1,2,3,4,5 y el segundo formado por los nodos 7,8,9,10\\
+            \begin{center}
+                \begin{tikzpicture}
+                \tikzstyle{every node}=[draw,shape=circle];
+                \node (3) at (-1,1) {3};
+                \node (2) at (1,1) {2};
+                \node (1) at (3,2) {1};
+                \node (5) at (1,3) {5};
+                \node (4) at (-1,3) {4};
+                \node (6) at (-3,3) {6};
+                \node (7) at (-3,1) {7};
+                \node (9) at (-1,-1) {9};
+                \node (8) at (-3,-3) {8};
+                \node (10) at (1,-3) {10};
+                \draw (2) -- (3);
+                \draw (3) -- (4);
+                \draw (4) -- (5);
+                \draw (5) -- (2);
+                \draw (5) -- (1);
+                \draw (2) -- (1);
+                \draw (6) -- (4);
+                \draw (7) -- (9);
+                \draw (7) -- (8);
+                \draw (8) -- (9);
+                \draw (9) -- (10);
+                \draw (8) -- (10);
+            \end{tikzpicture}
+            \end{center}
+            
         % subsection conectividad_de_un_grafo_no_dirigido (end)
 
         \subsection{Conectividad de un grafo digido} % (fold)
@@ -168,4 +238,50 @@ b\documentclass[11pt]{article}
             Un grafo dirigido está conectado de forma \textbf{fuerte} si existen ambos caminos en el grafo semiconectado
         % subsection conectividad_de_un_grafo_digido (end)
     % section conectividad_de_un_grafo (end)
+    \section{Modelos de Memoria} % (fold)
+    \label{sec:modelos_de_memoria}
+        \subsection{Lista de Adyacencia} % (fold)
+        \label{sub:lista_de_adyacencia}
+            Los vértices estań organizados como estructuras y cada vértice guarda una lista de vértices adyacentes (de ahí el nombre de lista de adyacencia). Esta estructura de datos permite almacenar datos adicionales sobre los vértices.
+
+            Una estructura en C se define utilizando el comando \textit{struct}
+        % subsection representación_en_lista_lista_de_adyacencia (end)
+        \subsection{Lista de Incidencia} % (fold)
+        \label{sub:lista_de_incidencia}
+            Tanto los vértices como aristas están almacenadas como estructuras. Cada arista guarda los vértices que incide, y de forma opcional los vértices pueden guardar las aristas incidentes. Esto permite almacenar información adicional de tanto vértices como de aristas.
+        % subsection representación_en_lista_lista_de_incidencia (end)
+        \subsection{Matriz de Adyacencia} % (fold)
+        \label{sub:matriz_de_adyacencia}
+            Es una matriz bidimensional en la que las columnas representan los vértices de inicio y las finals los vértices del final de una arista. La entrada i,j en la matriz, correspondería al número de flechas que empiezan en i y terminan en j. En un grafo no dirigido, esta matriz es simétrica.\\
+
+            \begin{center}
+                $\begin{pmatrix} 
+                    0 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 1\\
+                    1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1    
+                \end{pmatrix}$ 
+            \end{center}
+            Esta matriz representa los datos del grafo dirigido representado en la Figura \ref{Fig_2}.
+        % subsection matriz_de_adyacencia (end)
+        \subsection{Matriz de Incidencia} % (fold)
+        \label{sub:matriz_de_incidencia}
+            Es una matriz bidimensional formada por datos \textit{Bool} (True y False) en el que las filas representan los vértices y las columnas representan las aristas. Sus entradas indican si el vértice de la fila y la arista de la columna son incidentes. Para grafos dirigidos:
+            \begin{itemize}
+                \item +1 indica que el vértice es el origen de la flecha
+                \item -1 indica que el vértice es el final de la flecha
+            \end{itemize}
+            \begin{center}
+                $\begin{pmatrix} 
+                    1 & 0 & -1 & 0 & 0\\
+                    -1 & 1 & 0 & 1 & 0\\
+                    0 & -1 & 1 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & -1 & -1    
+                \end{pmatrix}$ 
+            \end{center}
+            Esta matriz también representan el grafo digido de la Figura \ref{Fig_2}. Sin embargo, en este caso no se puede representar la flecha que sale del nodo 5 y vuelve a entrar.         
+        % subsection matriz_de_incidencia (end)
+    % section modelos_de_memoria (end)
 \end{document}
