@@ -253,9 +253,8 @@
                     \end{equation}
                     \item Sub-aditividad:
                     \begin{equation}
-                        \mathbb{P}(A \cup B) \le \mathbb{P}(A) + \mathbb{P}(B)
+                        \mathbb{P}(A \cup B) \le \mathbb{P}(A) + \mathbb{P}(B) \;\;\; \text{(Porque $\mathbb{P}(A\cap B) \ge 0$)}
                     \end{equation}
-                    Porque $\mathbb{P}(A\cap B) \ge 0$
                 \end{itemize}
             % subsection propiedades_de_p (end)
             \subsection{La Fórmula de Laplace} % (fold)
@@ -336,7 +335,7 @@
                  \end{equation} 
                  Podemos observar que la combinación de $n$ elementos tomados de $m$ en $m$ puede verse como la división de las variaciones de $n$ elementos tomados de $m$ en $m$ (explicado en la fórmula \ref{eq:17}) partido las permutaciones de $m$ elementos (explicado en la fórmula \ref{eq:15})\\
 
-                 ¿Que ocurriría si nos encontraramos con un caso en el que hubiera elementos repetidos? Un ejemplo posible sería sacar 10 alumnos de una clase formada por 15 chicos y 30 chicas. Para hallar la probabilidad de sacar 3 chicos y 7 chicas exactamente primero calcularemos todas las combinaciones posibles de 45 elementos sacados de 10 en 10 \[C_{45}^{10} =\frac{45!}{10!(45-10)!} \] El número de casos que cumplen el requisito calculando el número de combinaciones de 10 chicos sacados de 3 en 3 \[C_15^3 = \binom{15}{3}\] y el número de combinaciones de 30 chicas sacadas de 7 en 7 \[C_30^7  = \binom{30}{7}\] Aplicando el principio de multipliación (\textit{explicado en \ref{sec:combinatoria}}), multiplicaremos estas dos posibilidades entre si: \[\binom{15}{3} \cdot \binom{30}{7}\] y dividiremos entre los casos posibles: 
+                 ¿Que ocurriría si nos encontraramos con un caso en el que hubiera elementos repetidos? Un ejemplo posible sería sacar 10 alumnos de una clase formada por 15 chicos y 30 chicas. Para hallar la probabilidad de sacar 3 chicos y 7 chicas exactamente primero calcularemos todas las combinaciones posibles de 45 elementos sacados de 10 en 10 \[C_{45}^{10} =\frac{45!}{10!(45-10)!} \] El número de casos que cumplen el requisito calculando el número de combinaciones de 10 chicos sacados de 3 en 3 \[C_{15}^3 = \binom{15}{3}\] y el número de combinaciones de 30 chicas sacadas de 7 en 7 \[C_{30}^7  = \binom{30}{7}\] Aplicando el principio de multipliación (\textit{explicado en \ref{sec:combinatoria}}), multiplicaremos estas dos posibilidades entre si: \[\binom{15}{3} \cdot \binom{30}{7}\] y dividiremos entre los casos posibles: 
                  \begin{equation}
                      \prob (A) = \frac{\# A}{\#\OMG} = \frac{\binom{15}{3} \cdot \binom{30}{7}}{\binom{45}{10}} = 0,2904
                  \end{equation}
@@ -371,8 +370,8 @@
         ¿Que ocurriría si tuvieramos como información que la suma de los dos dados es 8? Lo primero que haremos será saber para cuantos casos se cumplirá el suceso $A = \text{"La suma es 8"}$, para posteriormente calcular la \textbf{probabilidad condicionada en A}, es decir, cual es la probabilidad de que ocurra un suceso si se sabe que ha ocurrido A.\\
 
         Esta probabilidad se calcula de la siguiente forma:
-        \begin{equation}
-            \prob (B | A) = \frac{\prob(B \cap A)}{\prob(A)} \tag{Siempre y cuando $\prob(A) > 0$}
+        \begin{equation}\label{eq:23}
+            \prob (B | A) = \frac{\prob(B \cap A)}{\prob(A)} \;\;\;\text{(Siempre y cuando $\prob(A) > 0$)}
         \end{equation}
         Siguiendo el ejemplo anterior, nos quedaría de la siguiente forma:
         \[\prob (B | A) = \frac{\prob(B \cap A)}{\prob(A)} = \frac{1/6}{5/36} = \frac{1}{5} = 0.2\]
@@ -381,14 +380,77 @@
         \textbf{IMPORTANTE:} En sucesos en los que $\prob(A)>0$:
         \[\prob(\cdot | A) : \mathcal{A} \rightarrow [0,1]\]
         \[B \rightarrow \prob(B | A) = \frac{\prob(B \cap A)}{\prob(A)}\]
-        Es una \textbf{probabilidad}, ya que cumple todas las propiedades de las propiedades:
+        Es una \textbf{probabilidad}, ya que cumple todas las propiedades de las probabilidades:
         \begin{enumerate}
             \item $\prob(\OMG | A) = \frac{\prob(\OMG \cap A)}{\prob(A)} = \frac{\prob(A)}{\prob(A)} = 1$
             \item $\sigma-aditividad:$ siendo $A_1,A_2,...$ disjuntos 2 a 2: \[\prob(\cup_{n=1}^{\infty} A_n | A) = \frac{\prob((\cup_{n=1}^{\infty} A_n) \cap A)}{\prob(A)} = \frac{\prob(\cup_{n=1}^{\infty} (A_n\cap A))}{\prob(A)}\]
             \[= \frac{ \sum_{ n=1 }^{ \infty } \prob(A_n \cap A)}{\prob(A)} \]
         \end{enumerate}
-
+        Algunas otras propiedades son:
+        \begin{itemize}
+            \item $\prob (B ^c | A) = 1 - \prob (B|A)$
+            \item $\prob (B \cup C | A) = \prob(B | A) + \prob(C|A) - \prob(B\cap C | A)$\\ Aunque, en general no se cumple que $\prob (B | A^c) \ne 1 - \prob (B|A)$
+            \item Regla del producto (Fórmula de probabilidad compuesta) \[\prob (A\cap B) = \prob (B | A) \cdot \prob (A) \;\;\;\text{(Siempre que $\prob(A)$ no sea 0)}\]
+        \end{itemize}
+        Esta fórmula de la probabilidad condicionada existe también para 3 sucesos, si $\prob(A_1\cap A_2) \ne 0$
+        \begin{equation}
+            \begin{aligned}
+                \prob (A_1 \cap A_2 \cap A_3) & = \prob (A_3 | A_1 \cap A_2) \cdot \prob (A_1 \cap A_2)\\
+                & = \prob (A_3 | A_1 \cap A_2) \cdot \prob (A_2 | A_1) \cdot \prob (A_1)
+            \end{aligned}
+        \end{equation}
     % section probabilidad_condicionada (end)
+    \section{Independencia de sucesos} % (fold)
+    \label{sec:independencia_de_sucesos}
+        Queremos decir que:
+        \[\prob (B|A) = \prob (B) \text{ y } \prob (A|B) = \prob (A) \;\;\;\text{(Sea $\prob(A), \prob(B) > 0$}\]
+        \textbf{Definición:} Decimos que dos sucesos $A$ y $B$ son \textbf{independientes} si: \[\prob(A \cap B) = \prob (A) \cdot \prob (B)\]
+        Si observamos, si aplicamos esta definición a la fórmula de la probabilidad condicionada (\ref{eq:23}) obtenemos lo que buscabamos representar.
+        \subsection{Propiedades de la independencia de sucesos} % (fold)
+        \label{sub:propiedades_de_la_independencia_de_sucesos}
+            Son equivalentes:
+            \begin{enumerate}
+                \item $A$ y $B$ son independientes
+                \item $A^c$ y $B$ son independientes
+                \item $A$ y $B^c$ son independientes
+                \item $A^c$ y $B^c$ son independientes
+            \end{enumerate}
+            \textbf{Prueba:} Es suficiente con demostrar que la propiedad (1) implica la propiedad (2).
+            \begin{equation}
+                \begin{aligned}
+                    B & = (A \cap B) \dot{\cup} (A^c \cup B)\\
+                    \Rightarrow \prob (B) & = \prob(A \cap B) + \prob (A^c \cap B)\\
+                    \Rightarrow \prob (A^c \cap B) & = \prob (B) - \prob(A\cap B)\\
+                    & = \prob (B) - \prob(A) \cdot \prob(B)\\
+                    & = \prob (B) \cdot (1 - \prob(A))\\
+                    & = \prob (B) \cdot \prob(A^c)
+                \end{aligned}
+            \end{equation}
+        % subsection propiedades_de_la_independencia_de_sucesos (end)
+        \subsection{Independencia de 3 o más sucesos} % (fold)
+        \label{sub:independencia_de_3_o_más_sucesos}
+            Tomados 3 elementos $A,B,C$ podríamos pensar la independencia de estos 3 de dos formas. La primera de ellas es pensar que cada pareja de elementos que tomemos serán independientes, es decir:
+            \begin{equation}\label{eqn: Prop.1}
+                \begin{cases}
+                    \prob (A\cap B) = \prob (A) \cdot \prob(B)\\
+                    \prob(A\cap C) = \prob(A) \cdot \prob(C)\\
+                    \prob(B\cap C) = \prob(B) \cdot \prob(C)
+                \end{cases}
+            \end{equation}
+            O bien se podría pensar como que se necesita la independencia de los 3 a la vez, es decir:
+            \begin{equation}\label{eqn: Prop.2}
+                \prob(A\cap B\cap C) = \prob (A) \cdot \prob(B) \cdot \prob(C)
+            \end{equation}
+            Si solo se cumple la propiedad (26) podemos decir que los sucesos son \textit{independientes 2 a 2}, pero no que los 3 sean independientes, luego diremos que:
+            \begin{center}
+                "Para que 3 o más elementos se consideren independientes deben cumplirse la propiedad \ref{eqn: Prop.1} y la propiedad \ref{eqn: Prop.2}"
+            \end{center}
+        % subsection independencia_de_3_o_más_sucesos (end)
+    % section independencia_de_sucesos (end)
+
+
+
+    \newpage
     \section{Problemas} % (fold)
     \label{sec:problemas}
         \subsection{Problema 1} % (fold)
@@ -408,7 +470,7 @@
             \[\text{Probabilidad de acertar 14 resultados} \rightarrow \frac{\text{casos favorables}}{\text{Casos posibles}} \rightarrow \frac{1}{3^{14}}\]
             Para calcular la probabilidad de acertar un número $n$ de veces con $n\le14$:
             \begin{equation}
-                \frac{2^{14-n} \binom{14}{14-n}}{3^{14}}
+                \frac{2^{14-n} \binom{14}{14-{}n}}{3^{14}}
             \end{equation}
             Esta fórmula emplea la fórmula de Laplace (mencionada en el apartado \ref{sub:la_fórmula_de_laplace}), tomando como casos favorables $2^{14-n} \binom{14}{14-n}$ y como casos posibles los calculados anteriormente.
         % subsection problema_2 (end)

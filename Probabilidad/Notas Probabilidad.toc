@@ -22,9 +22,12 @@
 \contentsline {subsection}{\numberline {4.3}Combinaciones}{6}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Probabilidad y ODDS}{7}{section.5}%
 \contentsline {section}{\numberline {6}Probabilidad Condicionada}{7}{section.6}%
-\contentsline {section}{\numberline {7}Problemas}{8}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Problema 1}{8}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Problema 2}{8}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Problema 3}{9}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Problema 4}{9}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Problema 5}{9}{subsection.7.5}%
+\contentsline {section}{\numberline {7}Independencia de sucesos}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Propiedades de la independencia de sucesos}{9}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Independencia de 3 o más sucesos}{9}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Problemas}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Problema 1}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Problema 2}{10}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Problema 3}{10}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Problema 4}{10}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Problema 5}{11}{subsection.8.5}%
