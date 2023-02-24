@@ -1,3 +1,4 @@
 Bienvenidos al repositorio de MatCAD
 
-Clase de Hoy: Algoritmia y Probabilidad
+Clase de Hoy: CDV y Calculo Numérico
+
