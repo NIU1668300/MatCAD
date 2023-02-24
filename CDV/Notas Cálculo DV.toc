@@ -15,3 +15,6 @@
 \contentsline {subsection}{\numberline {3.3}Conjunto cerrado}{4}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Frontera de un conjunto}{4}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Conjunto acotado y conjunto compacto}{4}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Límites de funciones y Continuidad}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Límite de una sucesión en un espacio n-dimensional}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Límte de una función en n dimensiones}{5}{subsection.4.2}%

@@ -255,5 +255,61 @@
             Un conjunto $A \subset \R^n$ se considera \textbf{acotado} si existe $M>0$ tal que $A\subseteq \text{Bola centrada al origen de radio M}$. Por ejemplo, una recta a en $\R^2$ no está acotado, pero un cubo en $\R^3$ sí.
             % subsection conjunto_acotado_y_conjunto_compacto (end)
     % section topología (end)
+    \section{Límites de funciones y Continuidad} % (fold)
+    \label{sec:límites_de_funciones_y_continuidad}
+        En este apartado, estudiaremos funciones que vayan desde $\R^n$ a $\R^m$:
+        \[f: \R^n \longmapsto \R^m \]
+        \[x=(x_1,x_2,...,x_n) \rightarrow (f_1(x),f_2(x),...,f_m(x))\]
+        Por ejemplo: una función que iría de $\R^2$ a $\R$ es $f(x,y) = cos(x+y)e^{-x}$, mientras que una función que vaya desde $\R$ hasta $\R^3$ podría ser $f(t) = (e^{-t}, cos(t), sin(t))$. Cuando trabajamos con funciones que trabajan con más de una variable llega un punto en el que no pueden representarse de forma sencilla, ya que las dimensiones necesarias para representar la función serían $n+m$, por lo que primero definiremos el concepto de gráfico.
+        \begin{center}
+            \textbf{Definición:} Un \textbf{gráfico} se define como \[Graf(f) = \{(x,f(x)): x \in Dominio \ de \ f(x) \} \subset \R^{n+m} \rightarrow \text{tiene $n+m$ componentes}\]
+        \end{center}
+        Esta $x$ que aparece en la definición de gráfico no se refiere a la componente $x$, sino al vector del espacio $\R^n$ que se introduce en la función (Puede escribirse si resulta más fácil como $\vec{x}$). Por ejemplo, si tuvieramos que escribir el gráfico de $f(x,y) = x^2 + y ^2$ sería:
+        \[Graf(f) = \{(x,y,x^2 + y^2)\} \subset \R^3\]
+        Tras esto será necesario definir el concepto de conjunto de nivel:
+        \begin{center}
+            \textbf{Definición:} Un \textbf{conjunto de nivel} o \textbf{nivel c} de una función $f$ es el conjunto de $\{\vec{x} \in \R^n \text{ tal que } f(\vec{x}) = c \}$
+        \end{center}
+        Aplicando este concepto a la función anterior, un conjunto de nivel c sería: \[= \{(x,y) : x^2+y^2 = c\} = \{(x,y): dist((x,y),(0,0)) = \sqrt{c}\} = \text{circunferencia de centro $(0,0)$ y radio $\sqrt{c}$}\]
+
+        \subsection{Límite de una sucesión en un espacio n-dimensional} % (fold)
+        \label{sub:límite_de_una_sucesión_en_un_espacio_n_dimensional}
+            Sea $\{x_k\}$ una sucesión de puntos de $\R^n$, definimos su límite como:
+            \begin{equation}
+                \lim_{k\to\infty} x_k = L \text{ si para todo } \varepsilon > 0, \text{ existe } k_0=k_0(\varepsilon)>0\text{ tal que } \norm{x_k - L} = dist(x_k,L)<\varepsilon
+            \end{equation}
+            Es decir, $x_k$ pertenece a una bola de centro $L$ y radio $\varepsilon$ si $k\ge k_0$
+        % subsection límite_de_una_sucesión_en_un_espacio_n_dimensional (end)
+        \subsection{Límte de una función en n dimensiones} % (fold)
+        \label{sub:límte_de_una_función_en_n_dimensiones}   
+            El límite de una función que va de $\R^n$ a $\R^m$ lo definimos como:
+            \begin{equation}
+                \lim_{\vec{x}\to\vec{x_0}} f(x) = L \text{ si para todo } \varepsilon>0 \text{ existe } \delta = \delta(\varepsilon) > 0 \text{ tal que } \norm{f(\vec{x}) - L}<\varepsilon \ si \ 0<\norm{\vec{x}-\vec{x_0}}<\delta
+            \end{equation}
+            Es decir, se cumple el límite si cuando $x$ se acerca a $x_0$, $f(\vec{x})$ se acerca a $L$. Por ejemplo, tomando la función $f(x,y,z) = (e^{-y-z}x^2,sin(xy)+z^2+1)$, si cogieramos el límite cuando $(x,y,z)$ tiende a $(0,0,0)$, obtendríamos como resultado $L = (0,1)$.\\
+
+            Estos límites presentan unas propiedades similares a los límites en una variable. Si tomaramos dos límites $\lim_{x\to x_0} f(x) = L_1$ y $\lim_{x\to x_0} g(x) = L_2$, las propiedades serían:
+            \begin{enumerate}[label = \Alph*]
+                \item El límite de la suma de funciones es la suma de los límites \[\lim_{x\to x_0} (f(x)+g(x)) = L_1 + L_2\]
+                \item El límtie del producto de funciones es el producto de los límties \[\lim_{x\to x_0} f(x)g(x) = L_1 \cdot L_2\]
+                \item Si $L_2 \ne 0$, entonces \[\lim_{x\to x_0} = \frac{f(x)}{g(x)} = \frac{L_1}{L_2}\]
+                \item \textbf{Límites direccionales:} Sea $f$ una función que va de $\R^2$ a $\R$: \[\lim_{(x,y) \to (0,0)} f(x,y) = L \Rightarrow \lim_{t \to 0} f(t,mt) = L \text{ con L independiente de $m$}\]
+                Sin embargo, esta dependencia no ocurre en el sentido contrario, solo funciona de esta forma. 
+            \end{enumerate}
+            Si aplicamos los limites direccionales a un ejemplo quedaría de la siguiente forma:
+            \begin{equation}
+                \begin{aligned}
+                    \lim_{(x,y) \to (0,0)} \frac{x^3 + e^x y^2}{x^2 + y^2} & = \frac{0}{0}\\
+                    \text{Aplicando los límites direccionales:}\\
+                    \lim_{t\to 0} f(t,mt) & = \lim_{t \to 0} \frac{t^3+e^t(mt)^2}{t^2 + (mt)^2}\\
+                    & = \lim_{t \to 0} \frac{t + e^tm^2}{1 + m^2}\\
+                    & = \frac{m^2}{1+m^2} \rightarrow \text{Depende de m}\\
+                \end{aligned}
+            \end{equation}
+            Por lo tanto, el límite original no existe. Sin embargo, podemos encontrarnos con casos en los que $\lim_{t\to 0} f(t,mt)$ exista y no sea dependiente de m. En esos casos, no podemos decir nada, pues es posible que el límite original no exista aún así.
+
+        % subsection límte_de_una_función_en_n_dimensiones (end)
+
+    % section límites_de_funciones_y_continuidad (end)
 
 \end{document}
