@@ -25,9 +25,14 @@
 \contentsline {section}{\numberline {7}Independencia de sucesos}{8}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Propiedades de la independencia de sucesos}{9}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Independencia de 3 o más sucesos}{9}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Problemas}{10}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Problema 1}{10}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Problema 2}{10}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Problema 3}{10}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Problema 4}{10}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Problema 5}{11}{subsection.8.5}%
+\contentsline {section}{\numberline {8}Fórmulas importantes}{9}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Fórmula de las Probabilidades Totales}{9}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Fórmula de Bayes}{10}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Problemas}{11}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Problema 1}{11}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Problema 2}{11}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Problema 3}{11}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Problema 4}{11}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Problema 5}{12}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Problema 11}{12}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Problema 12}{12}{subsection.9.7}%

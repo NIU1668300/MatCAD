@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  23 FEB 2023 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  28 FEB 2023 10:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1768,23 +1768,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 377--379
 
  []
 
-[7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 479--480
+[7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
-[10] [11] (./Notas Probabilidad.aux)
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 469--471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--491
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
+
+ []
+
+[11]
+Overfull \hbox (8.62012pt too wide) detected at line 550
+\U/msb/m/n/10.95 P\OT1/cmr/m/n/10.95 ([]) = [] = [] = []
+ []
+
+
+Overfull \hbox (8.60078pt too wide) detected at line 571
+[][][][][]
+ []
+
+[12] (./Notas Probabilidad.aux)
 Package rerunfilecheck Info: File `"Notas Probabilidad".out' has not changed.
-(rerunfilecheck)             Checksum: BCCD608B28DF5E8C4DF316504FF5870B;2188.
+(rerunfilecheck)             Checksum: 0A8D696AAC4717A632CA75A61DE89B70;2522.
  ) 
 Here is how much of TeX's memory you used:
- 43324 strings out of 474968
- 915380 string characters out of 5776089
- 1399161 words of memory out of 5000000
- 63801 multiletter control sequences out of 15000+600000
- 483597 words of font info for 66 fonts, out of 8000000 for 9000
+ 43355 strings out of 474968
+ 915834 string characters out of 5776089
+ 1402408 words of memory out of 5000000
+ 63818 multiletter control sequences out of 15000+600000
+ 485671 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,8n,103p,912b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,9n,103p,912b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1797,16 +1822,18 @@ texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
-xlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on "Notas Probabilidad.pdf" (11 pages, 266351 bytes).
+xlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texliv
+e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
+2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022
+/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022/t
+exmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on "Notas Probabilidad.pdf" (12 pages, 323199 bytes).
 PDF statistics:
- 410 PDF objects out of 1000 (max. 8388607)
- 335 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 456 PDF objects out of 1000 (max. 8388607)
+ 376 compressed objects within 4 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 445 words of extra memory for PDF output out of 10000 (max. 10000000)
 
