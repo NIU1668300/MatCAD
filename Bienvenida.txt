@@ -1,4 +1,4 @@
 Bienvenidos al repositorio de MatCAD
 
-Clase de Hoy: CDV y Calculo Numérico
+Clase de Hoy: POO y Calculo Numérico
 
