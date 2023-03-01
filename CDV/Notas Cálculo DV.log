@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  24 FEB 2023 10:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  1 MAR 2023 12:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1782,18 +1782,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--290
 
  []
 
-[5] [6] (./Notas Cálculo DV.aux)
+[5] [6] [7] (./Notas Cálculo DV.aux)
 Package rerunfilecheck Info: File `"Notas Cálculo DV".out' has not changed.
-(rerunfilecheck)             Checksum: 8129E4A666C6E5C1E743207D0B31CB6A;1384.
+(rerunfilecheck)             Checksum: 6DB4C64B12C94C9F76A54A5BE12ABEF1;1639.
  ) 
 Here is how much of TeX's memory you used:
- 43279 strings out of 474968
- 915341 string characters out of 5776089
- 1395327 words of memory out of 5000000
- 63793 multiletter control sequences out of 15000+600000
+ 43294 strings out of 474968
+ 915607 string characters out of 5776089
+ 1396522 words of memory out of 5000000
+ 63799 multiletter control sequences out of 15000+600000
  484283 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,9n,103p,552b,475s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,9n,103p,552b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1811,10 +1811,10 @@ ive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texliv
 e/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/
 2022/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/20
 22/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on "Notas Cálculo DV.pdf" (6 pages, 238112 bytes).
+Output written on "Notas Cálculo DV.pdf" (7 pages, 248738 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 41 named destinations out of 1000 (max. 500000)
- 301 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 307 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 325 words of extra memory for PDF output out of 10000 (max. 10000000)
 

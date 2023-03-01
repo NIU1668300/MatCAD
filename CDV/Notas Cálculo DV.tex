@@ -309,6 +309,50 @@
             Por lo tanto, el límite original no existe. Sin embargo, podemos encontrarnos con casos en los que $\lim_{t\to 0} f(t,mt)$ exista y no sea dependiente de m. En esos casos, no podemos decir nada, pues es posible que el límite original no exista aún así.
 
         % subsection límte_de_una_función_en_n_dimensiones (end)
+        \subsection{Continuidad de una función en n dimensiones} % (fold)
+        \label{sub:continuidad_de_una_función_en_n_dimensiones}
+            Sea $U \subset \R^n $ abierto y sea $f:U \rightarrow \R$ y sea $x_0 \in U$.
+            \textbf{Definición:} Decimos que $f$ es continua en $x_0$ si \[\lim_{x\to x_0} f(x) = f(x_0)\]
+            Ya que $x_0 \in U_{abierto}$, entonces existe una bola centrada en $x_0$ contenida en $U$ y por tanto $f$ está definida en el borde de $x_0$. 
+            \begin{itemize}
+                \item Si tenemos $f:\R^n \rightarrow \R$, entonces $f= (f_1,f_2,...,f_m)$ donde cada $f_j: \R^n \rightarrow \R$. Entonces, diremos que f es continua en $x_0$ si todas las $f_j$ son continuas en $x_0$
+                \item Decimos que f es continua en un conjunto abierto $U \subset \R^n$ si es continua en todos los puntos de $U$.
+            \end{itemize}
+            \subsubsection{Propiedades de la continuidad} % (fold)
+            \label{subsub:propiedades_de_la_continuidad}
+                Sean $f,g: U \rightarrow \R$ continuas en $x_0 \in U$
+                \begin{enumerate}[label = \Alph*]
+                    \item Entonces $f+g$ y $f \cdot g$ son continus en $x_0$
+                    \item Si $g(x_0) \ne 0$, entonces $\frac {f}{g}$ es continua en $x_0$
+                    \item Sea $h:\R\rightarrow\R$ continua en el punto $f(x_0)$, entonces $h \circ f$ es continua en $x_0$
+                \end{enumerate}
+                Es importante tener en cuenta que la continuidad es una propiedad local, se observa un punto $x_0$ y sus alrededores pero no se observa toda la función. Para poder observar la continuidad en todo el espacio tendremos que hacernos valer de las propiedades mencionadas anteriormente. Por ejemplo, pongamos que tenemos la siguiente función:
+                \begin{equation}
+                    f(x,y) = 
+                    \begin{cases}
+                        (x^2 + y^2)sin(\dfrac{1}{x^2+y^2}) \text{ si } (x,y)\ne(0,0)\\ \\ 0 \text{ si } (x,y) = (0,0)
+                    \end{cases}
+                \end{equation}
+                De esta ecuación distinguimos dos casos:
+                \begin{itemize}
+                    \item Si $(x_0,y_0) \ne (0,0)$, $f$ es continua en $(x_0,y_0)$ ya que es producto, composición y división de funciones continuas con denominador distinto de 0 en el punto $(x_0,y_0)$
+                    \item ¿$f$ es continua en $(0,0)$? $\Leftrightarrow \lim_{(x,y)\to(0,0)} f(x,y) = f(0,0) = 0$
+                    \[\Leftrightarrow \lim_{(x,y)\to(0,0)} (x^2 + y^2)sin(\frac{1}{x^2 + y^2}) = 0 \]
+                    Esto se cumple empleando el teorema del sandwich, ya que como $\abs{sin(t)} \le 1 \; \forall t\in\R$:
+                    \[0 \le \abs{(x^2+y^2)sin(\frac{1}{x^2+y^2})}\le \abs{x^2 + y^2} \rightarrow 0\]
+                    Luego es continua.
+                \end{itemize}
+            % subsubsection propiedades_de_la_continuidad (end)
+        % subsection continuidad_de_una_función_en_n_dimensiones (end)
+        \subsection{Teorema de Weierstrass} % (fold)
+        \label{sub:teorema_de_weierstrass}
+            Sea $K\subset \R^n$ compacto y $f:K\rightarrow \R$ continua. Entonces $f$ tiene un máximo y un mínimo en $K$, es decir
+            \begin{equation}
+                 \exists x_{MAX} \in K \ y \ x_{MIN} \in K \text{ tal que } f(x_{MIN})\le f(x) \le f(x_{MAX}) \; \forall x \in K
+             \end{equation} 
+        
+        % subsection teorema_de_weierstrass (end)
+
 
     % section límites_de_funciones_y_continuidad (end)
 
