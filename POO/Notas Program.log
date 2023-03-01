@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  27 FEB 2023 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  1 MAR 2023 10:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1778,11 +1778,12 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 ) [4] [5] [6]
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 397--398
 
  []
 
-[7]
+
 Underfull \hbox (badness 10000) in paragraph at lines 404--405
 
  []
@@ -1797,25 +1798,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 413--414
 
  []
 
-
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 438--440
-
- []
-
-[9] (./Notas Program.aux)
+[9] [10] (./Notas Program.aux)
 Package rerunfilecheck Info: File `"Notas Program".out' has not changed.
-(rerunfilecheck)             Checksum: F2ADB44CFAE9E4221F937AB6E109E2AE;1953.
+(rerunfilecheck)             Checksum: 01CDD2DD280E0EEBC57975113FAA34A2;2051.
  ) 
 Here is how much of TeX's memory you used:
- 43805 strings out of 474968
- 921224 string characters out of 5776089
- 1793707 words of memory out of 5000000
- 64218 multiletter control sequences out of 15000+600000
+ 43926 strings out of 474968
+ 922783 string characters out of 5776089
+ 1812787 words of memory out of 5000000
+ 64298 multiletter control sequences out of 15000+600000
  484657 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,7n,103p,830b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1837,10 +1833,10 @@ e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on "Notas Program.pdf" (9 pages, 309108 bytes).
+Output written on "Notas Program.pdf" (10 pages, 318030 bytes).
 PDF statistics:
- 457 PDF objects out of 1000 (max. 8388607)
- 383 compressed objects within 4 object streams
- 132 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 514 PDF objects out of 1000 (max. 8388607)
+ 438 compressed objects within 5 object streams
+ 173 named destinations out of 1000 (max. 500000)
+ 413 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -373,15 +373,15 @@
         \label{sub:_don_t_talk_to_strangers_}
             Un objeto A puede llamar a un método de un objeto instancia B, pero nunca deberá utilizar el objeto B para llegar hasta un segundo objeto C.
         
-        % subsection _don_t_talk_to_strangers_ (end)ç
+        % subsection _don_t_talk_to_strangers_ (end)
         \subsection{DRY: Don't repeat yourself} % (fold)
         \label{sub:dry_don_t_repeat_yourself}
             Evita repetir codigo abstrayendo las cosas comunes y poniendolas en un solo sitio. Esto también se aplica a para las responsabilidades, pon cada pieza de información y comportamiento en un único sitio sensible.
         % subsection dry_don_t_repeat_yourself (end)
-       \subsection{Liskov} % (fold)
-        \label{sub:liskov}
-        
-        % subsection liskov (end) 
+       \subsection{LSP: Principio de substitución de Liskov} % (fold)
+        \label{sub:lsp_principio_de_substitucion_de_liskov}
+            Si S es un subtipo de T, entonces los objetos de T pueden ser sustituidos por objetos del tipo S sin alterar las propiedades deseadas del programa. \textbf{Donde se espera un objeto de una super-clase puede ser sustituido por un objeto de una clase derivada.}
+        % subsection liskov_substitution_principle (end) 
     % section lsp (end)
     \section{Random Forests} % (fold)
     \label{sec:random_forests}
@@ -423,7 +423,7 @@
         \label{sub:decision_trees}
             Un \textbf{árbol de decisión} es un modelo de clasificación y regresión formado por dos tipos de nodos: Nodos padre, que realizan una decisión y por lo tanto contienen un par formado por las caracterísitcas y el resultado, y nodos hoja que presentan la clase predicha.\\
 
-            Para poder construir un árbol de decisión partimos de un nodo raiz, le damos todo el conjunto de entrenamiento $(X,y)$ con $X[:,k] = \text{columna $k$ de $X$}$. Después de esto se busca la pareja (la columna $k$, un valor de $k$ llamado $v$) tal que se dividan los datos en dos sectores: las columnas con un resultado menor a $v$ ($I_{left}$) y las columnas con un resultado mayor o igual a $v$ ($I_{right}$). Esto implica que $y[I_{left}]$ y $y[I_{right}]$ sean lo más puro posible, es decir, las clases se separen de la forma más clara. Ahora repitiremos el proceso con cada uno de los sectores si se cumple que:
+            Para poder construir un árbol de decisión partimos de un nodo raiz, le damos todo el conjunto de entrenamiento $(X,y)$ con $X[:,k] = \text{columna $k$ de $X$}$. Después de esto se busca la pareja (la columna $k$, un valor de $k$ llamado $v$) tal que se dividan los datos en dos sectores: las filas con un resultado menor a $v$ ($I_{left}$) y las filas con un resultado mayor o igual a $v$ ($I_{right}$). Esto implica que $y[I_{left}]$ y $y[I_{right}]$ sean lo más puro posible, es decir, las clases se separen de la forma más clara. Ahora repitiremos el proceso con cada uno de los sectores si se cumple que:
             \begin{itemize}
                 \item El sector posee el número mínimo de samples
                 \item No se ha alcanzado el máximo de profundidad
@@ -436,7 +436,8 @@
                 \begin{equation}
                     G = 1 - \sum_{c=1}^{C} p_c  \; {;} \;  p_c = \frac{1}{m} \sum_{i=1}^{m} 1_{y_i = c}
                 \end{equation}
-                Siendo $C$ el número de clases que contiene el conjunto, m el número de samples, y $p_c$ la frecuencia de la clase $c$ en $y$. Si $1_{y_i =  c} = 1$ si $y_i = c$, sino es 0. Lo que se busca es la pareja que minimice el valor Gini de ambos lados.\\
+                Siendo $C$ el número de clases que contiene el conjunto, $m$ el número de samples, y $p_c$ la frecuencia de la clase $c$ en $y$. Si $1_{y_i =  c} = 1$ si $y_i = c$, sino es 0. Lo que se busca es la pareja que minimice el valor Gini de ambos lados.
+                \[J(k,v) = \frac{m_{left}}{m_{left}+m_{right}} G_{left} + \frac{m_{right}}{m_{left}+m_{right}}G_{right} \tag{Función de coste}\]
 
                 Otra forma de comprobar la impureza es la entropía.
                 \begin{equation}
@@ -444,6 +445,52 @@
                  \end{equation} 
             % subsubsection pureza_de_un_conjunto (end)
         % subsection decision_trees (end)
+        \subsection{Random Forest} % (fold)
+        \label{sub:random_forest}
+            Un clasificador/regresor de conjunto combina los resultados de varios clasificadores/regresores diferentes para devolver un output, la mayoría de las veces, la media de los resultados o el valor más votado. La clave detrás de esto es que la combinación de las predicciones de diferentes expertos resulta en una mejor predicción que la de una sola predicción del mejor experto. El random forest emplea un conjunto de diferentes arboles de decisión combinando sus predicciones de acuerdo a lo más votado.
+
+            Esto permitirá que al tener diferentes árboles, cada árbol compruebe unos parámetros aleatorios de cada sample. De esta forma se termina observando todos los parámetros. Para implementar esto utilizaremos el \textbf{RandomForestGenerator.}
+            \begin{lstlisting}[language = Java , frame = single , firstnumber = 1 , escapeinside={(*@}{@*)}]
+    import numpy as np
+    import sklearn.datasets
+
+
+    iris = sklearn.datasets.load_iris() # its a dictionary
+    print(iris.DESCR)
+    X, y = iris.data, iris.target
+    # numpy arrays : X 150 rows 4 cols, y 150 rows
+
+    ratio_train, ratio_test = 0.7, 0.3
+    # 70% train, 30% test
+
+    num_samples, num_features = X.shape
+    # 150, 4
+
+    idx = np.random.permutation(range(num_samples))
+    # shuffle {0,1, ... 149} because samples come sorted by class!
+
+    num_samples_train = int(num_samples*ratio_train)
+    num_samples_test = int(num_samples*ratio_test)
+    idx_train = idx[:num_samples_train]
+    idx_test = idx[num_samples_train : num_samples_train+num_samples_test]
+    X_train, y_train = X[idx_train], y[idx_train]
+    X_test, y_test = X[idx_test], y[idx_test]
+
+    # Hyperparameters
+    max_depth = 10 # maximum number of levels of a decision tree
+    min_size_split = 5 # if less, do not split a node
+    ratio_samples = 0.7 # sampling with replacement
+    num_trees = 10 # number of decision trees
+    num_random_features = int(np.sqrt(num_features))
+                        # number of features to consider at
+                        # each node when looking for the best split
+    criterion = 'gini' # 'gini' or 'entropy'
+
+    rf = RandomForestClassifier(max_depth, min_size_split, ratio_samples,
+                                num_trees, num_random_features, criterion)
+            \end{lstlisting}
+
+        % subsection random_forest (end)
     % section random_forests (end)
 
 \end{document}
