@@ -1,4 +1,4 @@
 Bienvenidos al repositorio de MatCAD
 
-Clase de Hoy: POO y CDV. Hemos hecho problemas de la lista 2 en clase de CDV y ha mandado el segundo proyecto de POO (Serpientes y escaleras)
+Clase de Hoy: Algoritmia y probabilidad
 
