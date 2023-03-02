@@ -494,7 +494,37 @@
                 \prob (B_j|A) = \frac{\prob(A|B_j)\prob(B_j)}{\prob(A)} = \frac{\prob(A|B_j)\prob(B_j)}{\sum_{i=1}^{N} \prob(A|B_i)\prob(B_i)}
             \end{equation}
         % subsection fórmula_de_bayes (end)
+        \subsection{Evaluación de evidencias y Fórmula de Bayes} % (fold)
+        \label{sub:evaluación_de_evidencias_y_fórmula_de_bayes}
+            En la estadística bayesiana, se toman $B_1,...,B_N$ como particiones de $\OMG$, es decir: \[\OMG = \dot{\bigcup}_{i=1}^{N} B_i\]
+            En estos casos llamaremos a cada $B_i$ una \textbf{causa}. Tomaremos $\prob(B_i)$ y la llamaremos \textbf{probabilidad a priori}. Le daremos este nombre por motivos que veremos a continuación. Si tomamos otro suceso E, obtenemos una nueva probabilidad ($\prob(B_i|E)$). A esta probabilidad la llamaremos \textbf{probabilidad a posteriori}.\\
+
+            Una vez ha pasado el suceso E (al que llamaremos \textbf{evidencia}), las probabilidades de las causas quedan modificadas. De aquí podemos extraer un nuevo concepto: Los \textbf{odds a posteriori}.\\
+
+            \textit{Sea $A$ un suceso. Dada una evidencia $E$, tenemos odds a posteriori a favor de $A$:}
+            \[Odds(A|E) = \frac{\prob(A|E)}{\prob(A^c|E)}\]
+            Empleando la Fórmula de Bayes explicada en el apartado anterior podemos expresar estas probabilidades de la siguiente forma:
+            \[\prob(A|E) = \frac{\prob(E|A) \cdot \prob(A)}{\prob(E)}\]
+            \[prob(A^c|E) = \frac{\prob(E|A^c)\cdot \prob(A^c)}{\prob(E)}\]
+            Luego:
+            \[Odds(A|E) = \frac{\prob(E|A) \cdot \prob(A)}{\prob(E|A^c)\cdot \prob(A^c)}\]
+            Si nos fijamos esto se puede escribir sustituyendo por $Odds(A)$:
+            \[Odds(A|E) = \frac{\prob(E|A)}{\prob(E|A^c)}\cdot Odds(A)\]
+            Está fracción se llama \textbf{Razón de Versemblanza} (\textit{Likelihood Ratio}). Por tanto:
+            \[LR = \frac{Odds(A|E)}{Odds(A)}\]
+            Este concepto se llama \textbf{Odds Ratio}. Esto podemos interpretarlo de la siguiente forma:
+            \begin{equation}
+                LR = 
+                \begin{cases}
+                    \approx 1: \text{La evidencia $E$ no apoya a $A$ ni a $A^c$}\\
+                    > 1: \text{La evidencia $E$ apoya a $A$}\\
+                    < 1:  \text{La evidencia $E$ apoya a $A^c$}    
+                \end{cases}
+            \end{equation}
+ 
+        % subsection evaluación_de_evidencias_y_fórmula_de_bayes (end)
     % section fórmulas_importantes (end)
+
 
 
 
