@@ -198,45 +198,61 @@
     \label{sec:conectividad_de_un_grafo}
         \subsection{Conectividad de un grafo no dirigido} % (fold)
         \label{sub:conectividad_de_un_grafo_no_dirigido}
-            Un grafo no dirigido está \textbf{conectado} si existe un camino entre cualquier pareja de vértices. Un \textbf{componente conectado} en un subgrafo en el que todos los puntos están conectados entre sí. En el ejemplo que se muestra a continuación, el grafo es un grafo desconectado con 2 componentes conectados, el primero formado por los nodos 1,2,3,4,5 y el segundo formado por los nodos 7,8,9,10\\
+            Un grafo no dirigido está \textbf{conexo} si existe un camino entre cualquier pareja de vértices. Un \textbf{componente conexo} en un subgrafo en el que todos los puntos están conectados entre sí. En el ejemplo que se muestra a continuación, el grafo es un grafo desconectado con 2 componentes conexos, el primero formado por los nodos 1,2,3,4,5 y el segundo formado por los nodos 7,8,9,10\\
             \begin{center}
                 \begin{tikzpicture}
-                \tikzstyle{every node}=[draw,shape=circle];
-                \node (3) at (-1,1) {3};
-                \node (2) at (1,1) {2};
-                \node (1) at (3,2) {1};
-                \node (5) at (1,3) {5};
-                \node (4) at (-1,3) {4};
-                \node (6) at (-3,3) {6};
-                \node (7) at (-3,1) {7};
-                \node (9) at (-1,-1) {9};
-                \node (8) at (-3,-3) {8};
-                \node (10) at (1,-3) {10};
-                \draw (2) -- (3);
-                \draw (3) -- (4);
-                \draw (4) -- (5);
-                \draw (5) -- (2);
-                \draw (5) -- (1);
-                \draw (2) -- (1);
-                \draw (6) -- (4);
-                \draw (7) -- (9);
-                \draw (7) -- (8);
-                \draw (8) -- (9);
-                \draw (9) -- (10);
-                \draw (8) -- (10);
-            \end{tikzpicture}
+                    \tikzstyle{every node}=[draw,shape=circle];
+                    \node (3) at (-1,1) {3};
+                    \node (2) at (1,1) {2};
+                    \node (1) at (3,2) {1};
+                    \node (5) at (1,3) {5};
+                    \node (4) at (-1,3) {4};
+                    \node (6) at (-3,3) {6};
+                    \node (7) at (-3,1) {7};
+                    \node (9) at (-1,-1) {9};
+                    \node (8) at (-3,-3) {8};
+                    \node (10) at (1,-3) {10};
+                    \draw (2) -- (3);
+                    \draw (3) -- (4);
+                    \draw (4) -- (5);
+                    \draw (5) -- (2);
+                    \draw (5) -- (1);
+                    \draw (2) -- (1);
+                    \draw (6) -- (4);
+                    \draw (7) -- (9);
+                    \draw (7) -- (8);
+                    \draw (8) -- (9);
+                    \draw (9) -- (10);
+                    \draw (8) -- (10);
+                \end{tikzpicture}
             \end{center}
             
         % subsection conectividad_de_un_grafo_no_dirigido (end)
 
-        \subsection{Conectividad de un grafo digido} % (fold)
-        \label{sub:conectividad_de_un_grafo_digido}
+        \subsection{Conectividad de un grafo dirigido} % (fold)
+        \label{sub:conectividad_de_un_grafo_dirigido}
             Se dice que un grafo dirigido está conectado de forma \textbf{débil} cuando está conectado como un grafo no dirigido.
 
             Un grafo dirigido esta \textbf{semiconectado} cuando para dos vértices cualesquiera $(u,v)$ contiene un camino de $u$ a $v$ \textbf{o} de $v$ a $u$.
 
-            Un grafo dirigido está conectado de forma \textbf{fuerte} si existen ambos caminos en el grafo semiconectado
-        % subsection conectividad_de_un_grafo_digido (end)
+            Un grafo dirigido está conectado de forma \textbf{fuerte} si existen ambos caminos en el grafo semiconectado. Un ejemplo de un grafo dirigido con 3 componentes conectados de forma fuerte es el siguiente:\\
+            \begin{center}
+                \begin{tikzpicture}
+                    \tikzstyle{every node}=[draw,shape=circle];
+                    \node (1) at (0,1) {1};
+                    \node (0) at (-2,1) {0};
+                    \node (2) at (-2,-1) {2};
+                    \node (3) at (2,1) {3};
+                    \node (4) at (2,-1) {4};
+                    \draw [->] (0) -- (1);
+                    \draw [->] (1) -- (2);
+                    \draw [->] (2) -- (0);
+                    \draw [->] (1) -- (3);
+                    \draw [->] (3) -- (4);
+                \end{tikzpicture}
+            \end{center}
+            Los 3 componentes fuertes corresponderían al formado por 0,1 y 2, el segundo formado unicamente por el 3 y el tercero formado unicamente por el 4.
+        % subsection conectividad_de_un_grafo_dirigido (end)
     % section conectividad_de_un_grafo (end)
     \section{Modelos de Memoria} % (fold)
     \label{sec:modelos_de_memoria}
@@ -284,4 +300,64 @@
             Esta matriz también representan el grafo digido de la Figura \ref{Fig_2}. Sin embargo, en este caso no se puede representar la flecha que sale del nodo 5 y vuelve a entrar.         
         % subsection matriz_de_incidencia (end)
     % section modelos_de_memoria (end)
+    \section{Árboles y árboels con raiz} % (fold)
+    \label{sec:árboles_y_árboels_con_raiz}
+        \subsection{Árboles} % (fold)
+        \label{sub:árboles}
+            Un \textbf{árbol} es un grafo conexo sin bucles. Puede también tomarse como un arbol unicamente arconexo, es decir, para llegar de un nodo a otro del vértice existe un único camino posible. Los árboles presentan una serie de propiedades:
+            \begin{itemize}
+                \item Si se añade una arista de forma aleatoria se crea un bucle.
+                \item Si se elimina cualquier arista el árbol se vuelve disconexo.
+                \item Un árbol con $n$ vértices tiene exactamente $n-1$ (La caracterísitca de Euler es igual a 1)
+            \end{itemize}
+        % subsection árboles (end)
+        \subsection{Árboles con raiz} % (fold)
+        \label{sub:árboles_con_raiz}
+            Un árbol con raiz es un árbol en el que un vértice ha sido definido como \textbf{raiz} o \textbf{nodo base}. Un ejemplo de un árbol con raiz podría ser el siguiente:
+            \begin{center}
+                \begin{tikzpicture}
+                    \tikzstyle{node 1}=[color=red];
+                    \tikzstyle{every node}=[draw,shape=circle,distance=30mm];
+                    \node[fill=red, fill opacity = 0.8] (1) [above right of=2] {1};
+                    \node (2) [below left of=1] {2};
+                    \node (5) [below right of=2] {5};
+                    \node (3) [below right of=1] {3};
+                    \node (4) [below left of=2] {4};
+                    \node (6) [below right of=3] {6};
+                    \node (7) [below left of=5] {7};
+                    \node (8) [below right of=5] {8};
+                    \node (9) [below of=6] {9};
+                    \draw[->] (1) -- (2);
+                    \draw[->] (1) -- (3);
+                    \draw[->] (2) -- (4);
+                    \draw[->] (2) -- (5);
+                    \draw[->] (3) -- (6);
+                    \draw[->] (5) -- (7);
+                    \draw[->] (5) -- (8);
+                    \draw[->] (6) -- (9);
+
+                \end{tikzpicture}
+            \end{center}
+            En un árbol con raiz, los vértices hoja y rama son vértices hoja y rama comunes excepto el vértice raiz. Es importante tener en cuenta que la valencia de estos vértices no depende del nodo raiz, es decir, son indpendientes de él. La \textbf{profundidad} de un vértice se define como la distancia desde el nodo raiz hasta este vértice. La profundidad si depende del nodo raiz. Esta distancia se mide como la distancia del único camino que los une. Por ende, la profundidad de un nodo consigo mismo es 0, luego la profundidad del nodo raiz es 0.\\
+
+            La profundidad de un árbol con raiz se considera la profundidad más larga de los vértices (esto depende de la raiz que se tome).
+            \subsubsection{Nodos padre e hijo} % (fold)
+            \label{subsub:nodos_padre_e_hijo}
+                Si tenemos un árbol con raíz y tomamos un nodo $v$ de profundidad $p>0$, el padre de $v$ es el único nodo conectado a $v$ que presenta una profundidad de $p-1$.Un nodo hijo de $u$ (siendo $u$ un nodo de profundidad $p\ge0$) es aquel nodo conectado a u que posea una profundidad de $p+1$.\\
+
+                Un árbol $n-ario$ es un árbol con raiz en el que cada nodo presenta $n$ hijos.
+            % subsubsection nodos_padre_e_hijo (end)
+        % subsection árboles_con_raiz (end)
+        \subsection{Tree traversal} % (fold)
+        \label{sub:tree_traversal}
+            \subsection{Depth-first search: pre-order} % (fold)
+            \label{sub:depth_first_search_pre_order}
+                Es un algoritmo de búsqueda en el que primero se visita el nodo en el que estés y a continuación el hijo de la izquierda del nodo en el que te encuentres. Si ese nodo tiene hijos se repite este proceso con ese nodo, sino se pasa al siguiente hijo desde la izquierda. El objetivo de esto es que, después de haber visitado el nodo en el que estés, si se puede aumentar la profundidad en la que estás lo hagas, y si no es posible retrocedas hasta poder acceder a un camino nuevo y continuar con este proceso.
+            % subsection depth_first_search_pre_order (end)
+            \subsubsection{Depth-first search: in-order} % (fold)
+            \label{subsub:depth_first_search_in_order}
+                Este algoritmo primero se mueve hacia el hijo más hacia la izquierda de todos los nodos. Tras esto lo visita, se desplaza hacia su padre directo, lo visita y repite el proceso por la derecha. Si el padre directo no presenta más caminos, se sigue reduciendo la profundidad hasta encontrar un padre con un camino disponible. 
+            % subsubsection depth_first_search_in_order (end)
+        % subsection tree_traversal (end)
+    % section árboles_y_árboels_con_raiz (end)
 \end{document}

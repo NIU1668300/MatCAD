@@ -6,9 +6,16 @@
 \BOOKMARK [2][-]{subsection.2.4}{Camino y Bucles}{section.2}% 6
 \BOOKMARK [1][-]{section.3}{Conectividad de un grafo}{}% 7
 \BOOKMARK [2][-]{subsection.3.1}{Conectividad de un grafo no dirigido}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Conectividad de un grafo digido}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Conectividad de un grafo dirigido}{section.3}% 9
 \BOOKMARK [1][-]{section.4}{Modelos de Memoria}{}% 10
 \BOOKMARK [2][-]{subsection.4.1}{Lista de Adyacencia}{section.4}% 11
 \BOOKMARK [2][-]{subsection.4.2}{Lista de Incidencia}{section.4}% 12
 \BOOKMARK [2][-]{subsection.4.3}{Matriz de Adyacencia}{section.4}% 13
 \BOOKMARK [2][-]{subsection.4.4}{Matriz de Incidencia}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{Árboles y árboels con raiz}{}% 15
+\BOOKMARK [2][-]{subsection.5.1}{Árboles}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.2}{Árboles con raiz}{section.5}% 17
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Nodos padre e hijo}{subsection.5.2}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Tree traversal}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.4}{Depth-first search: pre-order}{section.5}% 20
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Depth-first search: in-order}{subsection.5.4}% 21
