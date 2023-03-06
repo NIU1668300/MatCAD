@@ -1,4 +1,4 @@
 Bienvenidos al repositorio de MatCAD
 
-Clase de Hoy: Algoritmia y probabilidad
+Clase de Hoy: POO y Cálculo Numérico
 
