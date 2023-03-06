@@ -492,5 +492,48 @@
 
         % subsection random_forest (end)
     % section random_forests (end)
+    \section{Patrones de diseño} % (fold)
+    \label{sec:patrones_de_diseño}
+        A lo largo de la experiencia, se han ecnontrado algunos problemas que aparecen con mucha frecuencia. Un \textbf{patrón de diseño} es
+        \begin{itemize}
+            \item una definición correcta de uno de esos problemas.
+            \item es una solución general, reusable y correcta.
+            \item es el análisis de los pros y los contras.
+        \end{itemize}
 
+        La solución:
+        \begin{itemize}
+            \item No es un diseño terminado que puede ser directamente transformado en código
+            \item Es una descripción y una plantilla para resolver el problema.
+            \item Por lo tanto puede aplicarse de muchas formas diferentes
+            \item Es expresado en terminos de clases, interfaces, métodos y las colaboraciones entre estos
+            \item Es bueno, es decir, es lo más general, completo, flexible y con un consenso entre muchos expertos, ya que sigue los principios de la orientación a objetos.
+        \end{itemize}
+        \subsection{Composite} % (fold)
+        \label{sub:composite}
+            Pongamos que yo hago un dibujo usando un editor gráfico. Para poder formarlo obtengo un grupo de diversos objetos que funcionan como uno solo cuando los movemos, copiamos, cambiamos el color o el grosor de la linea. Por este motivo hay una jerarquía infinita de agrupaciones.\\
+
+            ¿Que clases necesitamos para satisfacer estos requisitos? Para empezar necesitamos clases primitivas como Texto, Linea, Círculo, Triángulo, etc. Después, una clase que actue como contenedor para estas primitivas. Todos estas clases pueden moverse, escalarse, rotarse y dibujarse a si mismos. Es cierto que algunos métodos actuarán de forma diferente en las distintas clases (por ejemplo rotar un círculo no hará nada) y otros como por ejemplo escoger el color y el grosor de la línea serán comunes, unicamente cambiara el valor de un atributo.\\
+
+            El código del cliente deve diferenciar las primitivas de los objetos contenedores incluso si la mayor parte del tiempo hacen las mismas cosas, haciendo esta aplicación más compleja. \textbf{Solución:}
+            \begin{itemize}
+                \item Haz que el contenedor herede de \textit{Graphic}.
+                \item \textit{Graphic} es una clase abstracta padre de tanto las primitivas como de los grupos. Es la interfaz común para poder llevar a cabo cualquier tipo de gráfico.
+                \item Composición recursiva: Un contenedor puede contener primitivas y/o otros contenedores 
+            \end{itemize}
+
+            La idea detrás del patrón composite es componer objetos en estructuras de arbol para representar jerarquías de partes enteras. Composite permite al cliente tratar objetos individuales y composiciones de objetos de forma uniforme. Este patron se puede aplciar cuando se busca representar jerarquías formadas por partes completas de objetos o cuando se queire que el cliente ignore las diferencias entre la composición de objetos y los objetos individuales.\\
+
+            Esto se emplea para que al programar se programe a una interfaz y no a una implementación además de que se encapsule lo que varía, de tal forma que pueda cambiar sin que afecte al resto del programa.
+        % subsection composite (end)
+        \subsection{GoF patterns} % (fold)
+        \label{sub:gof_patterns}
+            Los patrones pueden clasificarse en 3 categorías:
+            \begin{itemize}
+                \item Creacionales: patrones que afectan al proceso de la creación del objeto
+                \item Estructural: Patrones que manejan la composición de clases u objetos
+                \item De Comportamiento: Patrones que caracterizan la forma en la que las clases y los objetos interactuan y distribuyen responsabilidades.
+            \end{itemize}
+        % subsection gof_patterns (end)
+    % section patrones_de_diseño (end)
 \end{document}
