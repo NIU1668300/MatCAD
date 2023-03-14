@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  1 MAR 2023 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  10 MAR 2023 10:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1782,15 +1782,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--290
 
  []
 
-[5] [6] [7] (./Notas Cálculo DV.aux)
+[5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 381--382
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
+
+ []
+
+[7] [8] (./Notas Cálculo DV.aux)
 Package rerunfilecheck Info: File `"Notas Cálculo DV".out' has not changed.
-(rerunfilecheck)             Checksum: 6DB4C64B12C94C9F76A54A5BE12ABEF1;1639.
+(rerunfilecheck)             Checksum: 52B2AF7C38F179302E5C09C8D15B74CD;1878.
  ) 
 Here is how much of TeX's memory you used:
- 43294 strings out of 474968
- 915607 string characters out of 5776089
- 1396522 words of memory out of 5000000
- 63799 multiletter control sequences out of 15000+600000
+ 43307 strings out of 474968
+ 915829 string characters out of 5776089
+ 1396711 words of memory out of 5000000
+ 63805 multiletter control sequences out of 15000+600000
  484283 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,9n,103p,552b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1811,10 +1821,10 @@ ive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texliv
 e/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/
 2022/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/20
 22/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on "Notas Cálculo DV.pdf" (7 pages, 248738 bytes).
+Output written on "Notas Cálculo DV.pdf" (8 pages, 256777 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 237 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
- 325 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 330 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 349 words of extra memory for PDF output out of 10000 (max. 10000000)
 

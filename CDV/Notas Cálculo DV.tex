@@ -322,7 +322,7 @@
             \label{subsub:propiedades_de_la_continuidad}
                 Sean $f,g: U \rightarrow \R$ continuas en $x_0 \in U$
                 \begin{enumerate}[label = \Alph*]
-                    \item Entonces $f+g$ y $f \cdot g$ son continus en $x_0$
+                    \item Entonces $f+g$ y $f \cdot g$ son continuas en $x_0$
                     \item Si $g(x_0) \ne 0$, entonces $\frac {f}{g}$ es continua en $x_0$
                     \item Sea $h:\R\rightarrow\R$ continua en el punto $f(x_0)$, entonces $h \circ f$ es continua en $x_0$
                 \end{enumerate}
@@ -352,8 +352,59 @@
              \end{equation} 
         
         % subsection teorema_de_weierstrass (end)
-
-
+        \subsection{Propiedad Útil: Desigualdad de la suma de cuadrados} % (fold)
+        \label{sub:propiedad_útil_desigualdad_de_la_suma_de_cuadrados}
+            Una propiedad que puede resultar muy útil a la hora de realizar límites es la siguiente:
+            \begin{equation}
+                x^2 + y^2 \ge 2\abs{x}\cdot\abs{y}
+            \end{equation}
+            Esta propiedad se deduce de la desigualdad entre la media aritmética, obtenida a partir de la suma de todos los términos dividido entre el número de términos sumados, y la media geométrica, obtenida a base de multiplicar todos los términos y hacer la raiz enésima siendo n el número de términos. Si tomamos ambas medias, la media aritmética siempre será más grande que la geométrica, de ahí obtenemos esta desigualdad.
+        % subsection propiedad_útil_desigualdad_de_la_suma_de_cuadrados (end)
     % section límites_de_funciones_y_continuidad (end)
+    \section{Diferenciabilidad} % (fold)
+    \label{sec:diferenciabilidad}
+        Pongamos que tenemos un $U in \R^n$ abierto y sea $f:U \rightarrow \R$. Definimos:
+        \begin{equation}
+            \frac{\partial f}{\partial x_i} (a) = \lim_{h\to 0} \frac{f(a +h\cdot e_i) - f(a)}{h} \; \text{(si existe)} \equiv 
+        \end{equation}
+        Donde: \[e_i = (0,...,0,\overbrace{1}^{i},0,...,0)\]
+        De esta forma, todas las variables diferentes se mantienen fijas y se deriva respecto a $x_i$
 
-\end{document}
+        \textbf{Ejemplo:}
+        \[f(x,y,z) = e^ x cos(y) -sin(z)\]
+        \[\frac{\partial f}{\partial x} = cos(y) \cdot e^x \; \text{(Aquí cos(y) actúa como constante)}\]
+        \[\frac{\partial f}{\partial y} = e^x \cdot (-sin(y))\]
+        \[\frac{\partial f}{\partial z} = - cos(z)\]
+
+        \subsection{Continuidad en derivadas parciales} % (fold)
+        \label{sub:continuidad_en_derivadas_parciales}
+            Hay funciones tales que $\dfrac{\partial f}{\partial x_i}$ existen para todo $i$ pero $f$ no es continua. Por ejemplo: \\
+                \begin{equation}
+                    f(x,y) =
+                    \begin{cases}
+                        \frac{xy}{x^2 + y^2} &\text{ si } (x,y)\ne(0,0)\\
+                        0 &\text{ si } (x,y) = (0,0)
+                    \end{cases}
+                \end{equation}
+            $\dfrac{\partial f}{\partial y} (x,y)$, $\dfrac{\partial f}{\partial y} (x,y)$ existen para todo $(x,y) \in \R^2$, ya que pueden calcularse todos los valores en los que $x_0 \ne 0$ y $y_0 \ne 0$, y para los casos en los que $x_0 = 0$ o $y_0 = 0$ da 0. \\
+
+            Sin embargo, $f$ no es continua en $(0,0)$, ya que el límite cuando $(x,y)$ tiende a 0 no existe.
+            \[\lim_{\substack{x \to 0 \\ y \to mx}} f(x,mx) = \lim_{x \to 0} \frac{mx^2}{x^2 + m^2x^2} = \frac{m}{1 + m^2} \rightarrow \text{Depende de la recta}\]
+        % subsection continuidad_en_derivadas_parciales (end)
+        \textbf{NOTACIÓN:}
+        \begin{equation}
+            \nabla f(a) = \left( \frac{\partial f}{\partial x_1}(a), \frac{\partial f}{\partial x_2}(a), ... , \frac{\partial f}{\partial x_n}(a)\right) 
+        \end{equation}
+        Recordemos que si $f:\R \rightarrow \R$ y $a\in \R$, f es derivavble en el punto a $\Leftrightarrow$
+        \[\Leftrightarrow \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} = f'(a) \Leftrightarrow \lim_{h \to 0} \frac{f(a+h) - f(a) - f'(a)h}{h} = 0\]
+        \[\Leftrightarrow \lim_{h\to 0} \frac{f(a+h) - (f(a)+f'(a)h)}{h} = 0 \xLeftrightarrow{x=a+h} \lim_{x\to a} \frac{f(x) - (f(a)+ f'(a)(x-a))}{x-a} = 0\]
+        \textbf{Definición:} Sea $U \subset \R^n$ abierto, $a \in U$ y $f:U\rightarrow \R$. Suponemos que $\nabla f(a)$ existe. Decimos que $f$ es diferenciable en el punto $a$ si:
+        \begin{equation}
+            \lim_{x \to a} \frac{f(x) - (f(a) + \nabla f(a)\cdot (x-a))}{\norm{x-a}} = 0
+        \end{equation}
+    % section diferenciabilidad (end)
+    \section{Problem} % (fold)
+    \label{sec:problem}
+        ¿Porque no puedes evaluar un límite direccional usando curvas en vez de rectas?
+    % section problem (end)
+\end{document}  
