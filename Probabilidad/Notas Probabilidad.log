@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  2 MAR 2023 11:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  9 MAR 2023 12:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1808,15 +1808,15 @@ Overfull \hbox (8.60078pt too wide) detected at line 601
 [][][][][]
  []
 
-[13] (./Notas Probabilidad.aux)
+[13] [14] (./Notas Probabilidad.aux)
 Package rerunfilecheck Info: File `"Notas Probabilidad".out' has not changed.
-(rerunfilecheck)             Checksum: 1B81529D18B5AA8FB78BAEAB35507216;2617.
+(rerunfilecheck)             Checksum: 5CBED1177DFFB3AB1A4C2168B4C22779;2886.
  ) 
 Here is how much of TeX's memory you used:
- 43360 strings out of 474968
- 915935 string characters out of 5776089
- 1403484 words of memory out of 5000000
- 63820 multiletter control sequences out of 15000+600000
+ 43380 strings out of 474968
+ 916203 string characters out of 5776089
+ 1405681 words of memory out of 5000000
+ 63828 multiletter control sequences out of 15000+600000
  485671 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,12n,103p,912b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1840,10 +1840,10 @@ e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022/t
 exmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on "Notas Probabilidad.pdf" (13 pages, 327679 bytes).
+Output written on "Notas Probabilidad.pdf" (14 pages, 336483 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 386 compressed objects within 4 object streams
- 100 named destinations out of 1000 (max. 500000)
- 453 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 419 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 485 words of extra memory for PDF output out of 10000 (max. 10000000)
 

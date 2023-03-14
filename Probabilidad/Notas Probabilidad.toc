@@ -37,3 +37,7 @@
 \contentsline {subsection}{\numberline {9.5}Problema 5}{13}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Problema 11}{13}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Problema 12}{13}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}Problema 14:Ficha 1}{13}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.9}Prob. 15 Ficha 1}{14}{subsection.9.9}%
+\contentsline {subsection}{\numberline {9.10}Prob. 18 Ficha 1}{14}{subsection.9.10}%
+\contentsline {subsection}{\numberline {9.11}Prob. 19 Ficha 1}{14}{subsection.9.11}%

@@ -521,9 +521,35 @@
                     < 1:  \text{La evidencia $E$ apoya a $A^c$}    
                 \end{cases}
             \end{equation}
- 
         % subsection evaluación_de_evidencias_y_fórmula_de_bayes (end)
     % section fórmulas_importantes (end)
+    \section{Números Aleatorios} % (fold)
+    \label{sec:números_aleatorios}
+        El ordenador es una máquina simple pero obediente que funciona de manera \textbf{determinista}: Una misma entrada devuelve una misma salida. ¿De donde surge el azar en un ordenador?. Los \textbf{números aleatorios} son números generados por un mecanismo aleatorio, como lanzar unos dados, y que no siguen un comportamiento predecible. Uno de los sucesos relacionados con los números aleatorios es el Sorteo de la Guerra de Vietnam (1965-1975)\\
+
+        El objetivo del sorteo era llevar al 20$\%$ de los jovenes nacidos en un año completo. Se pusieron todas las fechas del año en un bombo con cápsulas y se sacaba hasta obtener el 20$\%$. Al hacer el experimento, se descubrió que aquellos soldados que nacían en el último cuatrimestre del año era más posible que salieran elegidos. ¿El motivo? El bombo no barajaba correctamente.\\
+
+        Para evitar esto, existen formas de comprobar la cualidad de unso números aleatorios. Estos métodos buscan unicamente comprobar que los datos no presentan ningún tipo de característica o patrón. Para poder llevar a cabo este estudio se necesitan grandes cantidades de datos, ya que con pocos datos se puede llegar a considerar como un patrón un suceso aleatorio posible. El hecho de obtener números aleatorios resulta fundamental para procesos tan sencillos como realizar una encuesta. Para poderlo llevar a cabo se busca una muestra de gente aleatoria que represente correctamente a la población con el fin de extrapolar los resultados.\\
+
+        Si no se realizan de forma aleatoria, pueden verse afectados los resultados de las encuestas. Un ejemplo fue la reelección de Truman, en el que resultó elegido a pesar de que las encuestas decían lo contrario. Esto ocurrió debido a que los encuestadores escogian a las peresonas que preguntaban y las personas que decidían votar a los republicanos eran más guapas que las que votaban a los demócratas. Sin embargo, aparte de este suceso, las personas son \textbf{malas generando números aleatorios}. Existen por este motivo números \textbf{pseudoaleatorios}.
+
+        \subsection{Números Pseudoaleatorios} % (fold)
+        \label{sub:números_pseudoaleatorios}
+            Los números pseudoaleatorios son números que siguen la fórmula:
+            \begin{equation}
+                X_{n+1} = (a \times X_n) + c \; (módulo \; m)
+            \end{equation}
+            Donde a es el multiplicador, c es el sumador y m es el módulo. De esta forma se parte de un número cualquiera (1) y con un multplicador y sumador cualesquiera. Al cabo de varias operaciones los números serán imposibles de predecir. Estos números sin embargo presentan varios problemas.\\
+
+            Para generar una cantidad de puntos pequeña no surge un problema, pasa las pruebas estadísticas sin problema, pero cuando se necesitan muchos comienza a cometer errores. En el año 1970, aparece RANDU, un generador de números aleatorios. Se empleo para generar 100.000 puntos agrupados de 3 en 3 $((X_1,X_2,X_3),(X_4,X_5,X_6),...)$ y al representarse en un plano se observó que se formaban planos separados de forma uniforme.
+        % subsection números_pseudoaleatorios (end)
+        \subsection{Generador Cuántico} % (fold)
+        \label{sub:generador_cuántico}
+            Por los motivos mencionados anteriormente y con el fin de escapar de las condiciones deterministas se recurre al método más puro de aleatoriedad: un \textbf{generador cuántico}.
+
+            Si el generador cuántico se encontraba desequilibrado podría generar errores, por lo que se llevó a cabo un método de corrección. Si salían un 0 y un 1, se pondría 0, si salían 1 y 0 se pondría 1, y si salían iguales se volverían a tirar. Esto permitió corregir posibles imperfecciones en el generador. Una vez se tenía una tira de ceros y unos, se pasaría este número a binario, generando de esta forma números aleatorios.
+        % subsection generador_cuántico (end)
+    % section números_aleatorios (end)
 
 
 
@@ -603,5 +629,57 @@
             
             \end{itemize}
         % subsection problema_12 (end)
+        \subsection{Problema 14:Ficha 1} % (fold)
+        \label{sub:problema_14_ficha_1}
+            \begin{enumerate}[label=\Alph*]
+                \item \[2_{(temp.)} \times 3_{(hum.)} = 6\]
+                \item \[\OMG = \{T_1 H_1, T_2,H_2 \} \text{ Luego solo hay 2 posibilidades}\]
+                \item \[\OMG = \{(T_i H_j, T_r H_s, T_n H_m), \; i,r,n \in \{1,2\}, \; j,s,m \in \{1,2,3\}\}\]
+                \[\#\OMG = 6^3\]
+                Buscamos:
+                \[\prob (\text{Se han usado los 3 niveles de hum.}) = \frac{6 \times (2 \cdot 2_{(\text{hum. posibles})}) \times (2 \cdot 1_{(\text{hum. posibles})})}{6^3} = \frac{2}{9}\]
+            \end{enumerate}
+        % subsection problema_14_ficha_1 (end)
+        \subsection{Prob. 15 Ficha 1} % (fold)
+        \label{sub:prob_15_ficha_1}
+            Experimento aleatorio: Observamos el orden de los aminoácidos.
+            \[\OMG = \{\text{Todas las formas de ordenar A,G,L,H}\}\]
+            \[\#\OMG = P_4 = 4! = 24\]
+            Queremos encontrar $\prob(A)$, donde $A = $ \textit{"Aparece GA"}
+            Elementos de A:
+            \begin{itemize}
+                \item GALH
+                \item GAHL
+                \item LGAH
+                \item HGAL
+                \item HLGA
+                \item LHGA
+            \end{itemize}
+            Se puede considerar como si GA fuese un elemento y calculáramos permutaciones de 3 elementos (6). Luego:
+            \[\prob(A) = \frac{6}{24} = \frac{1}{4}\]
+        % subsection prob_15_ficha_1 (end)
+        \subsection{Prob. 18 Ficha 1} % (fold)
+        \label{sub:prob_18_ficha_1}
+            4 hijos (chico o chica). $p = \prob(chico)$, $q = \prob(chica)$, $p+q = 1$, $p,q \in (0,1)$
+            \begin{enumerate}[label=\Alph*]
+                \item \[\prob(\text{primer y segundo 2 hijos}) = p\times p = p^2\]
+                \item \[\prob(\text{más chica que chico}) = \prob(\text{3 chica y 1 chico}) + \prob(\text{4 chica})\] \[ = q^3 \times p \cdot \binom{4}{1} + q^4 = q^3 (q + 4p)\]
+                \item \[\prob (\text{2 chicas y 2 chicos}) = q^2 \times p^2 \cdot \binom{4}{2} \rightarrow \text{Coger las 2 pos. de los chicos de las 4} = 6 \cdot q^2 \cdot p^2\]
+            \end{enumerate}
+        % subsection prob_18_ficha_1 (end)
+        \subsection{Prob. 19 Ficha 1} % (fold)
+        \label{sub:prob_19_ficha_1}
+            $Tazas = \{TL,TL,TL,TL,LT,LT,LT,LT\}$
+            \begin{enumerate}
+                \item $\prob(\text{Acertar 6 de las 8})$\\
+                \underline{Experimento:} Escoge las cuatro tazas con TL al azar. \[\#\OMG = \binom{8}{4}\]
+                Por tanto:
+                \[\prob(\text{Acertar 6 de las 8}) = \frac{\binom{4}{3}\binom{4}{1}}{\binom{8}{4}} \approx 0.2286\]
+                De aquí podemos deducir que siempre se va a acertar un número par, pues el error surge del intercambio entre 2 correctas, y al producirse este cambio se fallarán ambas.
+                \item \[\prob(\text{Acertar 4 de las 8}) = \frac{\binom{4}{2}\binom{4}{2}}{\binom{8}{4}} \]
+                \item Experimento con 10 tazas:
+                \[\prob(\text{acertar todas las tazas}) = \frac{1}{\binom{10}{5}} = 0.00397\]
+             \end{enumerate} 
+        % subsection prob_19_ficha_1 (end)
     % section problemas (end)
 \end{document}
