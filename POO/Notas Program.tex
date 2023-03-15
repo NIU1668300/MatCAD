@@ -535,5 +535,29 @@
                 \item De Comportamiento: Patrones que caracterizan la forma en la que las clases y los objetos interactuan y distribuyen responsabilidades.
             \end{itemize}
         % subsection gof_patterns (end)
+        \subsection{Strategy} % (fold)
+        \label{sub:strategy}
+            Es un patrón de diseño clasificado como "Behavioral Pattern". Pongamos que quisieras justificar un parrafo tanto por la izquierda como por la derecha. Existen 3 tipos de algoritmos para el salto de linea:
+            \begin{itemize}
+                \item Simple: Considera una linea cada vez.
+                \item TeX algorithm: Optimización global de line breaks en una composición.
+                \item Array algorithm: Cada linea tiene el mismo número de carácteres
+            \end{itemize}
+            Para buscar una solución, primero probamos de acuerdo a Expert (GRASP). Esto sin embargo genera un problema de baja cohesion, ya que la clase \textit{Composition} se volverá muy grande, compleja y dificil de mantener.\\
+
+            Una segunda solución es implementar la herencia. De esta forma se generará una clase abstracta \textit{Composition}, y de esta heredarán 3 clases: \textit{SimpleComposition, ArrayCompostition y TeXComposition}. El problema que tiene esto es que existen muchas clases casi identicas, lo que incumple el DRY, además de que solo existe un algoritmo fijo para cada composición.\\
+
+            De esta forma, llegamos a la tercera opción, el patron Strategy. En este patrón la clase \textit{Composition} está unida a una interfaz \textit{Compositor}, que a su vez se une a cada uno de los algoritmos. De esta forma, podremos pasarle un argumento \textit{compositor} a los datos del tipo Composition para poder escoger que algoritmo se aplica. La base es \textit{"favorecer la composicíón de clases por encima de su herencia"}. Este patrón lo que busca es definir una familia de algoritmos encapsulados e intercambiables, permitiendo al cliente variar de forma independiente.\\
+
+            Esto presenta varias aplicaciones:
+            \begin{itemize}
+                \item Presenta muchas clases que solo varían en su comportamiento. Solo se aplica uno de ellos cada vez.
+                \item Puede utilizarse si necesitas diferentes versiones de un algoritmo.
+                \item Puede usarse si se están utilizando datos que el cliente no debería conocer.
+                \item Se puede implementar si una clase presenta muchos comportamientos que aparecen como condiciones múltiples.
+            \end{itemize}
+            \textbf{¿Como emplear el método strategy en la práctica?:} En los distintos árboles de decisión, se decide en base a una característica del elemento y se divide en todos lo valores menores a ese y todos los valores superiores. De esta forma lo que busca hacer el algoritmo random forrest es, para cada nodo, encontrar cual es la característica que más interesa comprobar, y cual es el valor en el que se dividirá, con el fin de que se termine dividiendo en elementos de distintas clases. El objetivo de este proceso, es reducir la diversidad de los nodos hoja. para que si se introduce un dato nuevo, siguiendo estos arboles de decisión podamos estimar la clase a la que pertenece.
+
+        % subsection strategy (end)
     % section patrones_de_diseño (end)
 \end{document}

@@ -32,3 +32,7 @@
 \contentsline {subsection}{\numberline {7.2}Decision Trees}{9}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}Pureza de un conjunto}{9}{subsubsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.3}Random Forest}{9}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Patrones de diseño}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Composite}{11}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}GoF patterns}{11}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Strategy}{11}{subsection.8.3}%
