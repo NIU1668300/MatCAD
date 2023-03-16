@@ -363,7 +363,7 @@
     % section límites_de_funciones_y_continuidad (end)
     \section{Diferenciabilidad} % (fold)
     \label{sec:diferenciabilidad}
-        Pongamos que tenemos un $U in \R^n$ abierto y sea $f:U \rightarrow \R$. Definimos:
+        Pongamos que tenemos un $U \in \R^n$ abierto y sea $f:U \rightarrow \R$. Definimos:
         \begin{equation}
             \frac{\partial f}{\partial x_i} (a) = \lim_{h\to 0} \frac{f(a +h\cdot e_i) - f(a)}{h} \; \text{(si existe)} \equiv 
         \end{equation}
@@ -395,16 +395,75 @@
         \begin{equation}
             \nabla f(a) = \left( \frac{\partial f}{\partial x_1}(a), \frac{\partial f}{\partial x_2}(a), ... , \frac{\partial f}{\partial x_n}(a)\right) 
         \end{equation}
-        Recordemos que si $f:\R \rightarrow \R$ y $a\in \R$, f es derivavble en el punto a $\Leftrightarrow$
+        Recordemos que si $f:\R \rightarrow \R$ y $a\in \R$, f es derivable en el punto a $\Leftrightarrow$
         \[\Leftrightarrow \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} = f'(a) \Leftrightarrow \lim_{h \to 0} \frac{f(a+h) - f(a) - f'(a)h}{h} = 0\]
         \[\Leftrightarrow \lim_{h\to 0} \frac{f(a+h) - (f(a)+f'(a)h)}{h} = 0 \xLeftrightarrow{x=a+h} \lim_{x\to a} \frac{f(x) - (f(a)+ f'(a)(x-a))}{x-a} = 0\]
         \textbf{Definición:} Sea $U \subset \R^n$ abierto, $a \in U$ y $f:U\rightarrow \R$. Suponemos que $\nabla f(a)$ existe. Decimos que $f$ es diferenciable en el punto $a$ si:
         \begin{equation}
-            \lim_{x \to a} \frac{f(x) - (f(a) + \nabla f(a)\cdot (x-a))}{\norm{x-a}} = 0
+            \lim_{x \to a} \frac{\abs{f(x) - (f(a) + \nabla f(a)\cdot (x-a))}}{\norm{x-a}} = 0
         \end{equation}
+        Observemos que $x_{n+1} - f(a) = \nabla f(a)\cdot(x-a)$ es el plano tangente a la gráfica en el punto $(x,f(a))$.\\
+        \textbf{Propuesta:} Si f es diferenciable en el punto a, entonces f es continua en el punto a.\\
+        \textbf{Demostración:}
+            Utilizando Cauchy-Schwartz:
+            \[\abs{\nabla f(a) \cdot (x-a)} \le \norm{\nabla f(a)} \cdot \norm{x-a}\]
+            Entonces:
+            \[\frac{\abs{\nabla f(a)\cdot (x-a))}}{\norm{x-a}} \le \abs{\nabla f(a)}\]
+            Como f es diferenciable en el punto a:
+            \[\frac{\abs{f(x)-f(a)}}{\norm{x-a}} \le \norm{\nabla f(a)} + \varepsilon \text{ si } \norm{x-a} \text{ es muy pequeño}\]
+            Por tanto:
+            \[\lim_{x \to a} \abs{f(x)-f(a)} = 0\]
+            Y eso implica que f es continua en el punto a
+        \textbf{Propuesta:} Sean $f,g$ funciones diferenciables en el punto a entonces:
+        \begin{itemize}
+            \item $f\pm g$ es diferenciable en $a$
+            \item $f \cdot g$ es diferenciable en $a$
+            \item Si $g(a)\ne 0$, entonces $\dfrac{f}{g}$ es diferenciable en $a$ 
+        \end{itemize}
+        \textbf{TEOREMA:}
+        \begin{center}
+            \textit{Sea $f$ una función tal que $\dfrac{\partial f}{\partial x_i}$ son funciones continuas en un abierto $U \subset \R^n$ y $i=1,...,n$, entonces $f$ es diferenciable en $U$, es decir, f es diferenciable en todos los puntos del abierto $U$}
+        \end{center}
+        \textbf{Definición:} Sea $U \subset \R^n$ abierto, $a \in U$ y $f:U\rightarrow \R$. Sea $\vec{v}\in\R^n$,$\norm{\vec{v}} = 1$. Definimos:
+        \begin{equation}
+            D_{\vec{v}} f(a)= \lim_{h\to 0} \frac{f(a +h\vec{v}) -f(a)}{h}
+        \end{equation} 
+        Esta nomenclatura corresponde a la derivada en la dirección $\vec{v}$.\\
+
+        \textbf{Propuesta:} \[D_{\vec{v}} f(a) = \nabla f(a) \cdot \vec{v}\]
+        \textbf{Demostración:} Sea $\vec{e_i} = (0,0,...,0,\overbrace{1}^{i},0,...,0,0), i=1,...,n$, tenemos:
+        \[\vec{v}\equiv \sum_{i=1}^{n} v_i \vec{e_i}\]
+        \[ \frac{f(a +h\vec{v}) -f(a)}{h} =  \frac{f(a +\sum_{i=1}^{n} hv_i \vec{e_i}) -f(a)}{h}(n=2)\]
+        \[= \frac{f(a + hv_1\vec{e_1} +hv_2\vec{e_2}) - f(a + hv_1\vec{e_1})}{h} + \frac{f(a + hv_1\vec{e_1}) -f(a)}{h}\]
+        \[= \frac{f(a + hv_1\vec{e_1} +hv_2\vec{e_2}) - f(a + hv_1\vec{e_1})}{hv_2}\cdot v_2 + \frac{f(a + hv_1\vec{e_1}) -f(a)}{hv_1}\cdot v_1\]
+        Cuando $h$ tiende a $0$:
+        \[\dfrac{\partial f}{\partial x_1}(a) \cdot v_1 + \dfrac{\partial f}{\partial x_2}(a)\cdot v_2 = \nabla f(a) \cdot \vec{v}\]
+        \textbf{Corolario:}
+        \begin{enumerate}[label= \Alph*]
+            \item \[\abs{D_{\vec{v}} f(a)} \le \norm{\nabla f(a) \cdot \vec{v}} ;\; \forall \vec{v} \in \R^n, \norm{\vec{v}}=1\]
+            \item La dirección $\vec{v}$ de máximo crecimiento (decrecimiento) de la función $f$ en el punto $a$ es $\vec{v} = \dfrac{\nabla f(a)}{\norm{\nabla f(a)}}$ ($\vec{v} = - \dfrac{\nabla f(a)}{\norm{\nabla f(a)}}$)
+        \end{enumerate}
+        \subsection{Funciones que devuelven un resultado en m dimensiones} % (fold)
+        \label{sub:funciones_que_devuelven_un_resultado_en_m_dimensiones}
+            Sea $U \subset \R^n$ abierto y consideramos $f:U \rightarrow \R^m$. $\R^n \ni \vec{x} \rightarrow f(\vec{x}) = (f_1(\vec{x}),f_2(\vec{x}),...,f_m(\vec{x}))$. Diremos que $f$ es diferenciable en el punto $a$ si $f_a,f_2,...,f_m$ son diferenciables en el punto $a$.
+            \[(\Leftrightarrow \lim_{x\to a} \frac{\abs{f_k(x) -f(a) - \nabla f_k(a)\cdot(x-a)}}{\norm{x-a}}=0; k = 1,...,m \Leftrightarrow \lim_{x\to a} \frac{\abs{f(x) -f(a) - Df(a)\cdot(x-a)}}{\norm{x-a}}=0\]
+            $Df(a)$ corresponde a la \textbf{matriz diferencial} de $f$. Esta matriz posee los resultados de las derivadas parciales de cada función (filas) y cada variable(columnas):
+            \begin{equation}
+                Df(a) = 
+                \begin{pmatrix}
+                    \frac{\partial f_1}{\partial x_1}(a)&\frac{\partial f_1}{\partial x_2}(a)&\frac{\partial f_1}{\partial x_3}(a)&\cdots & \frac{\partial f_1}{\partial x_n}(a)\\
+                    \vdots&&&&\vdots\\
+                    \frac{\partial f_m}{\partial x_1}(a)&\frac{\partial f_m}{\partial x_2}(a)&\frac{\partial f_m}{\partial x_3}(a)&\cdots & \frac{\partial f_m}{\partial x_n}(a)
+
+                \end{pmatrix}
+            \end{equation}
+            \textbf{Regla de la Cadena:} Sea $\R^n \supset U \xrightarrow{f} \R^m \xrightarrow{g} \R^k$. Sea $a \in U$ y suponiendo que $f$ es diferenciable en el punto $a$ y $g$ es derivable en el punto $f(a)$. Entonces $g \circ f$ es diferenciable en el punto $a$ y:
+            \[D(g\circ f)(a) = D(g)(f(a)) \cdot D(f)(a)\]
+
+        % subsection funciones_que_devuelven_un_resultado_en_m_dimensiones (end)
     % section diferenciabilidad (end)
     \section{Problem} % (fold)
     \label{sec:problem}
         ¿Porque no puedes evaluar un límite direccional usando curvas en vez de rectas?
     % section problem (end)
-\end{document}  
+\end{document}
