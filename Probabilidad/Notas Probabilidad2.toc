@@ -1,0 +1,11 @@
+\babel@toc {american}{}\relax 
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Como hallar variables aleatorias}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Operaciones}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Sucesiones}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Función de distribución de una variable aleatoria}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Propiedades}{3}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Variables aleatorias discretas}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Función de probabilidad}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Ejemplos}{4}{subsection.4.2}%

@@ -1,0 +1,225 @@
+\documentclass[11pt]{article}
+\RequirePackage{etex}
+%\pagestyle{empty}
+\usepackage[activeacute,spanish,american]{babel}
+\usepackage[utf8]{inputenc}%Para usar los acentos normalmente.
+\usepackage[T1]{fontenc}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+% \restartpythontexsession{\thesection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\usepackage{tkz-base}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet, amssymb,amsmath,latexsym}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{multienum}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{multicol}
+% \usepackage{gensymb}
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\usepackage{color,soul}%permite texto y subrayar en color.
+\input{/home/samuel/Documents/Latex/Colores.tex}
+% \usepackage[pdftex]{graphicx}
+%Dimensiones
+\usepackage[a4paper,left=2cm,right=1.5cm, top=1.5cm, bottom=3cm,includehead]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nombres de conjuntos y comandos propios.
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\omg}{\omega}
+\newcommand{\OMG}{\varOmega}
+% \usepackage{esvect}
+% \renewcommand{\vec}{\vv}
+ \usepackage{pgf,tikz}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{chains}
+\usetikzlibrary{scopes}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning,automata,calc}
+ %\usepackage{framed}
+ %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
+ %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
+ \usepackage{tkz-tab,tkz-euclide}
+% \usetkzobj{all}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cajas de colores
+%
+\input{/home/samuel/Documents/Latex/ColorBoxes}
+\input{/home/samuel/Documents/Latex/Exercises}
+%Ecuaciones resaltadas
+% \usepackage[overload,ntheorem,reqno]{empheq}
+%\input{/home/samuel/Documents/Latex/Ambientes-teoremas}
+ \theoremstyle{plain}
+ \renewcommand{\qedsymbol}{\makebox[7.7778pt][c]{\rule{1ex}{1ex}}}
+ \newtheorem*{demo}{Demostración}
+ \input{/home/samuel/Documents/Latex/TeoremasEnumerados}
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=false,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Teoria de probabilidad},    % title
+    pdfauthor={Samuel Ortega Cuadra},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={Hecho con \LaTeX},   % creator of the document
+    pdfproducer={ps2pdf}, % producer of the document
+    pdfkeywords={} {} {}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=naranja,          % color of internal links
+    citecolor=violeta,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+\setcounter{secnumdepth}{4} %controla la profundidad de la numeración
+
+
+\addto\captionsamerican{%
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+
+\title{Notas Probabilidad}
+\author{Samuel Ortega Cuadra}
+\input{/home/samuel/Documents/Latex/messages}
+
+\begin{document}
+    \begin{center}
+        \huge{Teoría de Probabilidad. 1º de Carrera. Tema 2: Variables Aleatorias}
+    \end{center}
+    \tableofcontents
+    \newpage
+    \section{Introducción} % (fold)
+    \label{sec:introducción}
+        El objetivo de la propiedad, como hemos visto en el apartado anterior, busca estudiar los fenómenos aleatorios que resultan de un experimento. Sin embargo, muchas veces no nos interesan los restultados en si, sino una cantidad que nos permita extraer información de estos valores. Pongamos que estamos jugando a un juego de azar. No nos interesan tanto los resultados del juego como el beneficio o la pérdida que se pueda tener.
+        \[\OMG = \{\text{Resultado del juego}\}\]
+        Nos interesa: \[\OMG (resultado) \rightarrow \R(ganador) \]
+        Por ejemplo, pongamos que jugamos con un dado trucado. Lo lanzamos muchas veces, pero el que anota el resultado solo comprueba si el resultado es par o impar. Los resultados posibles de este experimento serán $\OMG = \{1,2,3,4,5,6\}$. Digamos que el suceso $A = \text{"par"}$. 
+        \begin{itemize}
+            \item Obtenemos como resultado: \[\prob(A) \approx \frac{7}{10}\]
+            \item Información: $\sigma-algebra$ \[\mathcal{A} = \{\emptyset, \OMG, A, A^c\}\]
+            \item Observación: no podemos calcular $\prob(1)$
+            \item P queda determinada por $\prob(A) \approx \frac{7}{10}$
+            \item Apuesta: Se gana 10 euros si sale un \textbf{5 o 6}. Se pierden 2 euros si sale cualquier otro número.
+            \item Aplicación:\[X : \OMG \rightarrow \R\]
+            \[X(5) = X(6) = 10\text{ \euro }; X(1) = X(2) = X(3) = X(4) = -2 \text{ \euro }\]
+        \end{itemize}
+        En nuestro modelo $(\OMG,\mathcal(A),\prob)$, \textbf{NO} podemos calcular la probabilidad de ganar 10\euro:
+        \[\prob(\text{ganar 10 \euro}) = \prob(\{w\in\OMG,X(\omega) = 10\}) = \prob(\{5,6\})\ \rightarrow \text{No pertenece a $\mathcal{A}$}\]
+        \textbf{DEFINICIÓN:} dado $(\OMG,\mathcal(A),\prob)$, diremos que una aplicación \[X : \OMG \rightarrow \R\] es una \textbf{variable aleatoria} si, para todo intervalo $B\in\R$ (o semirecta) tenemos que:
+        \[\{\omega\in\OMG, X(\omega) \in B\} \in \mathcal{A}\]
+        En el caso mencionado anteriormente, $X$ no es una variable aleatoria, ya que el resultado sería $\{5,6\}$, que no pertenece a $\mathcal{A}$\\
+        Observaciones:
+        \begin{enumerate}
+            \item En la definición de variable aleatoria no interviene $\prob$, pese a que la motivación es calcular:
+            \[\prob(\underbrace{\{\omega\in\OMG, X(\omega) \in B\}}_{X^{-1}(B)}) = \prob(X\in B)\]
+            \item Notación: Si $B = \{a\}$, entonces:\[\prob(X\in B) = \prob(X\in\{a\}) = \prob(X=a)\] o también:
+            \[a \le b: B = [a,b]: \prob(X\in [a,b]) = \prob(a\le X\le b)\]
+            \item Si $\mathcal{A} = P(\OMG)$, entonces toda aplicación $X : \OMG \rightarrow \R$ es variable aleatoria.
+        \end{enumerate}
+    %sec: introduccion(end)
+    \section{Como hallar variables aleatorias} % (fold)
+    \label{sec:como_hallar_variables_aleatorias}
+        \subsection{Operaciones} % (fold)
+        \label{sub:operaciones}
+            Sean $X,Y$ variables aleatorias y $a\in\R$ entonces son variables aleatorias:
+            \begin{itemize}
+                \item $X + Y$
+                \item $X \cdot Y$
+                \item $a\cdot X$
+                \item $abs{X}$
+                \item $X^a$
+                \item Si $X(\omega)\ne 0; \forall \omega \in \OMG$, entonces $\dfrac{1}{X}$ también es una variable aleatoria.
+            \end{itemize}
+        % subsection operaciones (end)
+        \subsection{Sucesiones} % (fold)
+        \label{sub:sucesiones}
+            Tomemos $\{X_n, n\ge1\}$ como una sucesión de variables aleatorias tales que $\forall \omega \in \OMG$, la sucesión
+            \[\{X_n(\omg)\in \R, n\ge1\}\]
+            es convergente. En ese caso, definiremos\[X(\omega) \coloneqq \lim_{n\to\infty}X_n(\omega) \in \R\]
+            Entonces, $X$ es una variable aleatoria.
+        % subsection sucesiones (end)    
+    % section como_hallar_variables_aleatorias(end)
+    \section{Función de distribución de una variable aleatoria} % (fold)
+    \label{sec:función_de_distribución_de_una_variable_aleatoria}
+    \textbf{DEFINICIÓN:} Sea $X$ una variable aleatoria. La \textbf{función de distribución} de $X$ es:
+    \[F:\R \rightarrow [0,1]\]
+    \[x \rightarrow F(x) = \prob(X\le x) = \prob(\{\omg \in \OMG, X(\omg) \le x\} = \prob(\underbrace{\{\omg \in \OMG, X(\omg) \in B\}}_{\in \mathcal{A}}) \text{ donde }B = (-\infty,x]\]
+    \subsection{Propiedades} % (fold)
+    \label{sub:propiedades}
+        \begin{enumerate}
+            \item F es no decreciente: $x<y \Rightarrow F(x) \le F(y)$
+            \item F es continua por la derecha y tiene límite por la izquierda en todos sus puntos (càdlàg \textit{continu à droit, limit à gauche}).
+            \item \[\lim_{x\to-\infty}F(x) = 0\;;\;\lim_{x\to+\infty}F(x) = 1\]
+            \item F tiene como máximo un numero numerable de puntos de discontinuidad. Esto se debe a que la recta real se puede expresar como la unión de $\mathbb{Z}$ intervalos.
+            \item \[\prob(s\le X \le t) = F(t) - F(s)\]
+            \item \[\prob(X < x) = F(x^-) = \lim_{X\to x^-}F(X)\]
+            \item \[\prob(X=x) = F(x) - F(x^-)\]
+            si $F$ es discontinua en $x$:
+                \[\prob(X=x) > 0\]
+        \end{enumerate}
+    % subsection propiedades (end)
+    % section función_de_distribución_de_una_variable_aleatoria (end)
+    \section{Variables aleatorias discretas} % (fold)
+    \label{sec:variables_aleatorias_discretas}
+        Una variable aleatoria $X$ es \textbf{discreta} si:
+        \[\exists S \subset R \text{ finito o numerable tal que } \prob(X\in S) = 1\]
+        Siendo $S$ el soporte de $X$. Suponemos que todo $x\in S$ cumple que $\prob(X=a) > 0$. También:
+        \[S = \{x_i, i\in I\} ; I\subseteq \N = \{1,2,3,...\}\]
+        \subsection{Función de probabilidad} % (fold)
+        \label{sub:función_de_probabilidad}
+            \[p:S \rightarrow [0,1]\]
+            \[x_i \rightarrow p(x_i) = \prob(X=x_i)\]
+        En la notación de esta función normalmente se escribirá $p_i$ para referirse a $p(x_i)$.\\
+        Observaciones:
+        \begin{enumerate}[label=\Alph*]
+            \item \[\sum_{i\in I} p_i = \sum_{i\in I} \prob(X = x_i) = \prob(X \in S) = 1\]
+            \item $\forall B \subset \R$ intervalo/semirecta 
+            \[\prob(X\in B) = \sum_{i\in I, x\in B} p_i\]
+            \item La función de probabilidad de X permite calcular todas las probabilidades relacionadas con la variable aleatoria X y determina la \textbf{función de distribución}:
+            \[F(x) = \prob(X\le x) = \sum_{i\in I, x_i \le x} pi\]
+        \end{enumerate}
+        % subsection función_de_probabilidad (end)
+        \subsection{Ejemplos} % (fold)
+        \label{sub:ejemplos}
+            \begin{enumerate}
+                \item Caso Degenerado: 
+                \[X = a \Rightarrow S = \{a\} \text{ y } \prob(X=a) = 1\]
+                \item Caso Bermoulli:
+                \[X = \{1, \text{ con probabilidad }p\in(0,1)\text{ y } 0,\text{ con probabilidad } 1 -p\in(0,1) \}\]
+                \[S = \{a\}; \prob(X=1) = p, \prob(X=0) = 1 - p \]
+                X tiene distribución Bermouilli de parámetro $p$:
+                \[X \sim B(p) \]
+            \end{enumerate}
+        % subsection ejemplos (end)
+    % section variables_aleatorias_discretas (end)
+    
+\end{document}
