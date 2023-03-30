@@ -19,3 +19,6 @@
 \BOOKMARK [2][-]{subsection.5.3}{Tree traversal}{section.5}% 19
 \BOOKMARK [2][-]{subsection.5.4}{Depth-first search: pre-order}{section.5}% 20
 \BOOKMARK [3][-]{subsubsection.5.4.1}{Depth-first search: in-order}{subsection.5.4}% 21
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Breadth-first search}{subsection.5.4}% 22
+\BOOKMARK [2][-]{subsection.5.5}{Grafos con Raiz}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.6}{Shortest path algorithm}{section.5}% 24

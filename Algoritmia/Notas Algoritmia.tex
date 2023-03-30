@@ -358,6 +358,49 @@
             \label{subsub:depth_first_search_in_order}
                 Este algoritmo primero se mueve hacia el hijo más hacia la izquierda de todos los nodos. Tras esto lo visita, se desplaza hacia su padre directo, lo visita y repite el proceso por la derecha. Si el padre directo no presenta más caminos, se sigue reduciendo la profundidad hasta encontrar un padre con un camino disponible. 
             % subsubsection depth_first_search_in_order (end)
+            \subsubsection{Breadth-first search} % (fold)
+            \label{subsub:breadth_first_search}
+                En este algoritmo, se recorren los nodos del arbol nivel a nivel empezando por la izquierda.Si tuviesemos el siguiente grafo:\\
+                \begin{center}
+                    \begin{tikzpicture}
+                        \tikzstyle{node F}=[color=red];
+                        \tikzstyle{every node}=[draw,shape=circle,distance=10mm];
+                        \node[fill=red, fill opacity = 0.8] (F) at (0,0) {F};
+                        \node (F) at (0,0) {F};
+                        \node (B) at (-1,-1) {B};
+                        \node (G) at (1,-1) {G};
+                        \node (A) at (-1.5,-2) {A};
+                        \node (D) at (-0.5,-2) {D};
+                        \node (I) at (1.5,-2) {I};
+                        \node (C) at (-1,-3) {C};
+                        \node (E) at (0,-3) {E};
+                        \node (H) at (1,-3) {H};
+                        \draw[->] (F) -- (B);
+                        \draw[->] (F) -- (G);
+                        \draw[->] (B) -- (A);
+                        \draw[->] (B) -- (D);
+                        \draw[->] (G) -- (I);
+                        \draw[->] (D) -- (C);
+                        \draw[->] (D) -- (E);
+                        \draw[->] (I) -- (H);
+                    \end{tikzpicture}
+                \end{center}
+                
+            % subsubsection breadth_first_search (end)
         % subsection tree_traversal (end)
-    % section árboles_y_árboels_con_raiz (end)
+        \subsection{Grafos con Raiz} % (fold)
+        \label{sub:grafos_con_raiz}
+            Un grafo con raiz, también llamado, grafo de flujo o grafo puntuado, es un grafo en el que se ha indicado un nodo como raiz. En estos grafos, un nodo hoja corresponde a aquellos nodos con valencia 1 diferente de la raiz. Un nodo rama corresponde a todo vértice con una valencia mayor a 2 sin contar la raiz. Es preciso indicar que al indicar la valencia de los nodos no se contará la raiz, pues este nodo abandona su función de rama y hoja para trabajar como raiz. Una distinción fundamental de los grafos con raiz frente a los árboles con raíz es que puede existir más de un camino para llegar a un nodo.\\
+
+            \textbf{Profundidad:} La profundidad de un nodo es la distancia mínima desde la raiz a un nodo. La distancia mínima entre dos nodos es el tamaño del camino más pequeño entre estos dos. La distancia de un nodo a si mismo es 0. Si no existe un camino entre los dos nodos, su distancia es infinito. La profundidad del grafo es la profundidad máxima de todos los nodos.
+        % subsection grafos_con_raiz (end)
+        \subsection{Shortest path algorithm} % (fold)
+        \label{sub:shortest_path_algorithm}
+            El breadth-first search algorithm encuentra uno de los caminos más cortos entre la raiz del grafo y un nodo dado. Esta no es la misma forma que calcular la distancia entre dos nodos dados. Este algoritmo devuelve lo que se denomina un minimal spanning tree.\\
+
+            Un \textbf{spanning tree} de un grafo conectado es un subset de aristas del grafo que conecta todos sus vértices y es un arbol. \textbf{Un minimal spanning} tree de un arbol conectado es un spanning tree tal que cualquier camino $\alpha$ en el spanning tree empezando en la raiz tiene una distancia minima entre todos los caminos en el grafo empezando en la raiz y terminando en el mismo vértice que $\alpha$.
+
+            No hay que confundirlo con el algoritmo \textbf{depth-first search}. Este algoritmo recorre correctamente el grafo en profundidad, pero no computa nien la profundidad del nodo, de tal forma que a pesar de generar un spanning tree, no será minimal.
+        % subsection shortest_path_algorithm (end)
+    % section árboles_y_árboles_con_raiz (end)
 \end{document}
