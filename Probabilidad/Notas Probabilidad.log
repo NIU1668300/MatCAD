@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  9 MAR 2023 12:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  30 MAR 2023 12:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1729,24 +1729,23 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 5.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-))
+) [1
+
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write7
 \openout7 = `"Notas Probabilidad.toc"'.
 
- [1
-
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
- [4]
+ [2] [3] [4] [5]
 Underfull \hbox (badness 10000) in paragraph at lines 294--296
 
  []
 
-[5]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 335--337
 
  []
 
-[6]
+[7]
 Overfull \hbox (26.75624pt too wide) in paragraph at lines 355--357
 \T1/cmr/m/n/10.95 Ejemplo: Lan-zamos 3 mon-edas. Suceso $\OML/cmm/m/it/10.95 A 
 \OT1/cmr/m/n/10.95 = []$\T1/cmr/m/n/10.95 . Suceso $\OML/cmm/m/it/10.95 B \OT1/
@@ -1768,12 +1767,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 377--379
 
  []
 
-[7] [8]
+[8] [9]
 Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
-[9]
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 469--471
 
  []
@@ -1793,33 +1792,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
-[10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 
  []
 
 [12]
-Overfull \hbox (8.62012pt too wide) detected at line 580
+
+LaTeX Warning: Command \' invalid in math mode on input line 540.
+
+Missing character: There is no ó in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--543
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 583--584
+
+ []
+
+[14]
+Overfull \hbox (8.62012pt too wide) detected at line 606
 \U/msb/m/n/10.95 P\OT1/cmr/m/n/10.95 ([]) = [] = [] = []
  []
 
 
-Overfull \hbox (8.60078pt too wide) detected at line 601
+Overfull \hbox (8.60078pt too wide) detected at line 627
 [][][][][]
  []
 
-[13] [14] (./Notas Probabilidad.aux)
+[15] [16] [17] (./Notas Probabilidad.aux)
 Package rerunfilecheck Info: File `"Notas Probabilidad".out' has not changed.
-(rerunfilecheck)             Checksum: 5CBED1177DFFB3AB1A4C2168B4C22779;2886.
+(rerunfilecheck)             Checksum: 54BFDE83F7AF6D39DB2862EFF4FEF333;3108.
  ) 
 Here is how much of TeX's memory you used:
- 43380 strings out of 474968
- 916203 string characters out of 5776089
- 1405681 words of memory out of 5000000
- 63828 multiletter control sequences out of 15000+600000
+ 43395 strings out of 474968
+ 916438 string characters out of 5776089
+ 1405865 words of memory out of 5000000
+ 63834 multiletter control sequences out of 15000+600000
  485671 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,12n,103p,912b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,12n,103p,912b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1840,10 +1864,10 @@ e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022/t
 exmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on "Notas Probabilidad.pdf" (14 pages, 336483 bytes).
+Output written on "Notas Probabilidad.pdf" (17 pages, 346010 bytes).
 PDF statistics:
- 502 PDF objects out of 1000 (max. 8388607)
- 419 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
- 485 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 534 PDF objects out of 1000 (max. 8388607)
+ 448 compressed objects within 5 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 509 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -208,18 +208,177 @@
             \[F(x) = \prob(X\le x) = \sum_{i\in I, x_i \le x} pi\]
         \end{enumerate}
         % subsection función_de_probabilidad (end)
-        \subsection{Ejemplos} % (fold)
-        \label{sub:ejemplos}
-            \begin{enumerate}
-                \item Caso Degenerado: 
+        \subsection{Tipos de variable discreta} % (fold)
+        \label{sub:tipos_de_variable_discreta}
+            \subsubsection{Caso Degenerado} % (fold)
+            \label{subsub:caso_degenerado}
                 \[X = a \Rightarrow S = \{a\} \text{ y } \prob(X=a) = 1\]
-                \item Caso Bermoulli:
+            % subsubsection caso_degenerado (end)
+            \subsubsection{Caso Bermoulli} % (fold)
+            \label{subsub:caso_bermoulli}
                 \[X = \{1, \text{ con probabilidad }p\in(0,1)\text{ y } 0,\text{ con probabilidad } 1 -p\in(0,1) \}\]
                 \[S = \{a\}; \prob(X=1) = p, \prob(X=0) = 1 - p \]
                 X tiene distribución Bermouilli de parámetro $p$:
                 \[X \sim B(p) \]
-            \end{enumerate}
-        % subsection ejemplos (end)
+            % subsubsection caso_bermoulli (end)
+            \subsubsection{Uniforme discreta sobre n puntos} % (fold)
+            \label{subsub:uniforme_discreta_sobre_n_puntos}
+                Toman valores en $\{x_1,x_2,x_3,...,x_n\}$ con la misma probabilidad. Tenemos que:
+                \[\prob(X=x_i) = \frac{1}{n}\]
+                Denotamos:
+                \[X \sim U\{x_1,...,x_n\}; \; S=\{x_1,...,x_n\} ; \; p(x_i) = \frac{1}{n}, \forall i=1,...,n\]
+
+            % subsubsection uniforme_discreta_sobre_n_puntos (end)
+            \subsubsection{Binomial} % (fold)
+            \label{subsub:binomial}
+            \begin{itemize}
+                \item Repetimos n veces el mismo experimento
+                \item Tenemos un suceso $A$ con $p=\prob(A)$. Si $A$ se realiza es un éxito, sino es un fracaso.
+                \item \[X = \text{Numero de veces que ocurre $A$ en las $n$ repeticiones}; \; S = \{0,1,2,3,4,...,n\}\]
+                \[\prob(X=k) = \binom{n}{k} p^k \cdot (1-p)^{n-k}, k=0,1,...,n\]
+                \item Denotamos como:
+                \[X\sim B(n,p)\]
+            \end{itemize}
+            \underline{Observación:} Pongamos que tenemos una serie de variables aleatorias $X_1,X_2,...,X_n$ donde
+            \begin{equation}
+                X_i = 
+                \begin{cases}
+                    1, \text{Si en la i-ésima repetición se realiza $A$}\\
+                    0, \text{En caso contrario}
+                \end{cases}
+            \end{equation}
+            Entonces:
+            \[X_i = B(p)\]
+            Tenemos que:
+            \[X = \sum_{i=1}^n X_i \sim B(n,p) \text{ (repeticiones independientes)}\]
+            % subsubsection binomial (end)
+            \subsubsection{Geométrica} % (fold)
+            \label{subsub:geometrica}
+                Pongamos que tenemos un experimento aleatorio con una probabilidad:
+                \[p = \prob(\text{éxito})\]
+                \[X = \text{"número de pruebas hasta obtener el primer éxito (incluida la prueba con el éxito)"}\]
+                \[S = \{1,2,3,...\}\]
+                \textbf{Función de probabilidad:}
+                \[P(X=k) = (1-p)^{k-1} \cdot p\]
+                \textbf{Notación:} \[X_n \sim Geom(p)\]
+                \textbf{Propiedades:}
+                \[\prob(X>l+k | X>l) = \prob(X>k), \; \forall k,l\in\N \]
+                Esta propiedad es conocida como falta de memoria. Para entenderlo puede pensarse de la siguiente forma. Supongamos que estás lanzando una moneda desde las 9 de la mañana hasta las 11, y no sale ninguna cara. Si alguien llegara a ĺas 11 y los dos empezarais a lanzar monedas en ese instante, quien de los dos tendría ¿más posibilidades de sacar una cara antes? Los dos tendrían la misma.
+            %subsubsection geometrica (end)
+            \subsubsection{Binomial negativa} % (fold)
+            \label{subsub:binomial_negativa}
+                \[X = \text{número de pruebas hasta que obtenga $m$ éxitos}\]
+                \textbf{Observación:} Si $m=1 \Rightarrow X_n \; Geom(p)$\\
+                En general:
+                \[S =  \{m,m+1,m+2,...\} \text{ con } \prob(X=k) = \binom{k-1}{m-1}(1-p)^{k-m}\cdot p^m \]
+                \textbf{Notación:}\[X_n \sim BN(m,p)\]
+            %subsubsection binomial_negativa (end)
+            \subsubsection{Hipergeométrica} % (fold)
+            \label{subsub:hipergeometrica}
+            Pongamos que tenemos una urna con $N$ bolas. $B$ bolas blancas y $N-B$ rojas. De esta urna sacamos $n\le N$ bolas. 
+            \[X = \text{"número de bolas blancas obtenidas"}\]
+            Si estamos trabajando con reemplazamiento:
+            \[X \sim B(n, \frac{B}{N})\]
+            Si trabajamos sin reemplazamiento:
+            \[\prob(X=j) = \frac{\frac{n!}{(n-j)!}}{\binom{N}{n}}\]
+            Es más, podemos deducir que:
+            \[max(n-N+B,0) \le j \le min(B,n)\]
+            \textbf{Notación:}\[H\sim H(N,B,n)\]
+
+            Pongamos un ejemplo. En una mesa de 10 personas hay 4 menores de edad. Todas las bebidas que se beben son alcoholicas y el camarero pide 5 DNI al azar.
+            \begin{itemize}
+                \item ¿$\prob($Descubrir los 4 menores de edad$)$?:
+                \[N = 10 \; ; \; B = 4 \; ; \; N-B=6 \; ; \; n = 5\]
+                \[X = \text{"Número de menores de edad"} \Rightarrow X \sim H(10,4,5)\]
+                \[\prob(X=4) = \frac{\frac{5!}{(5-4)!}}{\binom{10}{4}} = 0.024\]
+                \item ¿Cuantos DNI se deben pedir para que la probabilidad de detectar a los 4 menores sea minimo 0.25?
+                \[n=7 \Rightarrow \prob(X=4) = \frac{\frac{7!}{(7-4)!}}{\binom{10}{7}} = 0.16667\]
+                \[n=8 \Rightarrow \prob(X=4) = \frac{\frac{8!}{(8-4)!}}{\binom{10}{8}} = 0.3333 > 0.25\]
+            \end{itemize}
+            %subsubsection hipergeometrica (end)
+            \subsubsection{Poisson}
+            \label{subsub:poisson}
+                $\lambda \in \R$. Se dice que $X$ tiene ley de \textbf{Poisson de parámetros $\lambda$} si se cumple que $\N \cup \{u\}$ y
+                \[\prob(X=k) = e^{-\lambda} \cdot \frac{\lambda^{k}}{k!}, \; k=0,1,2...\]
+                Se escribe:
+                \[X \sim Poiss(\lambda)\]
+                Esta variable aleatoria aparece cuando se busca calcular el número de veces que ocurre un suceso aleatorio en un parámetro de tiempo fijo. Más adelante veremos que:
+                \[\lambda = \text{Valor medio de los sucesos que contamos } (por \;unidad \;de \; tiempo/espacio) \]
+
+
+                \textbf{Aproximación de la Binomial por la Poisson:} Pongamos que tenemos una sucesión:
+                \[\{p_n,n\ge 1\} \text{ tal que } 0 < p_n < 1 \; y \; \lim_{n\to\infty} np_n = \lambda > 0 \Rightarrow \lim_{n\to\infty} p_n = 0\]
+                También se deduce que:
+                \[\lambda > 0 \Rightarrow p_n = \frac{\lambda}{n}\]
+                \[X_n \sim B(n,p_n)\]
+                \[\prob(X_n = k) = \binom{n}{k} p_n^k (1-p_n)^{n-k}, \; k=0,1,...,n\]
+                Si $k=0$:
+                \[\lim_{n\to\infty} \prob(X_n = 0) = \lim_{n\to\infty} (1-p)^n = \lim_{n\to\infty} (1+\frac{1}{-\frac{1}{p_n}})^{n(-p_n)\cdot(\frac{1}{-p_n})}\]
+                \[=\lim_{n\to\infty} [(1 + \frac{1}{-\frac{1}{p_n}})^{-\frac{1}{p_n}}]^{-np_n} = e^\lambda\]
+                Si $k\ge1$ para $n$ suficientemente grande:
+                \[\prob(X_n=k) = \frac{n!}{(n-k)!k!} p_n^k (1-p_n)^{n-k} = \frac{n\cdot(n-1) \cdots (n-k+1)}{n^k} \frac{(np_n)^k}{k!} (1-p_n)^n (1-p_n)^{-k} \]
+                \[\xRightarrow{n \to \infty} prob(X=k) = 1 \cdot \frac{\lambda^{k}}{k!} \cdot e^{-\lambda} \cdot 1 = \rightarrow X \sim Poiss(\lambda)\]
+
+
+                 \textbf{Ejemplo:} Tenemos un lote de 200 unidades.
+                 \[X = \text{"Unidades defectuosas"}\]
+                 \[X \sim B(200,p)\; \{p_1 = 0.001 ; \; p_2 = 0.05\} \]
+                 \[\prob(\text{Aceptar el lote}) = \prob(X \le 2)\]
+                 Si $p=0.001$:
+                 \[\prob(\text{Aceptar el lote}) = \prob(X \le 2) \sim \prob(Y\le 2)\]
+                 Siendo $Y \sim Poiss(0.001\times200)$:
+                 \[=\prob(Y=0)+\prob(Y=1)+\prob(Y=2) = \]
+            %subsubsection poisson (end)
+        % subsection tipos_de_variable_discreta (end)
     % section variables_aleatorias_discretas (end)
-    
+    \section{Variables aleatorias continuas} % (fold)
+    \label{sec:variables_aleatorias_continuas}
+        Una variable aleatoria $X$ es \textbf{continua} si $\exists f:\R\rightarrow\R$:
+        \begin{itemize}
+            \item La función es no negativa.
+            \[f(x) \ge 0, \forall x \in \R\]
+            \item f es integrable en $\R$ y \[\int_{-\infty}^{+\infty} f(x) dx = 1\]
+            \item La probabilidad de que la variable tome valores entre a y b es la integral entre ambos valores.\[\forall -\infty \le a \le b \le +\infty\; \prob(a\le X\le b) = \int_{a}^b f(x) dx\]
+            \item El valor $f$ se denomina \textbf{densidad de $X$}.
+            \item La probabilidad de que la variable tome un valor exacto es $0$
+            \[\prob(X=a) = \prob(a \le X \le a) = \int_{a}^a f(x) dx= 0, \; \forall a\in\R\]
+            \subsection{Función de distribución} % (fold)
+            \label{sub:función_de_distribución}
+                Para calcular la función de distribución de una variable aleatoria continua tomamos la siguiente función:
+                \[F(x) = \prob(X\le x)= \prob(-\infty < X \le x) = \int_{-\infty}^x f(t) dt\]
+                Esto implica que no solo $F(x)$ es continua sino que además es absolutamente continua.
+        \end{itemize}
+            % subsection función_de_distribución (end)
+            \subsection{Tipos de variable continua} % (fold)
+            \label{sub:tipos_de_variable_continua}   
+                \subsubsection{Uniforme en (0,1)} % (fold)
+                \label{subsub:uniforme_en_}
+                    \textbf{NOTACIÓN:} \[X \sim U(0,1)\]
+                    Esta variable aleatoria representa el resultado de escoger un número al azar del intervalo $(0,1)$ (uniformemente)\\
+                    \textbf{Densidad:}
+                    \begin{equation}
+                        f(x) =
+                        \begin{cases}
+                            1, \; x\in(0,1)\\
+                            0, \; \text{en caso contrario}
+                        \end{cases} \nonumber
+                    \end{equation}
+                    Para calcular la probabilidad entre un intervalo dado $a,b$ empleariamos la integral:
+                    \[\prob(a\le X\le b) = \int_a^b f(x) dx = \int_a^b 1 dx = b-a\]
+
+                    \textbf{Función de distribución:}
+                    \begin{equation}
+                        F(x) = \prob(X\le x) = \int_{-\infty}^x f(t) dt =
+                        \begin{cases}
+                            0, \; si \; x<0\\
+                            \int_0^x 1 dt = x, \; si \; 0\le x \le 1\\
+                            1, \; si \; x\ge 1\\
+                        \end{cases}
+                        =
+                        \begin{cases}
+                            0, \; si \; x<0\\
+                            x, \; si \; 0\le x<1\\
+                            1, \; si \; x \ge 1
+                        \end{cases}\nonumber
+                    \end{equation}
 \end{document}

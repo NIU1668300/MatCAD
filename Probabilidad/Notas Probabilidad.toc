@@ -1,43 +1,46 @@
 \babel@toc {american}{}\relax 
 \babel@toc {american}{}\relax 
-\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
-\contentsline {section}{\numberline {2}Fenómenos aleatorios y experimentos aleatorios}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Fenómentos aleatorios}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Espacio Muestral}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Sucesos}{2}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Sigma-algebra}{3}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Notación de teoría de conjuntos y probabilidad}{3}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Probabilidades}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Espacio de Probabilidad}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Propiedades de P}{4}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}La Fórmula de Laplace}{4}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Continuidad secuencial de la probabilidad}{4}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Continuidad secuencial de la probabilidad por uniones crecientes}{5}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Continuidad secuencial de la probabilidad por uniones decrecientes}{5}{subsubsection.3.4.2}%
-\contentsline {section}{\numberline {4}Combinatoria}{5}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Permutaciones}{5}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Permutaciones con Repetición}{5}{subsubsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.2}Variaciones}{5}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Variaciones con repetición}{6}{subsubsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.3}Combinaciones}{6}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Probabilidad y ODDS}{7}{section.5}%
-\contentsline {section}{\numberline {6}Probabilidad Condicionada}{7}{section.6}%
-\contentsline {section}{\numberline {7}Independencia de sucesos}{8}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Propiedades de la independencia de sucesos}{9}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Independencia de 3 o más sucesos}{9}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Fórmulas importantes}{9}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Fórmula de las Probabilidades Totales}{9}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Fórmula de Bayes}{10}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Evaluación de evidencias y Fórmula de Bayes}{10}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Problemas}{12}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Problema 1}{12}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Problema 2}{12}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Problema 3}{12}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Problema 4}{12}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Problema 5}{13}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}Problema 11}{13}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Problema 12}{13}{subsection.9.7}%
-\contentsline {subsection}{\numberline {9.8}Problema 14:Ficha 1}{13}{subsection.9.8}%
-\contentsline {subsection}{\numberline {9.9}Prob. 15 Ficha 1}{14}{subsection.9.9}%
-\contentsline {subsection}{\numberline {9.10}Prob. 18 Ficha 1}{14}{subsection.9.10}%
-\contentsline {subsection}{\numberline {9.11}Prob. 19 Ficha 1}{14}{subsection.9.11}%
+\contentsline {section}{\numberline {1}Introducción}{3}{section.1}%
+\contentsline {section}{\numberline {2}Fenómenos aleatorios y experimentos aleatorios}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Fenómentos aleatorios}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Espacio Muestral}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Sucesos}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Sigma-algebra}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Notación de teoría de conjuntos y probabilidad}{4}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Probabilidades}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Espacio de Probabilidad}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Propiedades de P}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}La Fórmula de Laplace}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Continuidad secuencial de la probabilidad}{5}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Continuidad secuencial de la probabilidad por uniones crecientes}{6}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Continuidad secuencial de la probabilidad por uniones decrecientes}{6}{subsubsection.3.4.2}%
+\contentsline {section}{\numberline {4}Combinatoria}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Permutaciones}{6}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Permutaciones con Repetición}{6}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Variaciones}{6}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Variaciones con repetición}{7}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}Combinaciones}{7}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Probabilidad y ODDS}{8}{section.5}%
+\contentsline {section}{\numberline {6}Probabilidad Condicionada}{8}{section.6}%
+\contentsline {section}{\numberline {7}Independencia de sucesos}{9}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Propiedades de la independencia de sucesos}{10}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Independencia de 3 o más sucesos}{10}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Fórmulas importantes}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Fórmula de las Probabilidades Totales}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Fórmula de Bayes}{11}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Evaluación de evidencias y Fórmula de Bayes}{11}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Números Aleatorios}{12}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Números Pseudoaleatorios}{13}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Generador Cuántico}{13}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Problemas}{14}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Problema 1}{14}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Problema 2}{14}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Problema 3}{14}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Problema 4}{14}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Problema 5}{15}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Problema 11}{15}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Problema 12}{15}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Problema 14:Ficha 1}{15}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}Prob. 15 Ficha 1}{16}{subsection.10.9}%
+\contentsline {subsection}{\numberline {10.10}Prob. 18 Ficha 1}{16}{subsection.10.10}%
+\contentsline {subsection}{\numberline {10.11}Prob. 19 Ficha 1}{16}{subsection.10.11}%

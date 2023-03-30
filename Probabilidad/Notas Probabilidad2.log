@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  16 MAR 2023 12:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  30 MAR 2023 12:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1742,19 +1742,25 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
  [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
- [4]
-(./Notas Probabilidad2.aux)
+ [4] [5]
+[6] [7] [8
+pdfTeX warning (ext4): destination with the same identifier (name{equation.5.2}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.384 \end{document}
+                    ] (./Notas Probabilidad2.aux)
 Package rerunfilecheck Info: File `"Notas Probabilidad2".out' has not changed.
-(rerunfilecheck)             Checksum: 4BB6BC3CEA6A7B2E4BD190F015A50DA2;575.
+(rerunfilecheck)             Checksum: 1F8D3B8E9E8EBE11DEF812BD55C1F949;1489.
  ) 
 Here is how much of TeX's memory you used:
- 43296 strings out of 474968
- 915032 string characters out of 5776089
- 1390996 words of memory out of 5000000
- 63824 multiletter control sequences out of 15000+600000
+ 43336 strings out of 474968
+ 915834 string characters out of 5776089
+ 1393663 words of memory out of 5000000
+ 63848 multiletter control sequences out of 15000+600000
  483948 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,8n,103p,491b,461s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,12n,103p,491b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1775,10 +1781,10 @@ e/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on "Notas Probabilidad2.pdf" (4 pages, 240346 bytes).
+Output written on "Notas Probabilidad2.pdf" (8 pages, 272178 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 314 PDF objects out of 1000 (max. 8388607)
+ 239 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 325 words of extra memory for PDF output out of 10000 (max. 10000000)
 
