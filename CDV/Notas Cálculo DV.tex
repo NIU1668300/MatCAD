@@ -413,7 +413,7 @@
             \[\frac{\abs{f(x)-f(a)}}{\norm{x-a}} \le \norm{\nabla f(a)} + \varepsilon \text{ si } \norm{x-a} \text{ es muy pequeño}\]
             Por tanto:
             \[\lim_{x \to a} \abs{f(x)-f(a)} = 0\]
-            Y eso implica que f es continua en el punto a
+            Y eso implica que f es continua en el punto a.\\
         \textbf{Propuesta:} Sean $f,g$ funciones diferenciables en el punto a entonces:
         \begin{itemize}
             \item $f\pm g$ es diferenciable en $a$
@@ -462,8 +462,92 @@
 
         % subsection funciones_que_devuelven_un_resultado_en_m_dimensiones (end)
     % section diferenciabilidad (end)
-    \section{Problem} % (fold)
-    \label{sec:problem}
-        ¿Porque no puedes evaluar un límite direccional usando curvas en vez de rectas?
-    % section problem (end)
+    \section{Curvas y Superficies} % (fold)
+    \label{sec:curvas_y_superficies}
+        Una curva $\gamma$ en $\R^n$ es una aplicación $\gamma:[a,b] \rightarrow \R^n$ continua.
+        \[t \rightarrow \gamma(t) = (\gamma_1(t), \gamma_2(t),...,\gamma_n(t))\]
+        Ejemplo:
+        \[[0,2\pi] \xrightarrow{\gamma} \R^2\]
+        \[t \rightarrow (Acos(t), Bsin(t))\]
+        Esta es una curva en $\R^2$ que corresponderá a una elipse. El \textbf{vector tangente} de una curva $\gamma$ en un punto t es aquel vector con la misma pendiente que la curva $\gamma$ en ese punto y que parte de $\gamma(t)$ en dirección $b$, pues siempre tiene que ir en el sentido de la curva. Para hallar este vector observaremos $\gamma(t+h)$. Usando este nuevo punto y el punto original definiremos el vector como:\[\lim_{h\to 0} \frac{\gamma(t+h)-\gamma(t)}{h} = \gamma'(t) =(\gamma'_1(t), \gamma'_2(t),...,\gamma'_n(t))\]
+        Aplicando esto a nuestro ejemplo anterior:
+        \[\gamma'(t) = (-Asin(t),Bcos(t)) \Rightarrow \gamma'(\pi/4) = (\frac{-A\sqrt{2}}{2},\frac{B\sqrt{2}}{2})\]
+        Este sería el vector tangente a la elipse en el punto $\gamma(\pi/4)$
+        \subsection{Longitud de una curva} % (fold)
+        \label{sub:longitud_de_una_curva}
+            Sea $\gamma:[a,b] \rightarrow \R^2$, entonces $a = t_0 < t_1 < t_2 < \cdots < t_{N-1} < t_N = b$. Luego:
+            \[\text{Longitud de la poligonal} = \sum_{i=1}^{N} \text{Longitud del segmento entre $\gamma(t_i)$ y $\gamma(t_{i-1})$} \]
+            Para hallar la distancia de cada segmento podemos usar pitágoras, pues usando cada una de las componentes nos queda un triángulo rectángulo:
+            \[\gamma(t_{i-1}) = (\gamma_1(t_{i-1}), \gamma_2(t_{i-1}))\; ; \; \gamma(t_{i}) = (\gamma_1(t_{i}), \gamma_2(t_{i}))\]
+            \[h^2 = c_x^2 + c_y^2 \; ; \; c_x = \gamma_1(t_{i}) - \gamma_1(t_{i-1}), c_y = \gamma_2(t_{i}) - \gamma_2(t_{i-1}) \]
+            Sabiendo esto:
+            \begin{align}
+                \text{Longitud de la poligonal} & = \sum_{i=1}^{N} \sqrt{(\gamma_1(t_{i}) - \gamma_1(t_{i-1}))^2 + (\gamma_2(t_{i}) - \gamma_2(t_{i-1}))^2}\\
+                & \simeq \sum_{i=1}^{N} \sqrt{(\gamma'_1(t_{i})^2(t_i - t_{i-1})^2 + \gamma'_2(t_{i})^2(t_i - t_{i-1})^2}\\
+                & = \sum_{i=1}^{n} \sqrt{\gamma'_1(t_{i})^2 + \gamma'_2(t_{i})^2}\cdot (t_i - t_{i-1})\\
+                & = \sum_{i=1}^{n} \norm{\gamma'(t_i)}\cdot(t_i-t_{i-1})\rightarrow \text{si $n$ tiende a infinito} \simeq \int_{a}^{b} \norm{\gamma'(t)} dt
+            \end{align}
+        % subsection longitud_de_una_curva (end)
+        \subsection{Superficies en 3 dimensiones} % (fold)
+        \label{sub:superficies_en_3_dimensiones}
+            Una superficie en $\R^3$ es $f(x,y,z) = \mathcal{C}$ donde $f$ es una función continua y $\mathcal{C} \in \R$. Por ejemplo: 
+            \[x^2+2y^2+3z^2 = 6\]
+            Esta superficie es una elipsoide. Efectivamente, si $z=cte.$ obtenemos $x^2+2y^2+3\mathcal{C}^2 = 6$, es decir, $x^2+2y^2 = 6-3\mathcal{C}^2$\\
+            \underline{Observación:} El vector normal a la superficie $f(x,y,z)=\mathcal{C}$ en el punto $(x,y,z)$ es $\nabla f(x,y,z)$\\
+            \textbf{¿Por qué?} Śea $\gamma$ una curva contenida en la superficie. Tenemos $f(\gamma(t)) = \mathcal{C}$
+        % subsection superficies_en_3_dimensiones (end)
+        \subsection{Polinomio de Taylor} % (fold)
+        \label{sub:polinomio_de_taylor}
+            Recordemos que si $f:\R \rightarrow \R$ y $x_0 \in \R$, el polinomio de Taylor de $f(x)$ en el punto $x_0$ y de grado $n$ es:
+            \[P_{n,f,x_0} (x) = f(x_0) + f'(x_0) (x-x_0) + \frac{f''(x_0)}{2!}(x-x_0)^2 + \frac{f'''(x_0)}{3!}(x-x_0)^3 + \cdots + \frac{f^{n'}(x_0)}{(x-x_0)^n}\]
+            Sea ahora $f:\R^3 \rightarrow \R$, el polinomio de Taylor de grado $n$ de la función $f$ en el punto $x_0$ es:
+            \begin{align}
+                P_{n,f,x_0}(x) = f(x_0) + & \sum_{i=1}^3 \frac{\partial f}{\partial x_i}(x_0)(x_i-x_{0,i}) + \frac{1}{2!} \sum_{i,j=1}^{3} \frac{\partial^2 f}{\partial x_i\partial x_j}(x_0) (x_i-x_{0,i})(x_j-x_{0,j})+ \cdots + \nonumber \\
+                &  \frac{1}{n!} \sum_{i_1,i_2,...,i_n = 1}^{3} \frac{\partial^n f}{\partial x_{i_n} \cdots \partial x_{i_1}}(x_0)(x_{i_1} -x_{0_{i_1}})\cdots(x_{i_n}-x_{0_{i_n}})
+            \end{align}
+
+            \textbf{TEOREMA DE SCHWARZ:} \textit{Sea $f$ una función con segundas derivadas continuas. Entonces:}
+            \[\frac{\partial^2f}{\partial x_j \cdot\partial x_i } = \frac{\partial^2f}{\partial x_i \cdot\partial x_j }\]
+
+            \subsubsection{Cálculo de Polinomios de Taylor utilizando polinomios de grado 1} % (fold)
+            \label{subsub:calculo_de_polinomios_de_taylor_utilizando_polinomios_de_grado_1}
+            Si nos pidiesen calcular el poliomio de taylor de una función $f(x,y,z)=\dfrac{1}{1-xyz}$ en el punto $(0,0,0)$ y grado 8 podríamos emplear un polinomio de taylor de grado 1. Sabemos que:
+            \[\frac{1}{1-t} = 1 + t + t^2 + t^3 + \cdots + t^n; \; t\in(-1,1)\]
+            Luego si $t=xyz$, podríamos hallar el polinomio de Taylor facilmente. Lo mismo ocurre con la función $g(x,y) = e^x \cdot sin(y)$. En este caso podemos sacar facilmente el polinomio de taylor de ambas funciones por separado $(e^x$ y $sin(y))$ por lo que luego solo haría falta multiplicar ambos polinomios.\\
+            % subsubsection calculo_de_polinomios_de_taylor_utilizando_polinomios_de_grado_1 (end)
+
+            \textbf{TEOREMA DE TAYLOR:} \textit{Sea $P_k$ el polinomio de taylor de grado $k$ de la función $f$ en el punto $a$ entonces:}
+            \[f(x) = P_k(x) + O(\norm{x-a}^{k+1})\]
+            Es decir:
+            \[\abs{f(x) - P_k(x)} \le \mathcal{C}\norm{x-a}^k+1; \; \text{Para alguna constante } \mathcal{C}>0\]
+
+            \subsubsection{Cálculo de Polinomios de Taylor utilizando polinomios de grado 2} % (fold)
+            \label{subsub:calculo_de_polinomios_de_taylor_utilizando_polinomios_de_grado_2}
+                Sea $f:\R^n \rightarrow \R$ y $a\in\R^n$. El polinomio de Taylor de grado 2 en el punto $a$ es:
+                \[P_{n,f,x_0}(x) = f(x_0) +  \sum_{i=1}^3 \frac{\partial f}{\partial x_i}(x_0)(x_i-x_{0,i}) + \frac{1}{2!} \sum_{i,j=1}^{3} \frac{\partial^2 f}{\partial x_i\partial x_j}(x_0) (x_i-x_{0,i})(x_j-x_{0,j})\]
+                De aquí se puede considerar dos partes. El primer sumatorio, que corresponde al gradiente:
+                \[\sum_{i=1}^3 \frac{\partial f}{\partial x_i}(x_0)(x_i-x_{0,i}) = \nabla f(a) \cdot (x-a)\]
+                Y el segundo sumatorio, que puede expresarse en forma de matriz como ya hemos visto anteriormente:
+                \begin{equation}
+                    \text{Segundo Sumatorio} = (x_1-a_1,x_2-a_2,...,x_n-a_n)
+                    \begin{pmatrix}
+                        \frac{\partial^2 f}{(\partial x_1)^2}(a) & \frac{\partial^2 f}{\partial x_2 \partial x_1}(a) & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(a)\\
+                        \frac{\partial^2 f}{\partial x_1 \partial x_2}(a) & \frac{\partial^2 f}{(\partial x_2)^2}(a) & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n}(a)\\
+                        \vdots & & & \\
+                        \frac{\partial^2 f}{\partial x_1 \partial x_n}(a) & \frac{\partial^2 f}{\partial x_2 \partial x_n}(a) & \cdots & \frac{\partial^2 f}{(\partial x_n)^2}(a)
+                    \end{pmatrix}
+                    \cdot
+                    \begin{pmatrix}
+                        x_1-a_1 \\
+                        x_2-a_2 \\
+                        \vdots \\
+                        x_n-a_n \\
+                    \end{pmatrix}
+                \end{equation}
+                Esta matriz formada por las derivadas segundas es la matriz Hessiana $(Hess \; f(a))$
+
+            % subsubsection calculo_de_polinomios_de_taylor_utilizando_polinomios_de_grado_1 (end)
+
+        % subsection polinomio_de_taylor (end)
+    % section curvas_y_superficies (end)
 \end{document}

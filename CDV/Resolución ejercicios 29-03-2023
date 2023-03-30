@@ -1,0 +1,29 @@
+Número de preguntas: 1
+
+23.- La dirección de mayor crecimiento en un punto es la dirección del gradiente en el punto/norma(gradiente en el punto)
+	Pregunta1: La norma se pone dividiendo porque cuando se pide una dirección se pide que sea unitario. No es un error muy grave pero mejor ponerlo.
+	
+24.- Para hacer la derivada direccional respecto a un vector:
+     · Haz ese vector unimodular
+     · Multiplica por el gradiente en el punto. (EL GRADIENTE NO SE HACE UNITARIO)
+27.- Regla de la cadena:
+     · Si se pide calcular en un punto se hace general y se sustituye.
+     · Si estás derivando una función compuesta por dos funciones. Por ejemplo
+     t - H -> (log(t),t,t²) -f-> f(log(t),t,t²)
+     H(t) = (H1, H2, H3) = (log t, t, t²)
+     Si g'(t) = (f o H)'(t) = Df(H(t)) · DH(t), siendo D el vector formado por las derivadas parciales.
+     Df(H(1)) = ( der. partial f en x (H(1)), der partial f en y (H(1)), der partial f en z (H(1))) 
+     DH = (partial H1 en t, partial H2 en t, partial H3 en t)
+
+
+LA MATRIZ DIFERENCIAL TIENE TANTAS FILAS COMO DIMENSIÓN EL RESULTADO Y TANTAS COLUMNAS COMO DIMENSIÓN LA SALIDA
+
+
+25.- Para aproximae una función a un valor decimos
+
+f(0.1,-0.1) aprox f(0,0) + grad_f(0,0) · (x-0,y-0) -> Plano tangente al 0
+
+
+No es lo mismo grad_f(x,y,z): Que corresponde al vector normal de la superficie en R3, y grad_F(x,y) que corresponde a la dirección de máximo crecimiento tomando z como constante.
+
+31.- El vector normal es  grad_f(x,y,z) = (yz,xz,xy). Si es horizontal eso implica que la componente z vale 0, luego xy = 0. Si esto se cumple, no puede cumplirse la primera condición ya que xyz no podrá valer 1.

@@ -25,4 +25,9 @@
 \contentsline {section}{\numberline {5}Diferenciabilidad}{7}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Continuidad en derivadas parciales}{8}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Funciones que devuelven un resultado en m dimensiones}{9}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Problem}{10}{section.6}%
+\contentsline {section}{\numberline {6}Curvas y Superficies}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Longitud de una curva}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Superficies en 3 dimensiones}{10}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Polinomio de Taylor}{11}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Cálculo de Polinomios de Taylor utilizando polinomios de grado 1}{11}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Cálculo de Polinomios de Taylor utilizando polinomios de grado 2}{11}{subsubsection.6.3.2}%
