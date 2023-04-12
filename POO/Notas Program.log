@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  15 MAR 2023 09:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.4)  8 APR 2023 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1779,69 +1779,69 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 ) [4] [5] [6]
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--414
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
 
  []
 
 [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 514--515
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--517
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--551
+Underfull \hbox (badness 10000) in paragraph at lines 552--553
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
 
  []
 
 [12] (./Notas Program.aux)
 Package rerunfilecheck Info: File `"Notas Program".out' has not changed.
-(rerunfilecheck)             Checksum: 5104890CCCCA329CDCE6A29AADE29369;2285.
+(rerunfilecheck)             Checksum: A346D8BB629A5B55A3BC060EED7A87B0;2381.
  ) 
 Here is how much of TeX's memory you used:
- 43940 strings out of 474968
- 922979 string characters out of 5776089
- 1816955 words of memory out of 5000000
- 64306 multiletter control sequences out of 15000+600000
+ 43943 strings out of 474968
+ 923060 string characters out of 5776089
+ 1817032 words of memory out of 5000000
+ 64308 multiletter control sequences out of 15000+600000
  484657 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,7n,103p,830b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1863,10 +1863,10 @@ e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on "Notas Program.pdf" (12 pages, 329496 bytes).
+Output written on "Notas Program.pdf" (12 pages, 330918 bytes).
 PDF statistics:
- 543 PDF objects out of 1000 (max. 8388607)
- 465 compressed objects within 5 object streams
- 179 named destinations out of 1000 (max. 500000)
- 445 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 548 PDF objects out of 1000 (max. 8388607)
+ 470 compressed objects within 5 object streams
+ 180 named destinations out of 1000 (max. 500000)
+ 453 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -358,7 +358,7 @@
         \label{sub:polymorphism}
         \begin{center}
             \textbf{Problema:} ¿Cómo se gestiona el comportamiento basado en tipo (por ejemplo, dentro de una clase), sin emplear if-then-else ni switch que involucre el nombre de la clase o un atributo \textit{tag}?\\ 
-            \textbf{Solución:} Usa los métodos polimórficos. Dale el mismo nombre a métodos de distintas clases que den diferentes resutlados, de esta forma no será necesario comprobar el nombre de la clase con la que estás trabajando, sino que unicamente se necesitará llamar a un método en concreto.
+            \textbf{Solución:} Usa los métodos polimórficos. Dale el mismo nombre a métodos de distintas clases que devuelvan resultados del mismo tipo empleando diferentes procedimientos, de esta forma no será necesario comprobar el nombre de la clase con la que estás trabajando, sino que unicamente se necesitará llamar a un método en concreto.
         \end{center}
         % subsection polymorphism (end)
     % section grasp_patterns (end)
@@ -380,8 +380,12 @@
         % subsection dry_don_t_repeat_yourself (end)
        \subsection{LSP: Principio de substitución de Liskov} % (fold)
         \label{sub:lsp_principio_de_substitucion_de_liskov}
-            Si S es un subtipo de T, entonces los objetos de T pueden ser sustituidos por objetos del tipo S sin alterar las propiedades deseadas del programa. \textbf{Donde se espera un objeto de una super-clase puede ser sustituido por un objeto de una clase derivada.}
-        % subsection liskov_substitution_principle (end) 
+            Debes diseñar tus clases y subclases de tal forma que, si S es un subtipo de T, entonces los objetos de T pueden ser sustituidos por objetos del tipo S sin alterar las propiedades deseadas del programa. \textbf{Donde se espera un objeto de una super-clase puede ser sustituido por un objeto de una clase derivada.}
+        % subsection liskov_substitution_principle (end)
+        \subsection{Program to an interface, not an implementation} % (fold)
+        \label{sub:program_to_an_interface_not_an_implementation}
+        Se debe trabajar empleando una interfaz y no una implementación concreta. Esto evita que al cambiar la implementación se originen problemas derivados de métodos aislados de la implementación. Empleando una interfaz, se puede cambiar la implementación que se utiliza sin producir estos errores. Uno de los ejemplos más tipicos de este principio es el método \textit{addLast} de las \textit{LinkedList}
+        % subsection program_to_an_interface_not_an_implementation
     % section lsp (end)
     \section{Random Forests} % (fold)
     \label{sec:random_forests}
@@ -515,14 +519,14 @@
 
             ¿Que clases necesitamos para satisfacer estos requisitos? Para empezar necesitamos clases primitivas como Texto, Linea, Círculo, Triángulo, etc. Después, una clase que actue como contenedor para estas primitivas. Todos estas clases pueden moverse, escalarse, rotarse y dibujarse a si mismos. Es cierto que algunos métodos actuarán de forma diferente en las distintas clases (por ejemplo rotar un círculo no hará nada) y otros como por ejemplo escoger el color y el grosor de la línea serán comunes, unicamente cambiara el valor de un atributo.\\
 
-            El código del cliente deve diferenciar las primitivas de los objetos contenedores incluso si la mayor parte del tiempo hacen las mismas cosas, haciendo esta aplicación más compleja. \textbf{Solución:}
+            El código del cliente debe diferenciar las primitivas de los objetos contenedores incluso si la mayor parte del tiempo hacen las mismas cosas, haciendo esta aplicación más compleja. \textbf{Solución:}
             \begin{itemize}
                 \item Haz que el contenedor herede de \textit{Graphic}.
                 \item \textit{Graphic} es una clase abstracta padre de tanto las primitivas como de los grupos. Es la interfaz común para poder llevar a cabo cualquier tipo de gráfico.
                 \item Composición recursiva: Un contenedor puede contener primitivas y/o otros contenedores 
             \end{itemize}
 
-            La idea detrás del patrón composite es componer objetos en estructuras de arbol para representar jerarquías de partes enteras. Composite permite al cliente tratar objetos individuales y composiciones de objetos de forma uniforme. Este patron se puede aplciar cuando se busca representar jerarquías formadas por partes completas de objetos o cuando se queire que el cliente ignore las diferencias entre la composición de objetos y los objetos individuales.\\
+            La idea detrás del patrón composite es componer objetos en estructuras de arbol para representar jerarquías de partes enteras. Composite permite al cliente tratar objetos individuales y composiciones de objetos de forma uniforme. Este patron se puede aplicar cuando se busca representar jerarquías formadas por partes completas de objetos o cuando se queire que el cliente ignore las diferencias entre la composición de objetos y los objetos individuales.\\
 
             Esto se emplea para que al programar se programe a una interfaz y no a una implementación además de que se encapsule lo que varía, de tal forma que pueda cambiar sin que afecte al resto del programa.
         % subsection composite (end)

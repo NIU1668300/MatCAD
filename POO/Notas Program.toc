@@ -24,15 +24,16 @@
 \contentsline {subsection}{\numberline {6.2}"Don't talk to strangers"}{7}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}DRY: Don't repeat yourself}{7}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}LSP: Principio de substitución de Liskov}{7}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Random Forests}{7}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Machine learning}{7}{subsection.7.1}%
+\contentsline {subsection}{\numberline {6.5}Program to an interface, not an implementation}{7}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Random Forests}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Machine learning}{8}{subsection.7.1}%
 \contentsline {subsubsection}{\numberline {7.1.1}Train,test y validation}{8}{subsubsection.7.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.2}Regresión Lineal}{8}{subsubsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.3}Datasets}{8}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.3}Datasets}{9}{subsubsection.7.1.3}%
 \contentsline {subsection}{\numberline {7.2}Decision Trees}{9}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}Pureza de un conjunto}{9}{subsubsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.3}Random Forest}{9}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.3}Random Forest}{10}{subsection.7.3}%
 \contentsline {section}{\numberline {8}Patrones de diseño}{10}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Composite}{11}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}GoF patterns}{11}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Strategy}{11}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.3}Strategy}{12}{subsection.8.3}%
