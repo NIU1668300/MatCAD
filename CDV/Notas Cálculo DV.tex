@@ -112,7 +112,7 @@
 
 \begin{document}
     \begin{center}
-        \huge{Teoría de Cálculo de Diversas Variables. 1º de Carrera. Tema 1}
+        \huge{Teoría de Cálculo de Diversas Variables. 1º de Carrera}
     \end{center}
     \tableofcontents
     \newpage
@@ -173,7 +173,7 @@
                 \end{equation}
             % subsubsection demostración_de_la_desigualdad_de_cauchy_schwarz (end)
 
-            La \textbf<norma> de x perteneciente a $\R ^n$ es $\|x\| = <x,x> ^{1/2} = \sqrt{x_1^2+x_2^2+...+x_n^2}$  que corresponde a la distancia del punto x al origen.
+            La \textbf{norma} de x perteneciente a $\R ^n$ es $\|x\| = <x,x> ^{1/2} = \sqrt{x_1^2+x_2^2+...+x_n^2}$  que corresponde a la distancia del punto x al origen.
             Es decir, que según la desigualdad de Cauchy-Schwarz $<x,y> \le \|x\| \cdot \|y\|$ \\
 
             Observamos que si dividimos el producto escalar por el producto de las normas siempre nos queda un valor entre 0 y 1. Este valor es el coseno del ángulo que forman los dos vectores.
@@ -253,6 +253,8 @@
         \subsection{Conjunto acotado y conjunto compacto} % (fold)
         \label{sub:conjunto_acotado_y_conjunto_compacto}
             Un conjunto $A \subset \R^n$ se considera \textbf{acotado} si existe $M>0$ tal que $A\subseteq \text{Bola centrada al origen de radio M}$. Por ejemplo, una recta a en $\R^2$ no está acotado, pero un cubo en $\R^3$ sí.
+
+            Si ademaś de acotado el conjunto es cerrado se le denomina \textbf{conjunto  compacto.}
             % subsection conjunto_acotado_y_conjunto_compacto (end)
     % section topología (end)
     \section{Límites de funciones y Continuidad} % (fold)
@@ -408,7 +410,7 @@
             Utilizando Cauchy-Schwartz:
             \[\abs{\nabla f(a) \cdot (x-a)} \le \norm{\nabla f(a)} \cdot \norm{x-a}\]
             Entonces:
-            \[\frac{\abs{\nabla f(a)\cdot (x-a))}}{\norm{x-a}} \le \abs{\nabla f(a)}\]
+            \[\frac{\abs{\nabla f(a)\cdot (x-a))}}{\norm{x-a}} \le \norm{\nabla f(a)}\]
             Como f es diferenciable en el punto a:
             \[\frac{\abs{f(x)-f(a)}}{\norm{x-a}} \le \norm{\nabla f(a)} + \varepsilon \text{ si } \norm{x-a} \text{ es muy pequeño}\]
             Por tanto:
@@ -550,4 +552,225 @@
 
         % subsection polinomio_de_taylor (end)
     % section curvas_y_superficies (end)
+    \section{Extremos relativos} % (fold)
+    \label{sec:extremos_relativos}
+    \textbf{Definición:}Sea $f:\R\rightarrow \R$ y $x_0 \in \R$. $x_0$ es máximo relativo si $f(x_0) \ge f(x) \; \forall x \in \R^n$ con $||x-x_0|| \le \sigma$\\
+    \textbf{Observación:} $x_0$ es un extremo relativo $\Rightarrow \nabla f(x_0) = (0,...,0)$\\
+
+    \subsection{Matrices definidas positivas y negativas} % (fold)
+    \label{sub:matrices_definidas_positivas_y_negativas}
+        \textbf{Definición:} Sea $A$ una matriz simétrica, $A$ es definida positiva si:
+        \[\lambda A \lambda^t \ge 0 \; \text{ para todo } \lambda \in \R^n \; (A\in M_{n\times n} (\R))\]
+        Es decir:
+        \begin{equation}
+            (\lambda_1, \lambda_2,... ,\lambda_n)\cdot
+            \begin{pmatrix}
+                a_{11} & a_{21} & \cdots& a_{n1}\\
+                a_{12}&&&\\
+                \vdots&&&\\
+                a_{1n}& \cdots &\cdots& a_{nn}
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                \lambda_1\\
+                \lambda_2\\
+                \vdots\\
+                \lambda_n
+            \end{pmatrix}
+            \ge 0 \; ; \; \forall \lambda \in \R^n
+        \end{equation}
+        $A$ será negativa si $\lambda A \lambda^t \ge 0 \; \text{ para todo } \lambda \in \R^n$\\\\
+    % subsection matrices_definidas_positivas_y_negativas (end)
+    \textbf{Criterio:}
+    \begin{itemize}
+        \item $A$ es definida positiva $\Leftrightarrow$ El determinante de todos los menores principales es positivo, es decir:
+        \begin{equation}
+            a_{11} \ge 0, \;
+            \begin{vmatrix}
+                a_{11}&a_{21}\\
+                a_{12}&a_{22}
+            \end{vmatrix}
+            \ge 0, \;
+            \begin{vmatrix}
+                a_{11}&a_{21}&a_{31}\\
+                a_{12}&a_{22}&a_{32}\\
+                a_{13}&a_{23}&a_{33}
+            \end{vmatrix}
+            \ge 0, \; \cdots
+        \end{equation}
+        \item $A$ es definida negativa $\Leftrightarrow$ El determinante de los menores principales de orden $n$ es positivo si $n$ es par y negativo si $n$ es impar, es decir:
+        \begin{equation}
+            a_{11} \le 0, \;
+            \begin{vmatrix}
+                a_{11}&a_{21}\\
+                a_{12}&a_{22}
+            \end{vmatrix}
+            \ge 0, \;
+            \begin{vmatrix}
+                a_{11}&a_{21}&a_{31}\\
+                a_{12}&a_{22}&a_{32}\\
+                a_{13}&a_{23}&a_{33}
+            \end{vmatrix}
+            \le 0, \; \cdots
+        \end{equation}
+    \end{itemize}
+
+    \textbf{TEOREMA:}\textit{Sea $f:\R^n \rightarrow \R$ y $x_0 \in \R^n$ y $\nabla f(x_0) = (0,...,0)$}
+    \begin{itemize}
+        \item Si $Hess \; f(x_0)$ es estrictamente (sin iguales) definida positiva  $\Rightarrow x_0$ es un minimo relativo.
+        \item Si $Hess \; f(x_0)$ es estrictamente (sin iguales) definida negativa $\Rightarrow x_0$ es un máximo relativo.
+        \item Si $Hess \; f(x_0)$ no es definida negativa ni definida positiva $\Rightarrow x_0$ es un \textit{"punto de silla"}, es decir, hay direcciones en las que $x_0$ es un minimo y direcciones en las que es un máximo.
+    \end{itemize}
+
+    \subsection{Multiplicadores de Lagrange} % (fold)
+    \label{sub:multiplicadores_de_lagrange}
+    $f:\R^3 \rightarrow \R$ y sea $M = \{x \in \R^3\text{ tal que }g(x)= 0\}$(una superficie). Sea $x_0 \in M$ que es un máximo o mínimo relativo de $f$ en $M$ (es decir $f(x_0) \ge(\le) f(x)  \; ;\; \forall x \in M \text{ cercano a }x_0$). Entonces existes $\lambda \in \R$ tal que:
+    \[\nabla(f - \lambda g)(x_0) = 0\]
+    \textbf{Demostración:} Sea $x_0 \in M$ máximo relativo en $M$, entonces si $\gamma$ es una curva contenida en $M$ con $\gamma(0) = x_0$ tenemos:
+    \[f \circ \gamma: \R \rightarrow \R \text{ tiene máximo en 0 }\]
+    Por tanto:
+    \[(f \circ \gamma)(0) = 0 \Rightarrow \nabla f(x_0) \cdot \gamma'(0) = 0\] 
+    
+    Por tanto para cualquier curva $\gamma$ contenida en $M$ tenemos $\nabla f(x_0)$ es perpendicular en $\gamma'(0)$ (vector tangente)
+
+    Entonces $\nabla f(x_0)$ es normal a la superficie $M$ y sabemos que $\nabla g(x_0)$ es un vector normal a $M$, luego:
+    \[\nabla f(x_0) = \lambda \nabla g(x_0) \text{ para un cierto número $\lambda$}\]
+
+    \textbf{Ejemplo:} $f(x,y,z) = y^3 + xz^2$ Los extremos en la superficie $M = \{(x,y,z)\in \R^3 : x^2 + y^2 + z^2 = 1\}$. Tenemos $g(x,y,z) = x^2 + y^2 + z^2 - 1$. Por el teorema de Weierstrass, como $f$ es continua y $M$ es compacta, la función $f$ tiene un maximo y un mínimo en $M$. Empleando los multiplicadores de Lagrange:
+    \[\nabla(f- \lambda g)=0 \Leftrightarrow (z^2, 3y^2,2xz)-\lambda2(x,y,z) = 0 \]
+    Los puntos con los que estoy trabajando deben estar en la superficie, luego además de las tres ecuaciones que se derivan de la ecuación anterior obtenemos una cuarta:
+    \begin{equation}
+        \begin{cases}
+            z^2 - 2\lambda x = 0\\
+            3y^2 - 2\lambda y = 0\\
+            2xz - 2 \lambda z = 0 \Leftrightarrow z(x-\lambda) = 0 \Leftrightarrow
+            \begin{cases}
+                z = 0 \Rightarrow 2\lambda x = 0 \Rightarrow
+                \begin{cases}
+                    \lambda = 0 \Rightarrow y = 0 \Rightarrow x = \pm 1 \rightarrow (\pm 1, 0, 0)\\
+                    o\\
+                    x = 0  \Rightarrow y = \pm 1 \; ; \; 3 - 2\lambda (\pm 1) = 0 \rightarrow (0, \pm 1, 0)
+                \end{cases}\\
+                o \\
+                x = \lambda \Rightarrow
+                \begin{cases}
+                    z^2 - 2x^2 = 0 \Rightarrow z = \pm \sqrt{2} x\\
+                    3y^2 -2xy = 0 \Rightarrow y(3y -2x) = 0 \Rightarrow
+                    \begin{cases}    
+                        y = 0\\
+                        y = 2x/3
+                    \end{cases}  
+                \end{cases}
+            \end{cases}\\
+            x^2 + y^2 + z^2 -1 = 0
+        \end{cases}
+    \end{equation}
+    Por tanto:
+    \begin{equation}
+        x^2 + y^2 + z^2 = 1 \Leftrightarrow \text{Candidatos de maximos y mínimos de $f$ en $M$} \Rightarrow
+        \begin{cases}
+            (1,0,0), (-1,0,0)\\
+            (0,1,0), (0,-1,0)\\
+            \cdots
+        \end{cases}
+    \end{equation}
+    % subsection multiplicadores_de_lagrange (end)
+    % section extremos_relativos (end)
+    \section{Integración} % (fold)
+    \label{sec:integración}
+    Sea $f:\R \rightarrow \R$, entonces:
+    \[\int_a^b f(x) \; dx = \lim_{max(\abs{x_{i+1}-x_i}) \to 0} \sum f(x_i)(x_{i+1} -x_i)\]
+
+    Si trabajamos en más de 2 dimensiones funcionaría de la siguiente forma. Sea $f:\R^2 \rightarrow \R$ y sea $R \subset \R^2$ un rectángulo:
+    \[\int_R f(x,y)\; dxdy = \text{volumen debajo de la gráfica $f(x,y)$ si $(x,y)\in R$}\]
+    Sabemos que $R = \cup R_i$ donde $R_i$ son cuadrados. Entonces:
+    \[\text{volumen debajo de la gráfica $f(x,y)$ si $(x,y)\in R$} = \lim_{diam(R_i)\to 0} \sum f(\text{Centro de }R_i,Area(R_i))\]
+    ¿Y en el caso de que no sea un rectángulo? Tomamos que una forma $\Omega \subset R$ no es un rectángulo, y consideramos una función $g$ que vale $f$ si es un punto en $\Omega$ y 0 si no lo es. Luego:
+    \[\int_\Omega f(x,y) \: dxdy = \int_R g(x,y) \; dxdy \]
+    \subsection{Teorema de Fubini} % (fold)
+    \label{sub:teorema_de_fubini}
+        Sea $f:[a,b]\times[c,d] \rightarrow \R$ una función integrable, entonces:
+        \[\int_{[a,b]\times[c,d]} f(x,y)\; dx dy = \int_a^b \left(\int_c^d f(x,y) dy\right)dx = \int_c^d \left(\int_a^b f(x,y) dx\right)dy\]
+        De una forma más general, tomemos una forma $\Omega$ contenida dentro de un rectángulo $[a,b]\times[c,d]$. Definimos dos nuevos conjuntos de puntos
+        \[S_x = \{y:(x,y) \in \Omega\}\]
+        \[S_y = \{x:(x,y) \in \Omega\}\] 
+        En este caso:
+        \[\int_\Omega f(x,y) \; dxdy = \int_a^b \left(\int_{S_x} f(x,y) dy\right)dx = \int_c^d \left(\int_{S_y} f(x,y) dx\right)dy\]
+    % subsection teorema_de_fubini (end)
+    \subsection{Cambio de variable} % (fold)
+    \label{sub:cambio_de_variable}
+        Para funciones $f:\R\rightarrow \R$ tenemos:
+        \[\int_a^b f(x) \; dx = \int_{g^{-1}(a)}^{g^{-1}(b)} f(g(t))\cdot g'(t) \; dt\]
+        \underline{TCV}: Sea $g:\R^2 \rightarrow \R^2$ biyectiva y de la clase $C^1$. Sea $f:\R^2 \rightarrow \R$ integrable y sea $\Omega \subset \R^2$
+        \[\int_\Omega f(x,y) \; dxdy = \int_{g^{-1}(\Omega)} f(g(u,v))\cdot Jg(u,v)\]
+        \[Jg(u,v) = \text{determinante de }D_g(u,v)\text{ (matriz diferencial en $u$ y $v$)}\]
+    % subsection cambio_de_variable (end)
+    \subsection{Cambio a coordenadas polares} % (fold)
+    \label{sub:cambio_a_coordenadas_polares}
+        Si tomasemos una $\Omega$ que fuese facil de representar en coordenadas polaress podemo realizar un cambio a coordenadas polares, donde:
+        \begin{align}
+            \begin{cases}
+              x &= rcos(\theta)\\
+              y &= rsin(\theta)\\
+              Jg &= 
+              \begin{vmatrix}
+                  cos(\theta)&-rsin(\theta)\\
+                  sin(\theta)&rcos(\theta)
+              \end{vmatrix} = rcos^2\theta + r sin^2\theta =  r 
+            \end{cases} 
+        \end{align}
+        Tras esto, el cambio en la función sería:
+        \[\int_\Omega f(x,y) \; dxdy =\int_{\theta_0}^{\theta_1}\left(\int_{r_0}^{r_1} f(rcos(\theta),rsin(\theta)) \cdot r \; dr\right) d\theta \]
+    % subsection cambio_a_coordenadas_polares (end)
+    \subsection{Cambio de Variable por integrales triples} % (fold)
+    \label{sub:cambio_de_variable_por_integrales_triples}
+        Sea $f:\R^3 \rightarrow \R$ y sea $\Phi:\R^3\rightarrow\R^2$ biyectiva. Sea $\Omega \subset \R^3$. Entonces:
+        \[\int\int\int_{\Omega} f(x,y,z) dxdydz = \int \int \int_{\Phi^{-1}(\Omega)}f(\Phi(u,v,w))|J\Phi(u,v,w)| dudvdw  \]
+    % subsection cambio_de_variable_por_integrales_triples (end)
+    % section integración (end)
+    \section{Cálculo vectorial} % (fold)
+    \label{sec:cálculo_vectorial}
+        \subsection{Teorema de Green} % (fold)
+        \label{sub:teorema_de_green}
+            Una curva $\gamma$ en $\R^n$ es $\gamma:[a,b] \rightarrow \R^n$. Cuando tenemos una curva, tenemos también un vector tangente. Este vector en un punto $\gamma(t)$ es $\gamma'(t)$
+            \textbf{Definición:} Un campo vectorial en $\R^n$ es una aplicación $\vec{F}: \R^n\rightarrow \R^n$
+            Por ejemplo:
+            \[\vec{F}: \R^2 \rightarrow\R^2\]
+            \[(x,y) \rightarrow (x,-y)\]
+            De esta forma a cada punto $(x,y)$ se le está aplicando un vector $(x,-y)$.
+            \textbf{Definición:} Sea una curva $\gamma$ en $\R^n$ y $\vec{F}$ un campo en $\R^n$, definimos:
+            \[\int_{\gamma} \vec{F} = \int_a^b \vec{F}(\gamma(t))\cdot \gamma'(t) dt\]
+            Por ejemplo, $\gamma$ es la parte superior del circulo unidad. $\vec{F}(x,y) = (x,-y)$:
+            \[\gamma:\theta\in [0,\pi] \rightarrow (cos(\theta),sin(\theta))\]
+            \[\gamma'(\theta)= (-sin(\theta),cos(\theta))\]
+            \[\int_\gamma \vec{F} = \int_0^\pi \vec{F}(cos(\theta),sin(\theta)) \cdot (-sin(\theta),cos(\theta)) d\theta = \int_0^\pi (cos(\theta),-sin(\theta)) \cdot (-sin(\theta),cos(\theta)) d\theta = 0\]
+
+            En este ámbito es importante conocer el concepto de \textbf{campos conservativo}. Un campo $\vec{F}$ se dice que es conservativo si existe una función $f$ tal que $\vec{F} = \vec{\nabla f}$ ($f$ se denomina el potencial).Observamos que si suponemos que $\vec{F}$ es un campo conservativo en $\R^2$:
+            \[\vec{F} = (P,Q) = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right)\Rightarrow\begin{cases}
+                P = \frac{\partial f}{\partial x}\\
+                Q = \frac{\partial f}{\partial y}\\
+
+            \end{cases}\Rightarrow \frac{\partial P}{\partial y} = \frac{\partial ^2 f}{\partial y \partial x} = \frac{\partial ^2 f}{\partial x \partial y} = \frac{\partial Q}{\partial x}\]
+            Luego, obtenemos que
+            \[\vec{F} = (P,Q) \Rightarrow \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\]
+            \textbf{Ejercicio} ¿$\vec{F}(x,y)= (2xy - 3x^2, x^2 + 2y)$ es conservativo? $\Leftrightarrow \frac{\partial(2xy-3x^2)}{\partial y} = \frac{\partial(x^2 +2y)}{\partial x}$
+
+            Queremos encontrar $f(x,y)$ tal que $\dfrac{\partial f}{\partial x} = 2xy-3x^2$ y $\dfrac{\partial f}{\partial y} = x^2-2y$. Tomamos:
+            \[f(x,y) = \int (2xy-ex^2) dx + \phi(y) = x^2 y -x^3 + \phi(y)\]
+            Encontraremos $\phi(y)$ tal que:
+            \[x^2 + \phi'(y) = x^2 + 2y \Rightarrow \phi'(y) = 2y \Rightarrow \phi(y) = y^2 + C \]
+            Luego la función potencial del campo $\vec{F}$ es:
+            \[f(x,y) = x^2 y -x^3 + y^2 + C\] donde $C\in \R$ cualquiera.
+            \textbf{Teorema:} Sea $\vec{F}$ un campo conservativo y $\gamma$ una curva cerrada ($\gamma(a) = \gamma(b)$). Entonces:
+            \[\int_\gamma \vec{F} = 0\]
+            \textbf{Demostración:}
+
+                \begin{align}
+                    \int_\gamma \vec{F} dt&= \int_a^b \vec{F}(\gamma(t)) \cdot \gamma'(t)dt \rightarrow \vec{F}(\gamma(t)) \cdot \gamma'(t) = \frac{d}{dt} \vec{F}(\gamma(t))\\
+                    &= \int_a^b \frac{d}{dt} \vec{F}(\gamma(t)) = \vec{F}(\gamma(b)) - \vec{F}(\gamma(a)) = 0
+                \end{align} 
+
+        % subsection teorema_de_green (end)
+
+    % section cálculo_vectorial (end)
 \end{document}

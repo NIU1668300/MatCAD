@@ -31,3 +31,13 @@
 \contentsline {subsection}{\numberline {6.3}Polinomio de Taylor}{11}{subsection.6.3}%
 \contentsline {subsubsection}{\numberline {6.3.1}Cálculo de Polinomios de Taylor utilizando polinomios de grado 1}{11}{subsubsection.6.3.1}%
 \contentsline {subsubsection}{\numberline {6.3.2}Cálculo de Polinomios de Taylor utilizando polinomios de grado 2}{11}{subsubsection.6.3.2}%
+\contentsline {section}{\numberline {7}Extremos relativos}{12}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Matrices definidas positivas y negativas}{12}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Multiplicadores de Lagrange}{12}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Integración}{13}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Teorema de Fubini}{14}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Cambio de variable}{14}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Cambio a coordenadas polares}{14}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Cambio de Variable por integrales triples}{14}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Cálculo vectorial}{15}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Teorema de Green}{15}{subsection.9.1}%

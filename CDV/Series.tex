@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\RequirePackage{etex}
+%\pagestyle{empty}
+\usepackage[activeacute,spanish,american]{babel}
+\usepackage[utf8]{inputenc}%Para usar los acentos normalmente.
+\usepackage[T1]{fontenc}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+% \restartpythontexsession{\thesection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\usepackage{tkz-base}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet, amssymb,amsmath,latexsym}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{multienum}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{multicol}
+\usepackage{float}
+% \usepackage{gensymb}
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\usepackage{color,soul}%permite texto y subrayar en color.
+\input{/home/samuel/Documents/Latex/Colores.tex}
+% \usepackage[pdftex]{graphicx}
+%Dimensiones
+\usepackage[a4paper,left=2cm,right=1.5cm, top=1.5cm, bottom=3cm,includehead]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nombres de conjuntos y comandos propios.
+\providecommand{\norm}[1]{\left\lVert #1 \right \rVert}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\omg}{\omega}
+\newcommand{\OMG}{\varOmega}
+% \usepackage{esvect}
+% \renewcommand{\vec}{\vv}
+ \usepackage{pgf,tikz}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{chains}
+\usetikzlibrary{scopes}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning,automata,calc}
+ %\usepackage{framed}{}
+ %\usepackage[framed, amsthm,thmmarks,thref]{ntheorem}
+ %\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-linknodes}
+ \usepackage{tkz-tab,tkz-euclide}
+ \usepackage{pythontex}
+% \usetkzobj{all}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cajas de colores
+%
+\input{/home/samuel/Documents/Latex/ColorBoxes}
+\input{/home/samuel/Documents/Latex/Exercises}
+%Ecuaciones resaltadas
+% \usepackage[overload,ntheorem,reqno]{empheq}
+%\input{/home/samuel/Documents/Latex/Ambientes-teoremas}
+ \theoremstyle{plain}
+ \renewcommand{\qedsymbol}{\makebox[7.7778pt][c]{\rule{1ex}{1ex}}}
+ \newtheorem*{demo}{Demostración}
+ \input{/home/samuel/Documents/Latex/TeoremasEnumerados}
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=false,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={CheatSheet Numérico},    % title
+    pdfauthor={Suiza},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={Hecho con \LaTeX},   % creator of the document
+    pdfproducer={ps2pdf}, % producer of the document
+    pdfkeywords={} {} {}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=naranja,          % color of internal links
+    citecolor=violeta,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+\setcounter{secnumdepth}{4} %controla la profundidad de la numeración
+
+\addto\captionsamerican{%
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+
+
+\title{CheatSheet Series}
+\author{Suiza}
+\input{/home/samuel/Documents/Latex/messages}
+
+\begin{document}
+    \begin{center}
+        \huge{CheatSheet Series}
+    \end{center}
+    \section{Fórmulas Trigonometría Hiperbólicas} % (fold)
+    \label{sec:formulas_trigonometria_hiperbolico}
+    Coseno hiperbólico:
+    \[cosh(x) = \sum_{k=0}^{\infty} \frac{x^{(2k)}}{(2k)!}\]
+    Seno hiperbólico:
+
+    \[sinh(x) = \sum_{k=0}^{\infty} \frac{x^{(2k +1)}}{(2k+1)!}\]
+    % section formulas_trigo_hiperbólico (end)
+    \section{Series geométricas} % (fold)
+    \label{sec:series_geométricas}
+      \[\text{Serie geométrica de razón p} \rightarrow \sum_{k=0}^{\infty} p^k\]
+      Si el valor absoluto de la razón es menor que 1:
+      \[\sum_{k=0}^{\infty} p^k = \frac{1}{1-p}\]
+      Suma de los $N$ primeros elementos de una serie geométrica empezando desde a:
+      \[\sum_{k=a}^{N} p^k = \frac{p^a - p^{N+1}}{1 - p}\]
+    % section series_geométricas (end)
+    \section{Exponencial} % (fold)
+    \label{sec:exponencial}
+      \[e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}\]
+    \subsection{Arreglos de la exponencial} % (fold)
+    \label{sub:arreglos_de_la_exponencial}
+      \[\sum_{k=1}^{\infty} \frac{x^k}{k!} =  -1 + \sum_{k=0}^{\infty} \frac{x^k}{k!} \]
+    % subsection arreglos_de_la_exponencial (end)
+    % section exponencial (end)
+    \section{Probabilidad} % (fold)
+    \label{sec:probabilidad}
+    \subsection{Poisson} % (fold)
+    \label{sub:poisson}
+    Si tenemos una distribuciónd de Poisson de parámetro $\lambda$
+      \[\prob(X = k) = e^{-\lambda} \cdot \frac{\lambda^k}{k!}\]
+      Si se quiere aproximar una binomial a una poisson:
+      \[B(n,p_n) \sim Poiss(n\cdot p_n)\]
+    % subsection poisson (end)
+    \subsection{Unión de 3 elementos} % (fold)
+    \label{sub:unión_de_3_elementos}
+    \[\prob(X_1 \cup X_2 \cup X_3) = \prob(X_1) + \prob(X_2) + \prob(X_3) - \prob(X_1 \cap X_2) - \prob(X_1 \cap X_3) - \prob(X_2 \cap X_3) + \prob(X_1 \cap X_2 \cap X_3) \]
+    El caso para n:
+    \[\prob(X_1 \cup X_2 \cup X_3 \cup...) = \text{(Prob. Individuales)} - \text{(Prob. $\cap$ parejas)} + \text{(Prob. $\cap$ trios)} - ... \]
+    % subsection unión_de_3_elementos (end)
+    % section probabilidad(end)
+
+\end{document}

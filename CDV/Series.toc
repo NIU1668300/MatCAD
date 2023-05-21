@@ -1,0 +1,6 @@
+\babel@toc {american}{}\relax 
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Fórmulas Trigonometría Hiperbólicas}{2}{section.1}%
+\contentsline {section}{\numberline {2}Series geométricas}{2}{section.2}%
+\contentsline {section}{\numberline {3}Clásicas}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Arreglos de la exponencial}{2}{subsection.3.1}%
